@@ -4,12 +4,14 @@ import styled from "styled-components";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Players() {
-  const { data } = useSWR("/api/players", fetcher, { fallbackData: [] });
+  const { data, isLoading } = useSWR("/api/players", fetcher, {
+    fallbackData: [],
+  });
 
-  console.log(data);
+  if (isLoading) return <div>loading...</div>;
 
   if (data.length === 0) {
-    return <p>Currently no players are saved</p>;
+    return <div>Currently no players are saved</div>;
   }
 
   return (
@@ -28,5 +30,5 @@ export default function Players() {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 20% 20%; 
+  margin: 20% 20%;
 `;
