@@ -4,12 +4,16 @@ import styled from "styled-components";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Players() {
-  const { data } = useSWR("/api/players", fetcher);
+  const { data } = useSWR("/api/players", fetcher, { fallbackData: [] });
 
   console.log(data);
 
+  if (data.length === 0) {
+    return <p>Currently no players are saved</p>;
+  }
+
   return (
-    <ul>
+    <StyledList>
       {data.map((player) => {
         return (
           <li key={player.response[0].player.id}>
@@ -18,10 +22,11 @@ export default function Players() {
           </li>
         );
       })}
-    </ul>
+    </StyledList>
   );
 }
 
-// if (data.length === 0) {
-// return <p>Currently no players are saved</p>;
-//}
+const StyledList = styled.ul`
+  list-style-type: none;
+  margin: 50% 20%; 
+`;
