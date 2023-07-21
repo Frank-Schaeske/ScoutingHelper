@@ -28,5 +28,5 @@ export default function Players() {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 50% 20%; 
+  margin: 20% 20%; 
 `;
