@@ -19,8 +19,7 @@ export default function Players() {
       {data.map((player) => {
         return (
           <li key={player.response[0].player.id}>
-            {player.response[0].player.firstname}{" "}
-            {player.response[0].player.lastname}
+            {player.response[0].player.name}
           </li>
         );
       })}

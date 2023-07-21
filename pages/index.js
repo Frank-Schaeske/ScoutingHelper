@@ -29,7 +29,7 @@ function Form({ onNewPlayer }) {
     const team = event.target.elements.team.value;
     const data = {
       get: "players",
-      parameters: { team: "163", search: "thuram", season: "2022" },
+      parameters: { team: team, search: search, season: season },
       errors: [],
       results: 1,
       paging: { current: 1, total: 1 },
@@ -37,13 +37,13 @@ function Form({ onNewPlayer }) {
         {
           player: {
             id: 21509,
-            name: "M. Thuram",
+            name: search,
             firstname: "Marcus Lilian",
             lastname: "Thuram-Ulien",
           },
           statistics: [
             {
-              team: { id: 163, name: "Borussia Monchengladbach" },
+              team: { id: team, name: "Borussia Monchengladbach" },
               goals: { total: 13 },
             },
           ],

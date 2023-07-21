@@ -1,5 +1,5 @@
-import { players } from "../../../lib/db";
+import { initialPlayers } from "../../../lib/db";
 
 export default function handler(request, response) {
-  return response.status(200).json(players);
+  return response.status(200).json(initialPlayers);
 }
