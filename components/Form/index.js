@@ -1,48 +1,36 @@
-import { uid } from "uid";
 import styled from "styled-components";
-import Router from "next/router.js";
+import useSWR from "swr";
 
-export default function Form({ players, setPlayers }) {
-  function handleNewPlayer(data) {
-    setPlayers([...players, data]);
-  }
-
-  function handleSubmit(event) {
+export default function Form({ players, setPlayers, searchedPlayer, setSearchedPlayer }) {
+  function HandleSubmit(event) {
     event.preventDefault();
 
     const search = event.target.elements.search.value;
     const season = event.target.elements.season.value;
     const team = event.target.elements.team.value;
-    const data = {
-      get: "players",
-      parameters: { team: team, search: search, season: season },
-      errors: [],
-      results: 1,
-      paging: { current: 1, total: 1 },
-      response: [
-        {
-          player: {
-            id: uid(),
-            name: search,
-            firstname: "Marcus Lilian",
-            lastname: "Thuram-Ulien",
-          },
-          statistics: [
-            {
-              team: { id: team, name: "Borussia Monchengladbach" },
-              goals: { total: 13 },
-            },
-          ],
-        },
-      ],
+
+    console.log(search, season, team);
+
+    /*const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "9037d3f3c3msh61cd09ee7270a1dp18a502jsn2f04d269a6cb",
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
     };
 
-    handleNewPlayer(data);
-
-    Router.push("/players");
+    try {
+      const response = await fetch(url, options);
+      const result = await response.text();
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }*/
   }
+
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={HandleSubmit}>
       <label htmlFor="search">Player name</label>
       <input type="text" name="search" id="search" minLength="4" />
       <label htmlFor="team">Team</label>
