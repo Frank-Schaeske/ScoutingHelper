@@ -1,10 +1,11 @@
-import Heading from "../components/Heading";
-import SubHeading from "../components/SubHeading";
+//import Heading from "../components/Heading";
+//import SubHeading from "../components/SubHeading";
+import Form from "../components/Form";
 
-export default function Home() {
+export default function Home({ players, setPlayers }) {
   return (
     <main>
-      <p>Please check /players</p>
+      <Form players={players} setPlayers={setPlayers} />
     </main>
   );
 }
