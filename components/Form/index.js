@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import useSWR from "swr";
+import { useRouter } from "next/router";
 
-export default function Form({ players, setPlayers, searchedPlayer, setSearchedPlayer }) {
+export default function Form({ setSearchedPlayer }) {
+  const router = useRouter();
+
   function HandleSubmit(event) {
     event.preventDefault();
 
@@ -11,22 +14,8 @@ export default function Form({ players, setPlayers, searchedPlayer, setSearchedP
 
     console.log(search, season, team);
 
-    /*const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "9037d3f3c3msh61cd09ee7270a1dp18a502jsn2f04d269a6cb",
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.text();
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }*/
+    setSearchedPlayer({ search: search, season: season, team: team });
+    router.push("/add");
   }
 
   return (

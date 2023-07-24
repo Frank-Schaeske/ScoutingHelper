@@ -29,7 +29,8 @@ export default function App({ Component, pageProps }) {
   };
 
   const [players, setPlayers] = useState(initialPlayers);
-  const [searchedPlayer, setSearchedPlayer] = useState(dummyPlayer);
+  const [player, setPlayer] = useState(dummyPlayer);
+  const [searchedPlayer, setSearchedPlayer] = useState({});
 
   return (
     <>
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         players={players}
         setPlayers={setPlayers}
+        player={player}
         searchedPlayer={searchedPlayer}
         setSearchedPlayer={setSearchedPlayer}
       />

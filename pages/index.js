@@ -2,10 +2,10 @@
 //import SubHeading from "../components/SubHeading";
 import Form from "../components/Form";
 
-export default function Home({ players, setPlayers }) {
+export default function Home({ setSearchedPlayer }) {
   return (
     <main>
-      <Form players={players} setPlayers={setPlayers} />
+      <Form setSearchedPlayer={setSearchedPlayer} />
     </main>
   );
 }
