@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
-export default function Form({ setSearchedPlayer, searchedPlayer }) {
+export default function Form({ setSearchedPlayer }) {
   const router = useRouter();
 
   async function HandleSubmit(event) {
@@ -14,11 +14,13 @@ export default function Form({ setSearchedPlayer, searchedPlayer }) {
 
     console.log(search, season, team);
 
+    const API_KEY = process.env.API_KEY;
+
     const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "9037d3f3c3msh61cd09ee7270a1dp18a502jsn2f04d269a6cb",
+        "X-RapidAPI-Key": API_KEY,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
       },
     };
@@ -27,7 +29,6 @@ export default function Form({ setSearchedPlayer, searchedPlayer }) {
       const response = await fetch(url, options);
       const result = await response.json();
       setSearchedPlayer(result);
-      console.log("result:", result);
       router.push("/add");
     } catch (error) {
       console.error(error);
