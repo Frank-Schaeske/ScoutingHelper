@@ -2,10 +2,10 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
-export default function Form({ setSearchedPlayer }) {
+export default function Form({ setSearchedPlayer, searchedPlayer }) {
   const router = useRouter();
 
-  function HandleSubmit(event) {
+  async function HandleSubmit(event) {
     event.preventDefault();
 
     const search = event.target.elements.search.value;
@@ -14,8 +14,24 @@ export default function Form({ setSearchedPlayer }) {
 
     console.log(search, season, team);
 
-    setSearchedPlayer({ search: search, season: season, team: team });
-    router.push("/add");
+    const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "9037d3f3c3msh61cd09ee7270a1dp18a502jsn2f04d269a6cb",
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setSearchedPlayer(result);
+      console.log("result:", result);
+      router.push("/add");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -50,7 +66,7 @@ export default function Form({ setSearchedPlayer }) {
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
       </select>
-      <button type="submit">Create Player</button>
+      <button type="submit">Search Player</button>
     </StyledForm>
   );
 }

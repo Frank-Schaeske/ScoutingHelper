@@ -1,11 +1,11 @@
 import Card from "../components/Card";
 
 export default function Add({ searchedPlayer, player }) {
-  console.log(searchedPlayer);
+  console.log("Add:", searchedPlayer);
 
   return (
     <main>
-      <Card player={player} />
+      <Card player={searchedPlayer} />
     </main>
   );
 }
