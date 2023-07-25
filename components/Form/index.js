@@ -1,42 +1,39 @@
 import styled from "styled-components";
-import useSWR from "swr";
 import { useRouter } from "next/router";
 
-export default function Form({ setSearchedPlayer }) {
+async function addPlayer(player) {
+  const response = await fetch("/api/player", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(player),
+  });
+
+  if (!response.ok) {
+    // const data = await response.json();
+  } else {
+    console.log("Response:", response);
+    const data = await response.json();
+    console.log("data:", data);
+  }
+}
+
+export default function Form() {
   const router = useRouter();
 
-  async function HandleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const search = event.target.elements.search.value;
-    const season = event.target.elements.season.value;
-    const team = event.target.elements.team.value;
+    // Get the form data
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
 
-    console.log(search, season, team);
-
-    const rapidApiKey = process.env.RAPID_API_KEY;
-
-    const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": rapidApiKey,
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      setSearchedPlayer(result);
-      router.push("/add");
-    } catch (error) {
-      console.error(error);
-    }
-  }
+    addPlayer(data);
+  };
 
   return (
-    <StyledForm onSubmit={HandleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="search">Player last name</label>
       <input type="text" name="search" id="search" minLength="4" />
       <label htmlFor="team">Team</label>
