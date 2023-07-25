@@ -14,13 +14,13 @@ export default function Form({ setSearchedPlayer }) {
 
     console.log(search, season, team);
 
-    const API_KEY = process.env.API_KEY;
+    const rapidApiKey = process.env.RAPID_API_KEY;
 
     const url = `https://api-football-v1.p.rapidapi.com/v3/players?team=${team}&season=${season}&search=${search}`;
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": API_KEY,
+        "X-RapidAPI-Key": rapidApiKey,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
       },
     };
@@ -37,7 +37,7 @@ export default function Form({ setSearchedPlayer }) {
 
   return (
     <StyledForm onSubmit={HandleSubmit}>
-      <label htmlFor="search">Player name</label>
+      <label htmlFor="search">Player last name</label>
       <input type="text" name="search" id="search" minLength="4" />
       <label htmlFor="team">Team</label>
       <select name="team" id="team">
