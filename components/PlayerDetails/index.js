@@ -6,7 +6,9 @@ export default function PlayerDetails({ player }) {
       <StyledSection>
         <p>{player.response[0].player.name}</p>
         <p>{player.response[0].statistics[0].team.name}</p>
-        <p>Season: {player.parameters.season}</p>
+        <p>
+          Season: {player.parameters.season}/{player.parameters.season * 1 + 1}
+        </p>
         <p>Goals: {player.response[0].statistics[0].goals.total}</p>
       </StyledSection>
     );
