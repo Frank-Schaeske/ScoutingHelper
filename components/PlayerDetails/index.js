@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default function PlayerDetails({ player }) {
-  if (player.response.length > 0) {
+  if (player?.response?.length > 0) {
     return (
       <StyledSection>
         <p>{player.response[0].player.name}</p>
