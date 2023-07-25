@@ -12,12 +12,11 @@ export default function Form({ setSearchedPlayer }) {
       },
       body: JSON.stringify(player),
     });
-  
+
     if (!response.ok) {
-      // const data = await response.json();
+      const data = await response.json();
     } else {
       const data = await response.json();
-      console.log("Data", data);
       setSearchedPlayer(data);
       router.push("/add");
     }
