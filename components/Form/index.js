@@ -1,31 +1,31 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-async function addPlayer(player) {
-  const response = await fetch("/api/player", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(player),
-  });
-
-  if (!response.ok) {
-    // const data = await response.json();
-  } else {
-    console.log("Response:", response);
-    const data = await response.json();
-    console.log("data:", data);
-  }
-}
-
-export default function Form() {
+export default function Form({ setSearchedPlayer }) {
   const router = useRouter();
+
+  async function addPlayer(player) {
+    const response = await fetch("/api/player", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(player),
+    });
+  
+    if (!response.ok) {
+      // const data = await response.json();
+    } else {
+      const data = await response.json();
+      console.log("Data", data);
+      setSearchedPlayer(data);
+      router.push("/add");
+    }
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Get the form data
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
