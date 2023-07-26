@@ -5,21 +5,33 @@ import { useRouter } from "next/router";
 
 export default function Add({ searchedPlayer, players, setPlayers }) {
   const router = useRouter();
+  console.log("searchedPlayer:", searchedPlayer);
 
   function handleSave() {
     setPlayers([...players, searchedPlayer]);
     router.push("/players");
   }
 
-  return (
-    <main>
-      <PlayerDetails player={searchedPlayer} />
-      <Link href="/">
-        <StyledLink>New Search</StyledLink>
-      </Link>
-      <StyledButton onClick={handleSave}>Save Player</StyledButton>
-    </main>
-  );
+  if (searchedPlayer?.response?.length > 0) {
+    return (
+      <main>
+        <PlayerDetails player={searchedPlayer} />
+        <Link href="/">
+          <StyledLink>New Search</StyledLink>
+        </Link>
+        <StyledButton onClick={handleSave}>Save Player</StyledButton>
+      </main>
+    );
+  } else {
+    return (
+      <main>
+        <PlayerDetails player={searchedPlayer} />
+        <Link href="/">
+          <StyledLink>New Search</StyledLink>
+        </Link>
+      </main>
+    );
+  }
 }
 
 const StyledLink = styled.a`
