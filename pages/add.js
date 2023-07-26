@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 export default function Add({ searchedPlayer, players, setPlayers }) {
   const router = useRouter();
-  console.log("searchedPlayer:", searchedPlayer);
 
   function handleSave() {
     setPlayers([...players, searchedPlayer]);
