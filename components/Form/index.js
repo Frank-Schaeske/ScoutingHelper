@@ -1,49 +1,39 @@
-import { uid } from "uid";
 import styled from "styled-components";
-import Router from "next/router.js";
+import { useRouter } from "next/router";
 
-export default function Form({ players, setPlayers }) {
-  function handleNewPlayer(data) {
-    setPlayers([...players, data]);
+export default function Form({ setSearchedPlayer }) {
+  const router = useRouter();
+
+  async function addPlayer(player) {
+    const response = await fetch("/api/player", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(player),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+    } else {
+      const data = await response.json();
+      setSearchedPlayer(data);
+      router.push("/add");
+    }
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const search = event.target.elements.search.value;
-    const season = event.target.elements.season.value;
-    const team = event.target.elements.team.value;
-    const data = {
-      get: "players",
-      parameters: { team: team, search: search, season: season },
-      errors: [],
-      results: 1,
-      paging: { current: 1, total: 1 },
-      response: [
-        {
-          player: {
-            id: uid(),
-            name: search,
-            firstname: "Marcus Lilian",
-            lastname: "Thuram-Ulien",
-          },
-          statistics: [
-            {
-              team: { id: team, name: "Borussia Monchengladbach" },
-              goals: { total: 13 },
-            },
-          ],
-        },
-      ],
-    };
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
 
-    handleNewPlayer(data);
+    addPlayer(data);
+  };
 
-    Router.push("/players");
-  }
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="search">Player name</label>
+      <label htmlFor="search">Player last name</label>
       <input type="text" name="search" id="search" minLength="4" />
       <label htmlFor="team">Team</label>
       <select name="team" id="team">
@@ -73,7 +63,7 @@ export default function Form({ players, setPlayers }) {
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
       </select>
-      <button type="submit">Create Player</button>
+      <button type="submit">Search Player</button>
     </StyledForm>
   );
 }
