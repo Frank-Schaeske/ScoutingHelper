@@ -9,10 +9,17 @@ export default function Add({ searchedPlayer }) {
       <Link href="/">
         <StyledLink>New Search</StyledLink>
       </Link>
+      <StyledButton>Save Player</StyledButton>
     </main>
   );
 }
 
 const StyledLink = styled.a`
-  margin: 20% 20%;
+  position: relative;
+  left: 20%;
+`;
+
+const StyledButton = styled.button`
+  position: relative;
+  left: 30%;
 `;
