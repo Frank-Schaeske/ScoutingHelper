@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function PlayerDetailsWithComment({ players, id }) {
+  console.log(parseInt(id, 10));
   const currentPlayer = players.find(
     (player) => player.response[0].player.id === parseInt(id, 10)
   );
