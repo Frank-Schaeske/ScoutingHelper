@@ -2,12 +2,20 @@ import PlayerDetails from "../components/PlayerDetails";
 import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import CommentForm from "../components/CommentForm";
 
 export default function Add({ searchedPlayer, players, setPlayers }) {
   const router = useRouter();
 
-  function handleSave() {
-    setPlayers([...players, searchedPlayer]);
+  function handleSave(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    const newPlayer = { ...searchedPlayer, ...data };
+
+    setPlayers([...players, newPlayer]);
     router.push("/players");
   }
 
@@ -15,10 +23,10 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     return (
       <main>
         <PlayerDetails player={searchedPlayer} />
+        <CommentForm handleSave={handleSave} />
         <Link href="/">
           <StyledLink>New Search</StyledLink>
         </Link>
-        <StyledButton onClick={handleSave}>Save Player</StyledButton>
       </main>
     );
   } else {
