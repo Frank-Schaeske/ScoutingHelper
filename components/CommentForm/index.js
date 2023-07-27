@@ -1,20 +1,11 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function CommentForm() {
+export default function CommentForm({handleSave}) {
   const router = useRouter();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    console.log(data);
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSave}>
       <label htmlFor="comment">Comment</label>
       <textarea type="text" name="comment" id="comment" rows="5"></textarea>
       <button type="submit">Save Player</button>

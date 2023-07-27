@@ -7,17 +7,23 @@ import CommentForm from "../components/CommentForm";
 export default function Add({ searchedPlayer, players, setPlayers }) {
   const router = useRouter();
 
-  // function handleSave() {
-  //   setPlayers([...players, searchedPlayer]);
-  //   router.push("/players");
-  // }
+  function handleSave(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const comment = Object.fromEntries(formData);
+
+    const newPlayer = { ...searchedPlayer, ...comment };
+
+    setPlayers([...players, newPlayer]);
+    router.push("/players");
+  }
 
   if (searchedPlayer?.response?.length > 0) {
     return (
       <main>
         <PlayerDetails player={searchedPlayer} />
-        <CommentForm />
-        {/*<StyledButton onClick={handleSave}>Save Player</StyledButton>*/}
+        <CommentForm handleSave={handleSave} />
         <Link href="/">
           <StyledLink>New Search</StyledLink>
         </Link>
