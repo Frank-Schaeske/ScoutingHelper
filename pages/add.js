@@ -11,9 +11,9 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const comment = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData);
 
-    const newPlayer = { ...searchedPlayer, ...comment };
+    const newPlayer = { ...searchedPlayer, ...data };
 
     setPlayers([...players, newPlayer]);
     router.push("/players");
