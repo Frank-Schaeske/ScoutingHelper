@@ -4,32 +4,8 @@ import { initialPlayers } from "../lib/db";
 import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
-  const dummyPlayer = {
-    get: "players",
-    parameters: { team: 163, search: "Marcus Thuram", season: 2022 },
-    errors: [],
-    results: 1,
-    paging: { current: 1, total: 1 },
-    response: [
-      {
-        player: {
-          id: 21509,
-          name: "Marcus Thuram",
-          firstname: "Marcus Lilian",
-          lastname: "Thuram-Ulien",
-        },
-        statistics: [
-          {
-            team: { id: 163, name: "Borussia Monchengladbach" },
-            goals: { total: 13 },
-          },
-        ],
-      },
-    ],
-  };
 
   const [players, setPlayers] = useState(initialPlayers);
-  const [player, setPlayer] = useState(dummyPlayer);
   const [searchedPlayer, setSearchedPlayer] = useState({});
 
   return (
@@ -42,7 +18,6 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         players={players}
         setPlayers={setPlayers}
-        player={player}
         searchedPlayer={searchedPlayer}
         setSearchedPlayer={setSearchedPlayer}
       />
