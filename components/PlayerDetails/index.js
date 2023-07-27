@@ -14,7 +14,10 @@ export default function PlayerDetails({ player }) {
     );
   } else {
     return (
-      <div>No player found with this name in this team for this season</div>
+      <div>
+        No player found with this name in this team for this season. Please make
+        sure not to use umlauts, e.g. "Fullkrug" instead of "Füllkrug".{" "}
+      </div>
     );
   }
 }
