@@ -14,7 +14,6 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     const data = Object.fromEntries(formData);
 
     const newPlayer = { ...searchedPlayer, ...data };
-    console.log(newPlayer);
 
     setPlayers([...players, newPlayer]);
     router.push("/players");
@@ -25,9 +24,7 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
       <main>
         <PlayerDetails player={searchedPlayer} />
         <CommentForm handleSave={handleSave} />
-        <Link href="/">
-          <StyledLink>New Search</StyledLink>
-        </Link>
+        <StyledLink href="/">New Search</StyledLink>
       </main>
     );
   } else {
@@ -42,7 +39,7 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
   }
 }
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   position: relative;
   left: 20%;
 `;
