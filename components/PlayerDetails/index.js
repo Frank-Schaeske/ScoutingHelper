@@ -7,7 +7,8 @@ export default function PlayerDetails({ player }) {
         <p>{player.response[0].player.name}</p>
         <p>{player.response[0].statistics[0].team.name}</p>
         <p>
-          Season: {player.parameters.season}/{player.parameters.season * 1 + 1}
+          Season: {player.parameters.season}/
+          {parseInt(player.parameters.season, 10) + 1}
         </p>
         <p>Goals: {player.response[0].statistics[0].goals.total}</p>
       </StyledSection>
@@ -16,10 +17,7 @@ export default function PlayerDetails({ player }) {
     return (
       <StyledSection>
         <p>No player found with this name in this team for this season.</p>
-        <p>
-          {" "}
-          Please make sure not to use umlauts.
-        </p>
+        <p> Please make sure not to use umlauts.</p>
       </StyledSection>
     );
   }

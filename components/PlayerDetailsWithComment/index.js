@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function PlayerDetailsWithComment({ players, id }) {
   const currentPlayer = players.find(
-    (player) => player.response[0].player.id === id * 1
+    (player) => player.response[0].player.id === parseInt(id, 10)
   );
 
   return (
@@ -14,7 +14,7 @@ export default function PlayerDetailsWithComment({ players, id }) {
           Team: {currentPlayer.response[0].statistics[0].team.name}
           <br />
           Season: {currentPlayer.parameters.season}/
-          {currentPlayer.parameters.season * 1 + 1}
+          {parseInt(currentPlayer.parameters.season, 10) + 1}
           <br />
           Goals: {currentPlayer.response[0].statistics[0].goals.total}
           <br />
