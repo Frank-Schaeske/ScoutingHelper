@@ -39,12 +39,8 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
   }
 }
 
-const StyledLink = styled(Link)`
-  position: relative;
+const StyledLink = styled.a`
+  position: fixed;
+  top: 50%;
   left: 20%;
-`;
-
-const StyledButton = styled.button`
-  position: relative;
-  left: 30%;
 `;

@@ -14,10 +14,12 @@ export default function CommentForm({ handleSave }) {
 }
 
 const StyledForm = styled.form`
-  margin: 10% 0% 10% 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 200px;
   height: 150px;
+  position: fixed;
+  top: 25%;
+  left: 20%;
 `;

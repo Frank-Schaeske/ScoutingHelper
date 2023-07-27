@@ -8,22 +8,26 @@ export default function PlayerDetailsWithComment({ players, id }) {
   return (
     <>
       <StyledSection>
-        <p>{currentPlayer.response[0].player.name}</p>
-        <p>{currentPlayer.response[0].statistics[0].team.name}</p>
         <p>
+          Name: {currentPlayer.response[0].player.name}
+          <br />
+          Team: {currentPlayer.response[0].statistics[0].team.name}
+          <br />
           Season: {currentPlayer.parameters.season}/
           {currentPlayer.parameters.season * 1 + 1}
+          <br />
+          Goals: {currentPlayer.response[0].statistics[0].goals.total}
+          <br />
+          <br />
+          Comment: {currentPlayer.comment}
         </p>
-        <p>Goals: {currentPlayer.response[0].statistics[0].goals.total}</p>
-      </StyledSection>
-      <StyledSection>
-        <p>Comment:</p>
-        <p>{currentPlayer.comment}</p>
       </StyledSection>
     </>
   );
 }
 
 const StyledSection = styled.section`
-  margin: 15% 25% 20% 20%;
+  position: fixed;
+  top: 10%;
+  left: 20%;
 `;

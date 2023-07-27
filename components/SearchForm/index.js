@@ -69,10 +69,12 @@ export default function SearchForm({ setSearchedPlayer }) {
 }
 
 const StyledForm = styled.form`
-  margin: 20% 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 300px;
   height: 200px;
+  position: fixed;
+  top: 10%;
+  left: 10%;
 `;

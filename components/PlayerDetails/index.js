@@ -14,15 +14,21 @@ export default function PlayerDetails({ player }) {
     );
   } else {
     return (
-      <div>
-        No player found with this name in this team for this season. Please make
-        sure not to use umlauts, e.g. "Fullkrug" instead of "Füllkrug".{" "}
-      </div>
+      <StyledSection>
+        <p>No player found with this name in this team for this season.</p>
+        <p>
+          {" "}
+          Please make sure not to use umlauts, e.g. Fullkrug instead of
+          Füllkrug.
+        </p>
+      </StyledSection>
     );
   }
 }
 
 const StyledSection = styled.section`
   list-style-type: none;
-  margin: 20% 25% 10% 20%;
+  position: fixed;
+  top: 5%;
+  left: 20%;
 `;
