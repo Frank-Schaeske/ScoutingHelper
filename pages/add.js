@@ -14,6 +14,7 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     const data = Object.fromEntries(formData);
 
     const newPlayer = { ...searchedPlayer, ...data };
+    console.log(newPlayer);
 
     setPlayers([...players, newPlayer]);
     router.push("/players");
