@@ -1,26 +1,23 @@
 import styled from "styled-components";
 
-export default function PlayerDetailsWithComment({ players, id }) {
-  console.log(parseInt(id, 10));
-  const currentPlayer = players.find(
-    (player) => player.response[0].player.id === parseInt(id, 10)
-  );
+export default function PlayerDetailsWithComment({player}) {
 
+  
   return (
     <>
       <StyledSection>
         <p>
-          Name: {currentPlayer.response[0].player.name}
+          Name: {player.response[0].player.name}
           <br />
-          Team: {currentPlayer.response[0].statistics[0].team.name}
+          Team: {player.response[0].statistics[0].team.name}
           <br />
-          Season: {currentPlayer.parameters.season}/
-          {parseInt(currentPlayer.parameters.season, 10) + 1}
+          Season: {player.parameters.season}/
+          {parseInt(player.parameters.season, 10) + 1}
           <br />
-          Goals: {currentPlayer.response[0].statistics[0].goals.total}
+          Goals: {player.response[0].statistics[0].goals.total}
           <br />
           <br />
-          Comment: {currentPlayer.comment}
+          Comment: {player.comment}
         </p>
       </StyledSection>
     </>
