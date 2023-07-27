@@ -18,8 +18,7 @@ export default function PlayerDetails({ player }) {
         <p>No player found with this name in this team for this season.</p>
         <p>
           {" "}
-          Please make sure not to use umlauts, e.g. Fullkrug instead of
-          Füllkrug.
+          Please make sure not to use umlauts.
         </p>
       </StyledSection>
     );
