@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function Form({ setSearchedPlayer }) {
+export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
 
   async function addPlayer(player) {

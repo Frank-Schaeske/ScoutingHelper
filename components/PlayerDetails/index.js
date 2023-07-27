@@ -21,5 +21,5 @@ export default function PlayerDetails({ player }) {
 
 const StyledSection = styled.section`
   list-style-type: none;
-  margin: 20% 20%;
+  margin: 20% 25% 10% 20%;
 `;
