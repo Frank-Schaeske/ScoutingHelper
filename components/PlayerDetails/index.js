@@ -5,23 +5,27 @@ export default function PlayerDetails({ player }) {
     return (
       <StyledList>
         <StyledListItem>{player.response[0].player.name}</StyledListItem>
-        <StyledListItem>{player.response[0].statistics[0].team.name}</StyledListItem>
+        <StyledListItem>
+          {player.response[0].statistics[0].team.name}
+        </StyledListItem>
         <StyledListItem>
           Season: {player.parameters.season}/
           {parseInt(player.parameters.season, 10) + 1}
         </StyledListItem>
-        <StyledListItem>Goals: {player.response[0].statistics[0].goals.total}</StyledListItem>
+        <StyledListItem>
+          Goals: {player.response[0].statistics[0].goals.total}
+        </StyledListItem>
       </StyledList>
     );
   } else {
     return (
-      <StyledSectionFailedSearch>
+      <StyledSection>
         <p>No player found with this name in this team for this season.</p>
         <p>
           Please make sure not to use umlauts, e.g. Fullkrug instead of
           Füllkrug.
         </p>
-      </StyledSectionFailedSearch>
+      </StyledSection>
     );
   }
 }
@@ -45,10 +49,10 @@ const StyledList = styled.ul`
   margin: 5% 16%;
 `;
 
-const StyledSectionFailedSearch = styled.section`
-  margin: 5% 16%;
+const StyledListItem = styled.li`
+  margin: 5%;
 `;
 
-const StyledListItem = styled.li`
-margin: 5%;
-`
+const StyledSection = styled.section`
+  margin: 5% 16%;
+`;
