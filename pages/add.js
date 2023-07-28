@@ -24,9 +24,7 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
       <main>
         <PlayerDetails player={searchedPlayer} />
         <CommentForm handleSave={handleSave} />
-        <Link href="/">
-          <StyledLink>New Search</StyledLink>
-        </Link>
+        <StyledLink href="/">New Search</StyledLink>
       </main>
     );
   } else {
@@ -42,11 +40,5 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
 }
 
 const StyledLink = styled.a`
-  position: relative;
-  left: 20%;
-`;
-
-const StyledButton = styled.button`
-  position: relative;
-  left: 30%;
+  margin: 5% 16%;
 `;

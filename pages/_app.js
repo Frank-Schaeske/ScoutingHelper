@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Head>
-        <title>Capstone Project</title>
+        <title>ScoutingHelper</title>
       </Head>
       <Component
         {...pageProps}

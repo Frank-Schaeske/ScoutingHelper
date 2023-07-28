@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import useSWR from "swr";
+import Link from "next/link";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,7 +20,9 @@ export default function List({ players }) {
       {players.map((player) => {
         return (
           <li key={player.response[0].player.id}>
-            {player.response[0].player.name}
+            <Link href={`/players/${player.response[0].player.id}`}>
+              {player.response[0].player.name}
+            </Link>
           </li>
         );
       })}
@@ -29,5 +32,5 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 20% 20%;
+  margin: 5% 16%;
 `;
