@@ -15,17 +15,35 @@ export default function PlayerDetails({ player }) {
     );
   } else {
     return (
-      <StyledSection>
+      <StyledSectionFailedSearch>
         <p>No player found with this name in this team for this season.</p>
-        <p> Please make sure not to use umlauts.</p>
-      </StyledSection>
+        <p>
+          Please make sure not to use umlauts, e.g. Fullkrug instead of
+          Füllkrug.
+        </p>
+      </StyledSectionFailedSearch>
     );
   }
 }
 
 const StyledSection = styled.section`
-  list-style-type: none;
-  position: fixed;
-  top: 5%;
-  left: 20%;
+  max-width: 400px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 250px;
+  height: 200px;
+  padding: 0px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  margin: 5% 16%;
+`;
+
+const StyledSectionFailedSearch = styled.section`
+  margin: 5% 16%;
 `;

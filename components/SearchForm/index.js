@@ -72,9 +72,7 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
+  width: 250px;
   height: 200px;
-  position: fixed;
-  top: 10%;
-  left: 10%;
+  margin: 5% 16%;
 `;

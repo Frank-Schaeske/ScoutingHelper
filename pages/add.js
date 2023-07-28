@@ -40,7 +40,5 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
 }
 
 const StyledLink = styled.a`
-  position: fixed;
-  top: 50%;
-  left: 20%;
+  margin: 5% 16%;
 `;

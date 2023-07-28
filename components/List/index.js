@@ -32,7 +32,5 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  position: fixed;
-  top: 10%;
-  left: 20%;
+  margin: 5% 16%;
 `;

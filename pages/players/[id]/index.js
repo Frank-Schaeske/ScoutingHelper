@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import PlayerDetailsWithComment from "../../../components/PlayerDetailsWithComment";
+import PlayerDetails from "../../../components/PlayerDetails";
+import Comment from "../../../components/Comment";
 
 export default function PlayerPage({ players }) {
   const router = useRouter();
@@ -15,7 +16,8 @@ export default function PlayerPage({ players }) {
 
   return (
     <main>
-      <PlayerDetailsWithComment player={player} />
+      <PlayerDetails player={player}/>
+      <Comment player={player} />
     </main>
   );
 }
