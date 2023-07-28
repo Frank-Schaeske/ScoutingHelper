@@ -23,7 +23,7 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     return (
       <main>
         <PlayerDetails player={searchedPlayer} />
-        <CommentForm handleSave={handleSave} />
+        <CommentForm handleSubmit={handleSave} buttonText="Save Player"/>
         <StyledLink href="/">New Search</StyledLink>
       </main>
     );

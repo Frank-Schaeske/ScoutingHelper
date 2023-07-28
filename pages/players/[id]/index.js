@@ -17,7 +17,6 @@ export default function PlayerPage({ players, setPlayers }) {
   }
 
   function deletePlayer() {
-
     setPlayers(
       players.filter(
         (player) => player.response[0].player.id !== parseInt(id, 10)
@@ -31,8 +30,8 @@ export default function PlayerPage({ players, setPlayers }) {
       <PlayerDetails player={player} />
       <Comment player={player} />
       <div>
-        <Link href="/">
-          <StyledLink>New Search</StyledLink>
+        <Link href={`/players/${id}/edit`}>
+          <StyledLink>Edit Player</StyledLink>
         </Link>
         <button onClick={deletePlayer}>Delete Player</button>
       </div>
