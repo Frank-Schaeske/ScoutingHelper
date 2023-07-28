@@ -3,15 +3,15 @@ import styled from "styled-components";
 export default function PlayerDetails({ player }) {
   if (player?.response?.length > 0) {
     return (
-      <StyledSection>
-        <p>{player.response[0].player.name}</p>
-        <p>{player.response[0].statistics[0].team.name}</p>
-        <p>
+      <StyledList>
+        <StyledListItem>{player.response[0].player.name}</StyledListItem>
+        <StyledListItem>{player.response[0].statistics[0].team.name}</StyledListItem>
+        <StyledListItem>
           Season: {player.parameters.season}/
           {parseInt(player.parameters.season, 10) + 1}
-        </p>
-        <p>Goals: {player.response[0].statistics[0].goals.total}</p>
-      </StyledSection>
+        </StyledListItem>
+        <StyledListItem>Goals: {player.response[0].statistics[0].goals.total}</StyledListItem>
+      </StyledList>
     );
   } else {
     return (
@@ -26,12 +26,12 @@ export default function PlayerDetails({ player }) {
   }
 }
 
-const StyledSection = styled.section`
+const StyledList = styled.ul`
   max-width: 400px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   width: 250px;
   height: 200px;
@@ -41,9 +41,14 @@ const StyledSection = styled.section`
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  list-style-type: none;
   margin: 5% 16%;
 `;
 
 const StyledSectionFailedSearch = styled.section`
   margin: 5% 16%;
 `;
+
+const StyledListItem = styled.li`
+margin: 5%;
+`

@@ -16,7 +16,7 @@ export default function PlayerPage({ players }) {
 
   return (
     <main>
-      <PlayerDetails player={player}/>
+      <PlayerDetails player={player} />
       <Comment player={player} />
     </main>
   );
