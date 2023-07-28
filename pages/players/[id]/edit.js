@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
+import Link from "next/link";
+import styled from "styled-components";
 
 export default function EditPage({ players, setPlayers }) {
   const router = useRouter();
@@ -18,10 +20,6 @@ export default function EditPage({ players, setPlayers }) {
     const playerIndex = players.findIndex(
       (player) => player.response[0].player.id === parseInt(id, 10)
     );
-
-    console.log("id:", id);
-    console.log("players:", players);
-    console.log("playerIndex:", playerIndex);
 
     if (playerIndex !== -1) {
       const updatedPlayers = [...players];
@@ -41,9 +39,6 @@ export default function EditPage({ players, setPlayers }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    console.log("id:", id);
-    console.log("data.comment:", data.comment);
-
     handleChangeComment(id, data.comment);
 
     router.push("/players");
@@ -54,6 +49,13 @@ export default function EditPage({ players, setPlayers }) {
       {" "}
       <PlayerDetails player={player} />
       <CommentForm handleSubmit={handleEdit} buttonText="Update Player" />
+      <Link href={`/players/${id}`}>
+        <StyledLink>Cancel</StyledLink>
+      </Link>
     </main>
   );
 }
+
+const StyledLink = styled.a`
+  margin: 5% 16%;
+`;
