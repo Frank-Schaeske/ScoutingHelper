@@ -48,14 +48,18 @@ export default function EditPage({ players, setPlayers }) {
     <main>
       {" "}
       <PlayerDetails player={player} />
-      <CommentForm handleSubmit={handleEdit} buttonText="Update Player" />
+      <CommentForm
+        handleSubmit={handleEdit}
+        buttonText="Update Player"
+        defaultData={player}
+      />
       <Link href={`/players/${id}`}>
-        <StyledLink>Cancel</StyledLink>
+        <StyledButton>Cancel</StyledButton>
       </Link>
     </main>
   );
 }
 
-const StyledLink = styled.a`
+const StyledButton = styled.button`
   margin: 5% 16%;
 `;

@@ -31,7 +31,7 @@ export default function PlayerPage({ players, setPlayers }) {
       <Comment player={player} />
       <div>
         <Link href={`/players/${id}/edit`}>
-          <StyledLink>Edit Player</StyledLink>
+          <StyledButton>Edit Player</StyledButton>
         </Link>
         <button onClick={deletePlayer}>Delete Player</button>
       </div>
@@ -39,6 +39,6 @@ export default function PlayerPage({ players, setPlayers }) {
   );
 }
 
-const StyledLink = styled.a`
+const StyledButton = styled.button`
   margin: 5% 16%;
 `;
