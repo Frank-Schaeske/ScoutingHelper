@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
+import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,11 +20,21 @@ export default function List({ players }) {
     <StyledList>
       {players.map((player) => {
         return (
-          <li key={player.response[0].player.id}>
-            <Link href={`/players/${player.response[0].player.id}`}>
-              {player.response[0].player.name}
-            </Link>
-          </li>
+          <Link href={`/players/${player.response[0].player.id}` } key={player.response[0].player.id}>
+            <StyledListItem>
+              <Image
+                src={player.response[0].statistics[0].team.logo}
+                height={50}
+                width={50}
+                alt={player.response[0].player.name}
+              />
+              <div>
+                {player.response[0].player.firstname}
+                <br />
+                {player.response[0].player.lastname}
+              </div>
+            </StyledListItem>
+          </Link>
         );
       })}
     </StyledList>
@@ -33,4 +44,23 @@ export default function List({ players }) {
 const StyledList = styled.ul`
   list-style-type: none;
   margin: 5% 16%;
+  padding: 0% 0%;
+`;
+
+const StyledListItem = styled.li`
+  max-width: 400px;
+  min-height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 200px;
+  height: 65px;
+  padding: 5px 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  margin: 5% 5%;
 `;
