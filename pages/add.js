@@ -24,7 +24,9 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
       <main>
         <PlayerDetails player={searchedPlayer} />
         <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
-        <StyledButton href="/">New Search</StyledButton>
+        <Link href="/">
+          <StyledButton href="/">New Search</StyledButton>
+        </Link>
       </main>
     );
   } else {
