@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export default function Comment({ player }) {
   return (
-    <div>
+    <>
       <StyledParagraph>Comment:</StyledParagraph>
       <StyledSection>
         <p>{player.comment}</p>
       </StyledSection>
-    </div>
+    </>
   );
 }
 
