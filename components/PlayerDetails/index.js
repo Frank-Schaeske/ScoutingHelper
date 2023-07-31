@@ -1,21 +1,30 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 export default function PlayerDetails({ player }) {
   if (player?.response?.length > 0) {
     return (
-      <StyledList>
-        <StyledListItem>{player.response[0].player.name}</StyledListItem>
-        <StyledListItem>
-          {player.response[0].statistics[0].team.name}
-        </StyledListItem>
-        <StyledListItem>
-          Season: {player.parameters.season}/
-          {parseInt(player.parameters.season, 10) + 1}
-        </StyledListItem>
-        <StyledListItem>
-          Goals: {player.response[0].statistics[0].goals.total}
-        </StyledListItem>
-      </StyledList>
+      <StyledContainer>
+        <StyledList>
+          <StyledListItem>{player.response[0].player.name}</StyledListItem>
+          <StyledListItem>
+            {player.response[0].statistics[0].team.name}
+          </StyledListItem>
+          <StyledListItem>
+            Season: {player.parameters.season}/
+            {parseInt(player.parameters.season, 10) + 1}
+          </StyledListItem>
+          <StyledListItem>
+            Goals: {player.response[0].statistics[0].goals.total}
+          </StyledListItem>
+        </StyledList>
+        <StyledImage
+          src={player.response[0].player.photo}
+          height={80}
+          width={80}
+          alt={player.response[0].player.name}
+        />
+      </StyledContainer>
     );
   } else {
     return (
@@ -30,14 +39,15 @@ export default function PlayerDetails({ player }) {
   }
 }
 
-const StyledList = styled.ul`
-  max-width: 400px;
+const StyledContainer = styled.div`
+  margin: 100px 16% 30px;
+  max-width: 350px;
   min-height: 100px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center
 
-  width: 250px;
+  width: 350px;
   height: 200px;
   padding: 0px 20px;
 
@@ -46,13 +56,21 @@ const StyledList = styled.ul`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   list-style-type: none;
-  margin: 2% 16%;
+`;
+
+const StyledList = styled.ul`
+  list-style-type: none;
 `;
 
 const StyledListItem = styled.li`
-  margin: 5%;
+width: 200px;
+margin: 5%;
 `;
 
 const StyledSection = styled.section`
-  margin: 5% 16%;
+  margin: 100px 16%;
+`;
+
+const StyledImage = styled(Image)`
+  margin: 15px 0px;
 `;

@@ -17,33 +17,38 @@ export default function List({ players }) {
   }
 
   return (
-    <StyledList>
-      {players.map((player) => {
-        return (
-          <Link href={`/players/${player.response[0].player.id}` } key={player.response[0].player.id}>
-            <StyledListItem>
-              <Image
-                src={player.response[0].statistics[0].team.logo}
-                height={50}
-                width={50}
-                alt={player.response[0].player.name}
-              />
-              <div>
-                {player.response[0].player.firstname}
-                <br />
-                {player.response[0].player.lastname}
-              </div>
-            </StyledListItem>
-          </Link>
-        );
-      })}
-    </StyledList>
+    <>
+      <StyledList>
+        {players.map((player) => {
+          return (
+            <Link
+              href={`/players/${player.response[0].player.id}`}
+              key={player.response[0].player.id}
+            >
+              <StyledListItem>
+                <Image
+                  src={player.response[0].statistics[0].team.logo}
+                  height={50}
+                  width={50}
+                  alt={player.response[0].player.name}
+                />
+                <div>
+                  {player.response[0].player.firstname}
+                  <br />
+                  {player.response[0].player.lastname}
+                </div>
+              </StyledListItem>
+            </Link>
+          );
+        })}
+      </StyledList>
+    </>
   );
 }
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 5% 16%;
+  margin: 100px 16%;
   padding: 0% 0%;
 `;
 

@@ -21,24 +21,35 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
 
   if (searchedPlayer?.response?.length > 0) {
     return (
-      <main>
-        <PlayerDetails player={searchedPlayer} />
-        <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
-        <StyledButton href="/">New Search</StyledButton>
-      </main>
+      <StyledMain>
+
+          <PlayerDetails player={searchedPlayer} />
+          <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
+          <Link href="/">
+            <StyledButton href="/">New Search</StyledButton>
+          </Link>
+      </StyledMain>
     );
   } else {
     return (
-      <main>
-        <PlayerDetails player={searchedPlayer} />
-        <Link href="/">
-          <StyledButton>New Search</StyledButton>
-        </Link>
-      </main>
+      <StyledMain>
+        <div>
+          <PlayerDetails player={searchedPlayer} />
+          <Link href="/">
+            <StyledButton>New Search</StyledButton>
+          </Link>
+        </div>
+      </StyledMain>
     );
   }
 }
 
+const StyledMain = styled.main`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const StyledButton = styled.button`
-  margin: 5% 16%;
+  margin: 10px 16%;
 `;
