@@ -44,5 +44,5 @@ const StyledMain = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `;

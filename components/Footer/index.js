@@ -1,20 +1,22 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { BsSearch } from "react-icons/bs";
+import { CiBoxList } from "react-icons/ci";
 
-export default function Footer({ page }) {
+export default function Footer() {
   const router = useRouter();
 
   return (
     <>
       <StyledSearchContainer>
-        <StyledLink href={`/`} isActive={page === "search"}>
-          Link
+        <StyledLink href={`/`} isActive={router.pathname === "/"}>
+          <BsSearch size={30} />
         </StyledLink>
       </StyledSearchContainer>
       <StyledListContainer>
-        <StyledLink href={`players`} isActive={page === "list"}>
-          Link
+        <StyledLink href={`players`} isActive={router.pathname === "/players"}>
+          <CiBoxList size={30} />
         </StyledLink>
       </StyledListContainer>
     </>

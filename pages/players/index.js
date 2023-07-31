@@ -8,7 +8,7 @@ export default function Players({ players }) {
       <StyledMain>
         <List players={players} />
       </StyledMain>
-      <Footer page="list" />
+      <Footer />
     </>
   );
 }
