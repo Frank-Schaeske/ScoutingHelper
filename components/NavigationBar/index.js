@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { BsSearch } from "react-icons/bs";
 import { CiBoxList } from "react-icons/ci";
 
-export default function Footer() {
+export default function NavigationBar() {
   const router = useRouter();
 
   return (

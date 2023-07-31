@@ -1,5 +1,5 @@
 import List from "../../components/List";
-import Footer from "../../components/Footer";
+import NavigationBar from "../../components/NavigationBar";
 import styled from "styled-components";
 
 export default function Players({ players }) {
@@ -8,7 +8,7 @@ export default function Players({ players }) {
       <StyledMain>
         <List players={players} />
       </StyledMain>
-      <Footer />
+      <NavigationBar />
     </>
   );
 }

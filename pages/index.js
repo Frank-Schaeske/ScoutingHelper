@@ -1,7 +1,7 @@
 //import Heading from "../components/Heading";
 //import SubHeading from "../components/SubHeading";
 import SearchForm from "../components/SearchForm";
-import Footer from "../components/Footer";
+import NavigationBar from "../components/NavigationBar";
 import styled from "styled-components";
 
 export default function Home({ setSearchedPlayer }) {
@@ -10,7 +10,7 @@ export default function Home({ setSearchedPlayer }) {
       <StyledMain>
         <SearchForm setSearchedPlayer={setSearchedPlayer} />
       </StyledMain>
-      <Footer />
+      <NavigationBar />
     </>
   );
 }
