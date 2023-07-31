@@ -2,7 +2,6 @@ import styled from "styled-components";
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import Footer from "../Footer";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,30 +18,30 @@ export default function List({ players }) {
 
   return (
     <>
-        <StyledList>
-          {players.map((player) => {
-            return (
-              <Link
-                href={`/players/${player.response[0].player.id}`}
-                key={player.response[0].player.id}
-              >
-                <StyledListItem>
-                  <Image
-                    src={player.response[0].statistics[0].team.logo}
-                    height={50}
-                    width={50}
-                    alt={player.response[0].player.name}
-                  />
-                  <div>
-                    {player.response[0].player.firstname}
-                    <br />
-                    {player.response[0].player.lastname}
-                  </div>
-                </StyledListItem>
-              </Link>
-            );
-          })}
-        </StyledList>
+      <StyledList>
+        {players.map((player) => {
+          return (
+            <Link
+              href={`/players/${player.response[0].player.id}`}
+              key={player.response[0].player.id}
+            >
+              <StyledListItem>
+                <Image
+                  src={player.response[0].statistics[0].team.logo}
+                  height={50}
+                  width={50}
+                  alt={player.response[0].player.name}
+                />
+                <div>
+                  {player.response[0].player.firstname}
+                  <br />
+                  {player.response[0].player.lastname}
+                </div>
+              </StyledListItem>
+            </Link>
+          );
+        })}
+      </StyledList>
     </>
   );
 }
