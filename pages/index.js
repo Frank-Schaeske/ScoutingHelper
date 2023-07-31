@@ -10,7 +10,7 @@ export default function Home({ setSearchedPlayer }) {
       <StyledMain>
         <SearchForm setSearchedPlayer={setSearchedPlayer} />
       </StyledMain>
-      <Footer />
+      <Footer page="search" />
     </>
   );
 }

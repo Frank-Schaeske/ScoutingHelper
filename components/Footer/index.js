@@ -1,14 +1,21 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Footer() {
+export default function Footer({ page }) {
+  const router = useRouter();
+
   return (
     <>
       <StyledSearchContainer>
-        <StyledLink href={`/`}>Link</StyledLink>
+        <StyledLink href={`/`} isActive={page === "search"}>
+          Link
+        </StyledLink>
       </StyledSearchContainer>
       <StyledListContainer>
-        <StyledLink href={`players`}>Link</StyledLink>
+        <StyledLink href={`players`} isActive={page === "list"}>
+          Link
+        </StyledLink>
       </StyledListContainer>
     </>
   );
@@ -50,6 +57,6 @@ const StyledListContainer = styled.div`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit;
+  color: ${(props) => (props.isActive ? "black" : "inherit")};
   cursor: default;
 `;

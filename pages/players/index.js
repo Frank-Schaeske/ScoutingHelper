@@ -4,10 +4,12 @@ import styled from "styled-components";
 
 export default function Players({ players }) {
   return (
-    <StyledMain>
-      <List players={players} />
-      <Footer />
-    </StyledMain>
+    <>
+      <StyledMain>
+        <List players={players} />
+      </StyledMain>
+      <Footer page="list" />
+    </>
   );
 }
 
