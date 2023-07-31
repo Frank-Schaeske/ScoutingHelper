@@ -25,5 +25,5 @@ const StyledForm = styled.form`
   justify-content: space-evenly;
   width: 200px;
   height: 150px;
-  margin: 5% 16%;
+  margin: 10px 16%;
 `;

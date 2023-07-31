@@ -20,7 +20,10 @@ export default function List({ players }) {
     <StyledList>
       {players.map((player) => {
         return (
-          <Link href={`/players/${player.response[0].player.id}` } key={player.response[0].player.id}>
+          <Link
+            href={`/players/${player.response[0].player.id}`}
+            key={player.response[0].player.id}
+          >
             <StyledListItem>
               <Image
                 src={player.response[0].statistics[0].team.logo}
@@ -43,7 +46,7 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 5% 16%;
+  margin: 100px 16%;
   padding: 0% 0%;
 `;
 

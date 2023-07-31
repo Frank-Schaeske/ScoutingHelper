@@ -40,5 +40,5 @@ export default function PlayerPage({ players, setPlayers }) {
 }
 
 const StyledButton = styled.button`
-  margin: 5% 16%;
+  margin: 10px 16%;
 `;

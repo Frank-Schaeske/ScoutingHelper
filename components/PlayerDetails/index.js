@@ -31,6 +31,7 @@ export default function PlayerDetails({ player }) {
 }
 
 const StyledList = styled.ul`
+  margin: 100px 16% 30px;
   max-width: 400px;
   min-height: 100px;
   display: flex;
@@ -46,7 +47,6 @@ const StyledList = styled.ul`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   list-style-type: none;
-  margin: 2% 16%;
 `;
 
 const StyledListItem = styled.li`
@@ -54,5 +54,5 @@ const StyledListItem = styled.li`
 `;
 
 const StyledSection = styled.section`
-  margin: 5% 16%;
+  margin: 100px 16%;
 `;

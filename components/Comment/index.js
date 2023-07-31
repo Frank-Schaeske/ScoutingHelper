@@ -19,7 +19,7 @@ const StyledSection = styled.section`
   justify-content: flex-start;
 
   width: 250px;
-  height: 200px;
+  height: 150px;
   padding: 0px 20px;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
