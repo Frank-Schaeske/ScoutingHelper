@@ -19,7 +19,6 @@ export default function List({ players }) {
 
   return (
     <>
-      <main>
         <StyledList>
           {players.map((player) => {
             return (
@@ -44,8 +43,6 @@ export default function List({ players }) {
             );
           })}
         </StyledList>
-      </main>
-      <Footer />
     </>
   );
 }

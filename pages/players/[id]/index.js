@@ -26,19 +26,23 @@ export default function PlayerPage({ players, setPlayers }) {
   }
 
   return (
-    <main>
+    <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <div>
-        <Link href={`/players/${id}/edit`}>
-          <StyledButton>Edit Player</StyledButton>
-        </Link>
-        <button onClick={deletePlayer}>Delete Player</button>
-      </div>
-    </main>
+      <Link href={`/players/${id}/edit`}>
+        <button>Edit Comment</button>
+      </Link>
+      <button onClick={deletePlayer}>Delete Player</button>
+      <Link href={`/players`}>
+        <button>Back</button>
+      </Link>
+    </StyledMain>
   );
 }
 
-const StyledButton = styled.button`
-  margin: 10px 16%;
+const StyledMain = styled.main`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 `;

@@ -74,5 +74,5 @@ const StyledForm = styled.form`
   justify-content: space-between;
   width: 250px;
   height: 200px;
-  margin: 100px 16%;
+  margin: 100px;
 `;

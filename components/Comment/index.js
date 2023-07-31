@@ -3,10 +3,10 @@ import styled from "styled-components";
 export default function Comment({ player }) {
   return (
     <>
-    <StyledParagraph>Comment:</StyledParagraph>
-    <StyledSection>
-      <StyledParagraphComment>{player.comment}</StyledParagraphComment>
-    </StyledSection>
+      <p>Comment:</p>
+      <StyledSection>
+        <p>{player.comment}</p>
+      </StyledSection>
     </>
   );
 }
@@ -27,12 +27,4 @@ const StyledSection = styled.section`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   margin: 1% 16%;
-`;
-
-const StyledParagraph = styled.p`
-margin: 5% 10% 0% 17%;
-`;
-
-const StyledParagraphComment = styled.p`
-  margin: 5%;
 `;
