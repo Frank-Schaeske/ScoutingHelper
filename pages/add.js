@@ -23,8 +23,8 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
     return (
       <main>
         <PlayerDetails player={searchedPlayer} />
-        <CommentForm handleSave={handleSave} />
-        <StyledLink href="/">New Search</StyledLink>
+        <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
+        <StyledButton href="/">New Search</StyledButton>
       </main>
     );
   } else {
@@ -32,13 +32,13 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
       <main>
         <PlayerDetails player={searchedPlayer} />
         <Link href="/">
-          <StyledLink>New Search</StyledLink>
+          <StyledButton>New Search</StyledButton>
         </Link>
       </main>
     );
   }
 }
 
-const StyledLink = styled.a`
+const StyledButton = styled.button`
   margin: 5% 16%;
 `;

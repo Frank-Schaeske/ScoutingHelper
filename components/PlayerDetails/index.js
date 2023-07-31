@@ -46,7 +46,7 @@ const StyledList = styled.ul`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   list-style-type: none;
-  margin: 5% 16%;
+  margin: 2% 16%;
 `;
 
 const StyledListItem = styled.li`

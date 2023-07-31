@@ -7,10 +7,18 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 'images.unsplash.com'
-      // },
+      {
+        protocol: "https",
+        hostname: "media-1.api-sports.io",
+      },
+      {
+        protocol: "https",
+        hostname: "media-2.api-sports.io",
+      },
+      {
+        protocol: "https",
+        hostname: "media-3.api-sports.io",
+      },
     ],
   },
 };
