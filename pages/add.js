@@ -3,11 +3,20 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
+import useSWR from "swr";
 
 export default function Add({ searchedPlayer }) {
   const router = useRouter();
+  const { mutate } = useSWR("/api/players");
 
-  async function addPlayer(newPlayer) {
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    const newPlayer = { ...searchedPlayer, ...data };
+
     const response = await fetch("/api/players", {
       method: "POST",
       headers: {
@@ -16,24 +25,10 @@ export default function Add({ searchedPlayer }) {
       body: JSON.stringify(newPlayer),
     });
 
-    if (!response.ok) {
+    if (response.ok) {
       mutate();
-
-      const data = await response.json();
     }
-
     router.push("/players");
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    const newPlayer = { ...searchedPlayer, ...data };
-
-    addPlayer(newPlayer);
   }
 
   if (searchedPlayer?.response?.length > 0) {
