@@ -4,10 +4,28 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
 
-export default function Add({ searchedPlayer, players, setPlayers }) {
+export default function Add({ searchedPlayer }) {
   const router = useRouter();
 
-  function handleSave(event) {
+  async function addPlayer(newPlayer) {
+    const response = await fetch("/api/players", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPlayer),
+    });
+
+    if (!response.ok) {
+      mutate();
+
+      const data = await response.json();
+    }
+
+    router.push("/players");
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -15,16 +33,14 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
 
     const newPlayer = { ...searchedPlayer, ...data };
 
-    setPlayers([...players, newPlayer]);
-    router.push("/players");
+    addPlayer(newPlayer);
   }
 
   if (searchedPlayer?.response?.length > 0) {
     return (
       <StyledMain>
-
           <PlayerDetails player={searchedPlayer} />
-          <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
+          <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
           <Link href="/">
             <StyledButton href="/">New Search</StyledButton>
           </Link>
