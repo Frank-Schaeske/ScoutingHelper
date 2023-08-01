@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const playerSchema = new Schema(
     {
+        comment: String,
         get: String,
         parameters: {
           team: String,

@@ -3,14 +3,23 @@ import NavigationBar from "../../components/NavigationBar";
 import styled from "styled-components";
 import useSWR from "swr";
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
 export default function Players() {
-  const { data } = useSWR("/api/players", { fallbackData: [] });
-  console.log(data);
+  const { data: players, isLoading } = useSWR("/api/players", fetcher, {
+    fallbackData: [],
+  });
+
+  if (isLoading) return <div>loading...</div>;
+
+  if (players.length === 0) {
+    return <div>Currently no players are saved</div>;
+  }
 
   return (
     <>
       <StyledMain>
-        <List players={data} />
+        <List players={players} />
       </StyledMain>
       <NavigationBar />
     </>

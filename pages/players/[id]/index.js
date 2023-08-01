@@ -3,27 +3,46 @@ import PlayerDetails from "../../../components/PlayerDetails";
 import Comment from "../../../components/Comment";
 import Link from "next/link";
 import styled from "styled-components";
+import useSWR from "swr";
 
-export default function PlayerPage({ players, setPlayers }) {
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default function PlayerPage() {
   const router = useRouter();
+  const { isReady } = router;
   const { id } = router.query;
 
-  const player = players.find(
-    (player) => player.response[0].player.id === parseInt(id, 10)
-  );
+  const { data: player, isLoading, error } = useSWR(`/api/players/${id}`, fetcher);
 
-  if (!player) {
-    return <div>Player not found</div>;
-  }
+  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
-  function deletePlayer() {
-    setPlayers(
-      players.filter(
-        (player) => player.response[0].player.id !== parseInt(id, 10)
-      )
-    );
-    router.push("/players");
-  }
+  console.log("Player:", player);
+
+  // async function deletePlace() {
+  //   const response = await fetch(`/api/places/${id}`, {
+  //     method: "DELETE",
+  //   });
+
+    // if (!response.ok) {
+    //   router.push("/");
+    // }
+
+  // const player = players.find(
+  //   (player) => player.response[0].player.id === parseInt(id, 10)
+  // );
+
+  // if (!player) {
+  //   return <div>Player not found</div>;
+  // }
+
+  //function deletePlayer() {
+    // setPlayers(
+    //   players.filter(
+    //     (player) => player.response[0].player.id !== parseInt(id, 10)
+    //   )
+    // );
+    // router.push("/players");
+  //}
 
   return (
     <StyledMain>
@@ -32,7 +51,7 @@ export default function PlayerPage({ players, setPlayers }) {
       <Link href={`/players/${id}/edit`}>
         <button>Edit Comment</button>
       </Link>
-      <button onClick={deletePlayer}>Delete Player</button>
+      <button>Delete Player</button>
       <Link href={`/players`}>
         <button>Back</button>
       </Link>
