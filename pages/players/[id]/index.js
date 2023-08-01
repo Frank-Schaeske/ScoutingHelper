@@ -16,33 +16,12 @@ export default function PlayerPage() {
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
-  console.log("Player:", player);
-
-  // async function deletePlace() {
-  //   const response = await fetch(`/api/places/${id}`, {
-  //     method: "DELETE",
-  //   });
-
-    // if (!response.ok) {
-    //   router.push("/");
-    // }
-
-  // const player = players.find(
-  //   (player) => player.response[0].player.id === parseInt(id, 10)
-  // );
-
-  // if (!player) {
-  //   return <div>Player not found</div>;
-  // }
-
-  //function deletePlayer() {
-    // setPlayers(
-    //   players.filter(
-    //     (player) => player.response[0].player.id !== parseInt(id, 10)
-    //   )
-    // );
-    // router.push("/players");
-  //}
+  async function handleDelete() {
+  await fetch(`/api/players/${id}`, {
+  method: "DELETE",
+  });
+  router.push("/players");
+}
 
   return (
     <StyledMain>
@@ -51,7 +30,7 @@ export default function PlayerPage() {
       <Link href={`/players/${id}/edit`}>
         <button>Edit Comment</button>
       </Link>
-      <button>Delete Player</button>
+      <button onClick={handleDelete}>Delete Player</button>
       <Link href={`/players`}>
         <button>Back</button>
       </Link>
