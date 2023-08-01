@@ -4,7 +4,7 @@ import SearchForm from "../components/SearchForm";
 import NavigationBar from "../components/NavigationBar";
 import styled from "styled-components";
 
-export default function Home({ setSearchedPlayer }) {
+export default function HomePage({ setSearchedPlayer }) {
   return (
     <>
       <StyledMain>

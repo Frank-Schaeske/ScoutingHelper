@@ -15,6 +15,15 @@ export default async function handler(request, response) {
         response.status(200).json(player);
       }
 
+      if (request.method === "PUT") {
+
+       await Player.findByIdAndUpdate(id, {
+        $set: request.body,
+        });
+        response.status(200).json({ status: "Player successfully updated." });
+        return;
+      }
+
       if (request.method === "DELETE") {
         await Player.findByIdAndDelete(id);
     

@@ -3,43 +3,40 @@ import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
 import Link from "next/link";
 import styled from "styled-components";
+import useSWR from "swr";
 
-export default function EditPage({ players, setPlayers }) {
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default function EditPage() {
   const router = useRouter();
+  const { isReady } = router;
   const { id } = router.query;
+  const { data: player, isLoading, error, mutate } = useSWR(`/api/players/${id}`, fetcher);
 
-  const player = players.find(
-    (player) => player.response[0].player.id === parseInt(id, 10)
-  );
+  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   if (!player) {
     return <div>Player not found</div>;
   }
 
-  function handleChangeComment(id, newComment) {
-    const playerIndex = players.findIndex(
-      (player) => player.response[0].player.id === parseInt(id, 10)
-    );
-
-    if (playerIndex !== -1) {
-      const updatedPlayers = [...players];
-
-      updatedPlayers[playerIndex] = {
-        ...updatedPlayers[playerIndex],
-        comment: newComment,
-      };
-
-      setPlayers(updatedPlayers);
-    }
-  }
-
-  function handleEdit(event) {
+async function handleEdit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    console.log(data);
 
-    handleChangeComment(id, data.comment);
+    const response = await fetch(`/api/players/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      mutate();
+    }
 
     router.push("/players");
   }

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
 import useSWR from "swr";
 
-export default function Add({ searchedPlayer }) {
+export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
   const { mutate } = useSWR("/api/players");
 
