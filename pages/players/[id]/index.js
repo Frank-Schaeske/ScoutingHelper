@@ -12,16 +12,20 @@ export default function PlayerPage() {
   const { isReady } = router;
   const { id } = router.query;
 
-  const { data: player, isLoading, error } = useSWR(`/api/players/${id}`, fetcher);
+  const {
+    data: player,
+    isLoading,
+    error,
+  } = useSWR(`/api/players/${id}`, fetcher);
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   async function handleDelete() {
-  await fetch(`/api/players/${id}`, {
-  method: "DELETE",
-  });
-  router.push("/players");
-}
+    await fetch(`/api/players/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/players");
+  }
 
   return (
     <StyledMain>

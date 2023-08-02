@@ -63,8 +63,8 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-width: 200px;
-margin: 5%;
+  width: 200px;
+  margin: 5%;
 `;
 
 const StyledSection = styled.section`

@@ -11,7 +11,12 @@ export default function EditPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const { data: player, isLoading, error, mutate } = useSWR(`/api/players/${id}`, fetcher);
+  const {
+    data: player,
+    isLoading,
+    error,
+    mutate,
+  } = useSWR(`/api/players/${id}`, fetcher);
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
@@ -19,7 +24,7 @@ export default function EditPage() {
     return <div>Player not found</div>;
   }
 
-async function handleEdit(event) {
+  async function handleEdit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);

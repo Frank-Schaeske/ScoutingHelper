@@ -2,16 +2,12 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function List({players}) {
-
+export default function List({ players }) {
   return (
     <StyledList>
       {players.map((player) => {
         return (
-          <Link
-            href={`/players/${player._id}`}
-            key={player._id}
-          >
+          <Link href={`/players/${player._id}`} key={player._id}>
             <StyledListItem>
               <Image
                 src={player.response[0].statistics[0].team.logo}
