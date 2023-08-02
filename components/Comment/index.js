@@ -12,14 +12,9 @@ export default function Comment({ player }) {
 }
 
 const StyledSection = styled.section`
-  max-width: 400px;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 250px;
-  height: 150px;
-  padding: 0px 20px;
+  width: 320px;
+  height: 100px;
+  padding: 0px 35px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
@@ -27,5 +22,5 @@ const StyledSection = styled.section`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 5px 20px;
+  margin: 0;
 `;
