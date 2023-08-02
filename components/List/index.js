@@ -9,15 +9,20 @@ export default function List({ players }) {
         return (
           <Link href={`/players/${player._id}`} key={player._id}>
             <StyledListItem>
-              <Image
-                src={player.response[0].statistics[0].team.logo}
-                height={50}
-                width={50}
-                alt={player.response[0].player.name}
-              />
-              {player.response[0].player.firstname}
-              <br />
-              {player.response[0].player.lastname}
+              <ImageContainer>
+                <Image
+                  src={player.response[0].statistics[0].team.logo}
+                  height={50}
+                  width={50}
+                  alt={player.response[0].player.name}
+                />
+              </ImageContainer>
+              <TextContainer>
+                {player.response[0].player.name}
+                <br />
+                Season: {player.parameters.season}/
+                {parseInt(player.parameters.season, 10) + 1}
+              </TextContainer>
             </StyledListItem>
           </Link>
         );
@@ -28,24 +33,31 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 100px 16%;
-  padding: 0% 0%;
+  margin: 100px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledListItem = styled.li`
   max-width: 400px;
   min-height: 65px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-
-  width: 200px;
-  height: 65px;
-  padding: 5px 5px;
+  align-items: center;
+  padding: 5px;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  margin: 5% 5%;
+  margin-bottom: 10px;
+`;
+
+const ImageContainer = styled.div`
+  padding-right: 5px;
+`;
+
+const TextContainer = styled.div`
+  padding: 5px;
 `;
