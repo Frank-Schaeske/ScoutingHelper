@@ -1,28 +1,16 @@
 import styled from "styled-components";
-import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-export default function List({ players }) {
-  const { data, isLoading } = useSWR("/api/players", fetcher, {
-    fallbackData: [],
-  });
-
-  if (isLoading) return <div>loading...</div>;
-
-  if (data.length === 0) {
-    return <div>Currently no players are saved</div>;
-  }
+export default function List({players}) {
 
   return (
     <StyledList>
       {players.map((player) => {
         return (
           <Link
-            href={`/players/${player.response[0].player.id}`}
-            key={player.response[0].player.id}
+            href={`/players/${player._id}`}
+            key={player._id}
           >
             <StyledListItem>
               <Image

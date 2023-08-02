@@ -3,11 +3,13 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
+import useSWR from "swr";
 
-export default function Add({ searchedPlayer, players, setPlayers }) {
+export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
+  const { mutate } = useSWR("/api/players");
 
-  function handleSave(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -15,16 +17,25 @@ export default function Add({ searchedPlayer, players, setPlayers }) {
 
     const newPlayer = { ...searchedPlayer, ...data };
 
-    setPlayers([...players, newPlayer]);
+    const response = await fetch("/api/players", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPlayer),
+    });
+
+    if (response.ok) {
+      mutate();
+    }
     router.push("/players");
   }
 
   if (searchedPlayer?.response?.length > 0) {
     return (
       <StyledMain>
-
           <PlayerDetails player={searchedPlayer} />
-          <CommentForm handleSubmit={handleSave} buttonText="Save Player" />
+          <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
           <Link href="/">
             <StyledButton href="/">New Search</StyledButton>
           </Link>
