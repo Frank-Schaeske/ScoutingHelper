@@ -10,50 +10,55 @@ export default function PositionRadioButtons({
 
   return (
     <MyButtonContainer>
-      <label>
+      <label htmlFor="all">
         <RadioInput
           type="radio"
           name="all"
+          id="all"
           value="All"
           checked={selectedPosition === "All"}
           onChange={handlePositionChange}
         />
         <FirstChildLabelSpan>All</FirstChildLabelSpan>
       </label>
-      <label>
+      <label htmlFor="goalkeeper">
         <RadioInput
           type="radio"
           name="goalkeeper"
+          id="goalkeeper"
           value="Goalkeeper"
           checked={selectedPosition === "Goalkeeper"}
           onChange={handlePositionChange}
         />
         <LabelSpan>GK</LabelSpan>
       </label>
-      <label>
+      <label htmlFor="defender">
         <RadioInput
           type="radio"
           name="defender"
+          id="defender"
           value="Defender"
           checked={selectedPosition === "Defender"}
           onChange={handlePositionChange}
         />
         <LabelSpan>DEF</LabelSpan>
       </label>
-      <label>
+      <label htmlFor="midfielder">
         <RadioInput
           type="radio"
           name="midfielder"
+          id="midfielder"
           value="Midfielder"
           checked={selectedPosition === "Midfielder"}
           onChange={handlePositionChange}
         />
         <LabelSpan>MF</LabelSpan>
       </label>
-      <label>
+      <label htmlFor="attacker">
         <RadioInput
           type="radio"
           name="attacker"
+          id="attacker"
           value="Attacker"
           checked={selectedPosition === "Attacker"}
           onChange={handlePositionChange}

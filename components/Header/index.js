@@ -30,4 +30,5 @@ const StyledLink = styled(Link)`
 const StyledHeadline = styled.h1`
   color: #ffffff;
   text-decoration: none;
+  text-align: center;
 `;
