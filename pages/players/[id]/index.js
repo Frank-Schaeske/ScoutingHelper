@@ -18,7 +18,8 @@ export default function PlayerPage() {
     error,
   } = useSWR(`/api/players/${id}`, fetcher);
 
-  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  if (!isReady || isLoading || error)
+    return <StyledHeadline>Loading...</StyledHeadline>;
 
   async function handleDelete() {
     await fetch(`/api/players/${id}`, {
@@ -47,4 +48,8 @@ const StyledMain = styled.main`
   align-items: center;
   flex-direction: column;
   gap: 10px;
+`;
+
+const StyledHeadline = styled.h2`
+margin: 100px auto;
 `;
