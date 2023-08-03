@@ -13,7 +13,7 @@ export default function PositionRadioButtons({
       <label>
         <RadioInput
           type="radio"
-          name="radio"
+          name="all"
           value="All"
           checked={selectedPosition === "All"}
           onChange={handlePositionChange}
@@ -23,7 +23,7 @@ export default function PositionRadioButtons({
       <label>
         <RadioInput
           type="radio"
-          name="radio"
+          name="goalkeeper"
           value="Goalkeeper"
           checked={selectedPosition === "Goalkeeper"}
           onChange={handlePositionChange}
@@ -33,7 +33,7 @@ export default function PositionRadioButtons({
       <label>
         <RadioInput
           type="radio"
-          name="radio"
+          name="defender"
           value="Defender"
           checked={selectedPosition === "Defender"}
           onChange={handlePositionChange}
@@ -43,7 +43,7 @@ export default function PositionRadioButtons({
       <label>
         <RadioInput
           type="radio"
-          name="radio"
+          name="midfielder"
           value="Midfielder"
           checked={selectedPosition === "Midfielder"}
           onChange={handlePositionChange}
@@ -53,7 +53,7 @@ export default function PositionRadioButtons({
       <label>
         <RadioInput
           type="radio"
-          name="radio"
+          name="attacker"
           value="Attacker"
           checked={selectedPosition === "Attacker"}
           onChange={handlePositionChange}
