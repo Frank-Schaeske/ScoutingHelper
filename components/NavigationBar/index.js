@@ -29,7 +29,7 @@ const StyledSearchContainer = styled.div`
   justify-content: center;
   background: #ffffff;
   border-style: solid;
-  border-color: #009900;
+  border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
   height: 80px;
@@ -47,7 +47,7 @@ const StyledListContainer = styled.div`
   justify-content: center;
   background: #ffffff;
   border-style: solid;
-  border-color: #009900;
+  border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
   height: 80px;

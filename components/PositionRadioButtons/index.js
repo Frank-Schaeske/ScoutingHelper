@@ -82,21 +82,20 @@ const RadioInput = styled.input`
   width: 1px;
 
   &:checked + span {
-    box-shadow: 0 0 0 0.0625em #0043ed;
-    background-color: #dee7ff;
+    box-shadow: 0 0 0 0.0625em var(--primary-color);
+    background-color: #deffe5;
     z-index: 1;
-    color: #0043ed;
+    color: var(--primary-color);
   }
 
   &:focus {
     outline: 0;
-    border-color: #2260ff;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 4px #b5c9fc;
   }
 `;
 
 const LabelSpan = styled.span`
-  /* Styles for label span */
   display: block;
   cursor: pointer;
   background-color: #fff;
