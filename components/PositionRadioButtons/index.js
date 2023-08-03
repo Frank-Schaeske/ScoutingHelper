@@ -1,58 +1,77 @@
 import styled from "styled-components";
-import { useState } from "react";
 
-export default function PositionRadioButtons() {
-  const [selectedOption, setSelectedOption] = useState("Women");
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+export default function PositionRadioButtons({
+  selectedPosition,
+  setSelectedPosition,
+}) {
+  function handlePositionChange(event) {
+    setSelectedPosition(event.target.value);
+  }
 
   return (
-    <MyDictContainer>
-        <label>
-          <RadioInput
-            type="radio"
-            name="radio"
-            value="Women"
-            checked={selectedOption === "Women"}
-            onChange={handleOptionChange}
-          />
-          <FirstChildLabelSpan>Women</FirstChildLabelSpan>
-        </label>
-        <label>
-          <RadioInput
-            type="radio"
-            name="radio"
-            value="Men"
-            checked={selectedOption === "Men"}
-            onChange={handleOptionChange}
-          />
-          <LabelSpan>Men</LabelSpan>
-        </label>
-        <label>
-          <RadioInput
-            type="radio"
-            name="radio"
-            value="Divided"
-            checked={selectedOption === "Divided"}
-            onChange={handleOptionChange}
-          />
-          <LastChildLabelSpan>Divided</LastChildLabelSpan>
-        </label>
-    </MyDictContainer>
+    <MyButtonContainer>
+      <label>
+        <RadioInput
+          type="radio"
+          name="radio"
+          value="All"
+          checked={selectedPosition === "All"}
+          onChange={handlePositionChange}
+        />
+        <FirstChildLabelSpan>All</FirstChildLabelSpan>
+      </label>
+      <label>
+        <RadioInput
+          type="radio"
+          name="radio"
+          value="Goalkeeper"
+          checked={selectedPosition === "Goalkeeper"}
+          onChange={handlePositionChange}
+        />
+        <LabelSpan>GK</LabelSpan>
+      </label>
+      <label>
+        <RadioInput
+          type="radio"
+          name="radio"
+          value="Defender"
+          checked={selectedPosition === "Defender"}
+          onChange={handlePositionChange}
+        />
+        <LabelSpan>DEF</LabelSpan>
+      </label>
+      <label>
+        <RadioInput
+          type="radio"
+          name="radio"
+          value="Midfielder"
+          checked={selectedPosition === "Midfielder"}
+          onChange={handlePositionChange}
+        />
+        <LabelSpan>MF</LabelSpan>
+      </label>
+      <label>
+        <RadioInput
+          type="radio"
+          name="radio"
+          value="Attacker"
+          checked={selectedPosition === "Attacker"}
+          onChange={handlePositionChange}
+        />
+        <LastChildLabelSpan>AT</LastChildLabelSpan>
+      </label>
+    </MyButtonContainer>
   );
 }
 
-const MyDictContainer = styled.div`
+const MyButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin: 100px auto 10px;
   justify-content: center;
 `;
 
 const RadioInput = styled.input`
-  /* Styles for .mydict input[type="radio"] */
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
   height: 1px;
@@ -62,7 +81,6 @@ const RadioInput = styled.input`
   width: 1px;
 
   &:checked + span {
-    /* Styles for .mydict input[type="radio"]:checked + span */
     box-shadow: 0 0 0 0.0625em #0043ed;
     background-color: #dee7ff;
     z-index: 1;
@@ -70,7 +88,6 @@ const RadioInput = styled.input`
   }
 
   &:focus {
-    /* Styles for :focus */
     outline: 0;
     border-color: #2260ff;
     box-shadow: 0 0 0 4px #b5c9fc;
