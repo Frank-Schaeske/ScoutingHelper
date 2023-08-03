@@ -68,8 +68,13 @@ const MyButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 90px;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 45px;
+  background-color: white;
 `;
 
 const RadioInput = styled.input`
@@ -110,11 +115,9 @@ const LabelSpan = styled.span`
 `;
 
 const FirstChildLabelSpan = styled(LabelSpan)`
-  /* Styles for label:first-child span */
   border-radius: 0.375em 0 0 0.375em;
 `;
 
 const LastChildLabelSpan = styled(LabelSpan)`
-  /* Styles for label:last-child span */
   border-radius: 0 0.375em 0.375em 0;
 `;
