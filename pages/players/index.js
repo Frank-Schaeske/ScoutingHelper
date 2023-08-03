@@ -2,6 +2,7 @@ import List from "../../components/List";
 import NavigationBar from "../../components/NavigationBar";
 import styled from "styled-components";
 import useSWR from "swr";
+import PositionRadioButtons from "../../components/PositionRadioButtons";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,6 +20,7 @@ export default function PlayersPage() {
   return (
     <>
       <StyledMain>
+        <PositionRadioButtons />
         <List players={players} />
       </StyledMain>
       <NavigationBar />
