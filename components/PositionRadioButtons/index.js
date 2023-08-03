@@ -67,8 +67,9 @@ export default function PositionRadioButtons({
 const MyButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 100px auto 10px;
   justify-content: center;
+  position: fixed;
+  top: 90px;
 `;
 
 const RadioInput = styled.input`
