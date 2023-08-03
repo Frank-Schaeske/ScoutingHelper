@@ -2,125 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export default function PlayerDetails({ player }) {
-  if (player?.response?.length > 0) {
-    if (player.response[0].statistics[0].games.position === "Goalkeeper") {
-      return (
-        <StyledContainer>
-          <StyledList>
-            <StyledListItem>{player.response[0].player.name}</StyledListItem>
-            <StyledListItem>
-              {player.response[0].statistics[0].team.name}
-            </StyledListItem>
-            <StyledListItem>
-              Nationality: {player.response[0].player.nationality}
-            </StyledListItem>
-            <StyledListItem>
-              Position: {player.response[0].statistics[0].games.position}
-            </StyledListItem>
-            <StyledListItem>
-              Season: {player.parameters.season}/
-              {parseInt(player.parameters.season, 10) + 1}
-            </StyledListItem>
-            <StyledListItem>
-              Appearances:{" "}
-              {player.response[0]?.statistics[0]?.games?.appearences ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Goals conceded:{" "}
-              {player.response[0]?.statistics[0]?.goals?.conceded ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Goal saves:{" "}
-              {player.response[0]?.statistics[0]?.goal?.saves ?? "N/A"}
-            </StyledListItem>
-          </StyledList>
-          <StyledImage
-            src={player.response[0].player.photo}
-            height={80}
-            width={80}
-            alt={player.response[0].player.name}
-          />
-        </StyledContainer>
-      );
-    } else if (player.response[0].statistics[0].games.position === "Defender") {
-      return (
-        <StyledContainer>
-          <StyledList>
-            <StyledListItem>{player.response[0].player.name}</StyledListItem>
-            <StyledListItem>
-              {player.response[0].statistics[0].team.name}
-            </StyledListItem>
-            <StyledListItem>
-              Nationality: {player.response[0].player.nationality}
-            </StyledListItem>
-            <StyledListItem>
-              Position: {player.response[0].statistics[0].games.position}
-            </StyledListItem>
-            <StyledListItem>
-              Season: {player.parameters.season}/
-              {parseInt(player.parameters.season, 10) + 1}
-            </StyledListItem>
-            <StyledListItem>
-              Appearances:{" "}
-              {player.response[0]?.statistics[0]?.games?.appearences ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Duels total:{" "}
-              {player.response[0]?.statistics[0]?.duels?.total ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Duels won:{" "}
-              {player.response[0]?.statistics[0]?.duels?.won ?? "N/A"}
-            </StyledListItem>
-          </StyledList>
-          <StyledImage
-            src={player.response[0].player.photo}
-            height={80}
-            width={80}
-            alt={player.response[0].player.name}
-          />
-        </StyledContainer>
-      );
-    } else {
-      return (
-        <StyledContainer>
-          <StyledList>
-            <StyledListItem>{player.response[0].player.name}</StyledListItem>
-            <StyledListItem>
-              {player.response[0].statistics[0].team.name}
-            </StyledListItem>
-            <StyledListItem>
-              Nationality: {player.response[0].player.nationality}
-            </StyledListItem>
-            <StyledListItem>
-              Position: {player.response[0].statistics[0].games.position}
-            </StyledListItem>
-            <StyledListItem>
-              Season: {player.parameters.season}/
-              {parseInt(player.parameters.season, 10) + 1}
-            </StyledListItem>
-            <StyledListItem>
-              Appearances:{" "}
-              {player.response[0]?.statistics[0]?.games?.appearences ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Goals: {player.response[0]?.statistics[0]?.goals?.total ?? "N/A"}
-            </StyledListItem>
-            <StyledListItem>
-              Assists:{" "}
-              {player.response[0]?.statistics[0]?.goals?.assists ?? "N/A"}
-            </StyledListItem>
-          </StyledList>
-          <StyledImage
-            src={player.response[0].player.photo}
-            height={80}
-            width={80}
-            alt={player.response[0].player.name}
-          />
-        </StyledContainer>
-      );
-    }
-  } else {
+  if (!player?.response?.length) {
     return (
       <StyledSection>
         <p>No player found with this name in this team for this season.</p>
@@ -131,6 +13,75 @@ export default function PlayerDetails({ player }) {
       </StyledSection>
     );
   }
+
+  return (
+    <StyledContainer>
+      <StyledList>
+        <StyledListItem>{player.response[0].player.name}</StyledListItem>
+        <StyledListItem>
+          {player.response[0].statistics[0].team.name}
+        </StyledListItem>
+        <StyledListItem>
+          Nationality: {player.response[0].player.nationality}
+        </StyledListItem>
+        <StyledListItem>
+          Position: {player.response[0].statistics[0].games.position}
+        </StyledListItem>
+        <StyledListItem>
+          Season: {player.parameters.season}/
+          {parseInt(player.parameters.season, 10) + 1}
+        </StyledListItem>
+        <StyledListItem>
+          Appearances:{" "}
+          {player.response[0]?.statistics[0]?.games?.appearences ?? "N/A"}
+        </StyledListItem>
+
+        {player.response[0].statistics[0].games.position === "Goalkeeper" && (
+          <>
+            <StyledListItem>
+              Goals conceded:{" "}
+              {player.response[0].statistics[0]?.goals?.conceded ?? "N/A"}
+            </StyledListItem>
+            <StyledListItem>
+              Goal saves:{" "}
+              {player.response[0].statistics[0]?.goal?.saves ?? "N/A"}
+            </StyledListItem>
+          </>
+        )}
+
+        {player.response[0].statistics[0].games.position === "Defender" && (
+          <>
+            <StyledListItem>
+              Duels total:{" "}
+              {player.response[0].statistics[0]?.duels?.total ?? "N/A"}
+            </StyledListItem>
+            <StyledListItem>
+              Duels won: {player.response[0].statistics[0]?.duels?.won ?? "N/A"}
+            </StyledListItem>
+          </>
+        )}
+
+        {player.response[0].statistics[0].games.position !== "Goalkeeper" &&
+          player.response[0].statistics[0].games.position !== "Defender" && (
+            <>
+              <StyledListItem>
+                Goals: {player.response[0].statistics[0]?.goals?.total ?? "N/A"}
+              </StyledListItem>
+              <StyledListItem>
+                Assists:{" "}
+                {player.response[0].statistics[0]?.goals?.assists ?? "N/A"}
+              </StyledListItem>
+            </>
+          )}
+      </StyledList>
+      <StyledImage
+        src={player.response[0].player.photo}
+        height={80}
+        width={80}
+        alt={player.response[0].player.name}
+      />
+    </StyledContainer>
+  );
 }
 
 const StyledContainer = styled.div`
