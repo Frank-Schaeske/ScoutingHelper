@@ -6,7 +6,7 @@ export default function CommentForm({ handleSubmit, buttonText, defaultData }) {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="comment">Comment</label>
+      <label htmlFor="comment">Comment:</label>
       <textarea
         autoFocus
         name="comment"

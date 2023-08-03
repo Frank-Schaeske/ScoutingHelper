@@ -3,7 +3,7 @@ import NavigationBar from "../../components/NavigationBar";
 import styled from "styled-components";
 import useSWR from "swr";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function PlayersPage() {
   const { data: players, isLoading } = useSWR("/api/players", fetcher, {

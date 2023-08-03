@@ -4,7 +4,6 @@ import { useState } from "react";
 import Header from "../components/Header";
 
 export default function App({ Component, pageProps }) {
-
   const [searchedPlayer, setSearchedPlayer] = useState({});
 
   return (
@@ -13,7 +12,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>ScoutingHelper</title>
       </Head>
-      <Header/>
+      <Header />
       <Component
         {...pageProps}
         searchedPlayer={searchedPlayer}

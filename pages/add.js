@@ -34,11 +34,11 @@ export default function AddPage({ searchedPlayer }) {
   if (searchedPlayer?.response?.length > 0) {
     return (
       <StyledMain>
-          <PlayerDetails player={searchedPlayer} />
-          <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
-          <Link href="/">
-            <StyledButton href="/">New Search</StyledButton>
-          </Link>
+        <PlayerDetails player={searchedPlayer} />
+        <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
+        <Link href="/">
+          <StyledButton href="/">New Search</StyledButton>
+        </Link>
       </StyledMain>
     );
   } else {
