@@ -32,6 +32,12 @@ export default function AddPage({ searchedPlayer }) {
   }
 
   if (searchedPlayer) {
+    console.log("true", searchedPlayer);
+  } else {
+    console.log("false", searchedPlayer);
+  }
+
+  if (searchedPlayer) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />

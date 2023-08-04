@@ -17,17 +17,19 @@ export default function PlayerDetails({ player }) {
   return (
     <StyledContainer>
       <StyledList>
-        <StyledListItem>{player.player.name}</StyledListItem>
-        <StyledListItem>{player.statistics[0].team.name}</StyledListItem>
+        <StyledListItem>{player.player.name ?? "N/A"}</StyledListItem>
         <StyledListItem>
-          Nationality: {player.player.nationality}
+          {player.statistics[0].team.name ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Position: {player.statistics[0].games.position}
+          Nationality: {player.player.nationalit ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Season: {player.statistics[0].league.season}/
-          {player.statistics[0].league.season + 1}
+          Position: {player.statistics[0].games.position ?? "N/A"}
+        </StyledListItem>
+        <StyledListItem>
+          Season: {player.statistics[0].league.season ?? "N/A"}/
+          {player.statistics[0].league.season + 1 ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
           Appearances: {player?.statistics[0]?.games?.appearences ?? "N/A"}
