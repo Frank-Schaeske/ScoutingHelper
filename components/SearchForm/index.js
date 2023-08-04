@@ -58,11 +58,15 @@ export default function SearchForm({ setSearchedPlayer }) {
       </select>
       <label htmlFor="team">Team</label>
       <select name="team" id="team">
-        {germanTeams.map((germanTeam) => (
-          <option key={germanTeam.teamID} value={germanTeam.teamID}>
-            {germanTeam.name}
-          </option>
-        ))}
+        {germanTeams
+          .filter((germanTeam) => {
+            return germanTeam.season2022 === "bundesliga";
+          })
+          .map((germanTeam) => (
+            <option key={germanTeam.teamID} value={germanTeam.teamID}>
+              {germanTeam.name}
+            </option>
+          ))}
       </select>
       <label htmlFor="search">Player last name</label>
       <input type="text" name="search" id="search" minLength="4" />
