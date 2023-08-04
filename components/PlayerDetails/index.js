@@ -6,31 +6,31 @@ export default function PlayerDetails({ player }) {
     return (
       <StyledContainer>
         <StyledList>
-          <StyledListItem>{player?.player.name ?? "N/A"}</StyledListItem>
+          <StyledListItem>{player.player.name ?? "N/A"}</StyledListItem>
           <StyledListItem>
-            {player?.statistics[0].team.name ?? "N/A"}
+            {player.statistics[0].team.name ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
-            Nationality: {player?.player.nationality ?? "N/A"}
+            Nationality: {player.player.nationality ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
-            Position: {player?.statistics[0].games.position ?? "N/A"}
+            Position: {player.statistics[0].games.position ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
-            Season: {player?.statistics[0].league.season ?? "N/A"}/
-            {player?.statistics[0].league.season + 1 ?? "N/A"}
+            Season: {player.statistics[0].league.season ?? "N/A"}/
+            {player.statistics[0].league.season + 1 ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
-            Appearances: {player?.statistics[0].games.appearences ?? "N/A"}
+            Appearances: {player.statistics[0].games.appearences ?? "N/A"}
           </StyledListItem>
 
-          {player?.statistics[0].games.position === "Goalkeeper" && (
+          {player.statistics[0].games.position === "Goalkeeper" && (
             <>
               <StyledListItem>
-                Goals conceded: {player?.statistics[0].goals.conceded ?? "N/A"}
+                Goals conceded: {player.statistics[0].goals.conceded ?? "N/A"}
               </StyledListItem>
               <StyledListItem>
-                Goal saves: {player?.statistics[0].goal.saves ?? "N/A"}
+                Goal saves: {player.statistics[0].goals.saves ?? "N/A"}
               </StyledListItem>
             </>
           )}
@@ -38,31 +38,31 @@ export default function PlayerDetails({ player }) {
           {player?.statistics[0].games.position === "Defender" && (
             <>
               <StyledListItem>
-                Duels total: {player?.statistics[0].duels.total ?? "N/A"}
+                Duels total: {player.statistics[0].duels.total ?? "N/A"}
               </StyledListItem>
               <StyledListItem>
-                Duels won: {player?.statistics[0].duels.won ?? "N/A"}
+                Duels won: {player.statistics[0].duels.won ?? "N/A"}
               </StyledListItem>
             </>
           )}
 
-          {player?.statistics[0].games.position !== "Goalkeeper" &&
-            player?.statistics[0].games.position !== "Defender" && (
+          {player.statistics[0].games.position !== "Goalkeeper" &&
+            player.statistics[0].games.position !== "Defender" && (
               <>
                 <StyledListItem>
-                  Goals: {player?.statistics[0]?.goals.total ?? "N/A"}
+                  Goals: {player.statistics[0]?.goals.total ?? "N/A"}
                 </StyledListItem>
                 <StyledListItem>
-                  Assists: {player?.statistics[0]?.goals.assists ?? "N/A"}
+                  Assists: {player.statistics[0]?.goals.assists ?? "N/A"}
                 </StyledListItem>
               </>
             )}
         </StyledList>
         <StyledImage
-          src={player?.player.photo}
+          src={player.player.photo}
           height={80}
           width={80}
-          alt={player?.player.name}
+          alt={player.player.name}
         />
       </StyledContainer>
     );
