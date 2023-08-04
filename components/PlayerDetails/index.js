@@ -57,8 +57,8 @@ export default function PlayerDetails({ player }) {
           </>
         )}
 
-        {player.statistics[0].games.position !== "Goalkeeper" &&
-          player.statistics[0].games.position !== "Defender" && (
+        {player.statistics[0]?.games?.position !== "Goalkeeper" &&
+          player.statistics[0]?.games?.position !== "Defender" && (
             <>
               <StyledListItem>
                 Goals: {player.statistics[0]?.goals?.total ?? "N/A"}
@@ -70,10 +70,10 @@ export default function PlayerDetails({ player }) {
           )}
       </StyledList>
       <StyledImage
-        src={player.player.photo}
+        src={player.player?.photo}
         height={80}
         width={80}
-        alt={player.player.name}
+        alt={player.player?.name}
       />
     </StyledContainer>
   );
