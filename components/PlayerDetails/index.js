@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export default function PlayerDetails({ player }) {
-  if (player) {
+  if (player?.length) {
     return (
       <StyledContainer>
         <StyledList>
