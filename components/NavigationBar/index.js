@@ -9,16 +9,16 @@ export default function NavigationBar() {
 
   return (
     <>
-      <StyledSearchContainer>
-        <StyledLink href={`/`} isActive={router.pathname === "/"}>
+      <StyledLink href={`/`}>
+        <StyledSearchContainer isActive={router.pathname === "/"}>
           <BsSearch size={30} />
-        </StyledLink>
-      </StyledSearchContainer>
-      <StyledListContainer>
-        <StyledLink href={`players`} isActive={router.pathname === "/players"}>
+        </StyledSearchContainer>
+      </StyledLink>
+      <StyledLink href={`players`}>
+        <StyledListContainer isActive={router.pathname === "/players"}>
           <CiBoxList size={30} />
-        </StyledLink>
-      </StyledListContainer>
+        </StyledListContainer>
+      </StyledLink>
     </>
   );
 }
@@ -29,7 +29,7 @@ const StyledSearchContainer = styled.div`
   justify-content: center;
   background: #ffffff;
   border-style: solid;
-  border-color: #009900;
+  border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
   height: 80px;
@@ -38,6 +38,7 @@ const StyledSearchContainer = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1;
+  color: ${(props) => (props.isActive ? "black" : "lightgrey")};
 `;
 
 const StyledListContainer = styled.div`
@@ -46,7 +47,7 @@ const StyledListContainer = styled.div`
   justify-content: center;
   background: #ffffff;
   border-style: solid;
-  border-color: #009900;
+  border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
   height: 80px;
@@ -55,10 +56,10 @@ const StyledListContainer = styled.div`
   bottom: 0;
   right: 0;
   z-index: 1;
+  color: ${(props) => (props.isActive ? "black" : "lightgrey")};
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => (props.isActive ? "black" : "inherit")};
-  cursor: default;
+  cursor: pointer;
 `;

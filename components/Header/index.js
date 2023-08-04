@@ -12,7 +12,7 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-  background: #009900;
+  background: var(--primary-color);
   color: #ffffff;
   height: 80px;
   padding: 0px 20px;
@@ -30,4 +30,5 @@ const StyledLink = styled(Link)`
 const StyledHeadline = styled.h1`
   color: #ffffff;
   text-decoration: none;
+  text-align: center;
 `;

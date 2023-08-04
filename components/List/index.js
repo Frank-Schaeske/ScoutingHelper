@@ -11,17 +11,17 @@ export default function List({ players }) {
             <StyledListItem>
               <ImageContainer>
                 <Image
-                  src={player.response[0].statistics[0].team.logo}
+                  src={player.statistics[0].team.logo}
                   height={50}
                   width={50}
-                  alt={player.response[0].player.name}
+                  alt={player.player.name}
                 />
               </ImageContainer>
               <TextContainer>
-                {player.response[0].player.name}
+                {player.player.name}
                 <br />
-                Season: {player.parameters.season}/
-                {parseInt(player.parameters.season, 10) + 1}
+                Season: {player.statistics[0].league.season}/
+                {player.statistics[0].league.season + 1}
               </TextContainer>
             </StyledListItem>
           </Link>
@@ -33,7 +33,7 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 100px auto;
+  margin: 130px auto;
   padding: 0;
   display: flex;
   flex-direction: column;
