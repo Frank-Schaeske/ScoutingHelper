@@ -34,8 +34,17 @@ export default function SearchForm({ setSearchedPlayer }) {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="search">Player last name</label>
-      <input type="text" name="search" id="search" minLength="4" />
+      <label htmlFor="season">Season</label>
+      <select name="season" id="season">
+        <option value="2022">2022/23</option>
+        <option value="2021">2021/22</option>
+        <option value="2020">2020/21</option>
+      </select>
+      <label htmlFor="league">Season</label>
+      <select name="league" id="league">
+        <option value="bundesliga">Bundesliga</option>
+        <option value="bundesliga2">2. Bundesliga</option>
+      </select>
       <label htmlFor="team">Team</label>
       <select name="team" id="team">
         {germanTeams.map((germanTeam) => (
@@ -44,11 +53,8 @@ export default function SearchForm({ setSearchedPlayer }) {
           </option>
         ))}
       </select>
-      <label htmlFor="season">Season</label>
-      <select name="season" id="season">
-        <option value="2022">2022/23</option>
-        <option value="2021">2021/22</option>
-      </select>
+      <label htmlFor="search">Player last name</label>
+      <input type="text" name="search" id="search" minLength="4" />
       <button type="submit">Search Player</button>
     </StyledForm>
   );
