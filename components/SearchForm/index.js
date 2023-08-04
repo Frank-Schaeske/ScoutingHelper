@@ -17,7 +17,7 @@ export default function SearchForm({ setSearchedPlayer }) {
       const data = await response.json();
     } else {
       const data = await response.json();
-      setSearchedPlayer(data);
+      setSearchedPlayer(data.response[0]);
       router.push("/add");
     }
   }

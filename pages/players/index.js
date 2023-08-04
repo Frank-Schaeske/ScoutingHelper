@@ -24,8 +24,7 @@ export default function PlayersPage() {
 
   if (selectedPosition !== "All") {
     filteredPlayers = players.filter(
-      (player) =>
-        player.response[0].statistics[0].games.position === selectedPosition
+      (player) => player.statistics[0].games.position === selectedPosition
     );
   }
 
