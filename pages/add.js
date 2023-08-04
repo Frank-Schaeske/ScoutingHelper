@@ -31,9 +31,7 @@ export default function AddPage({ searchedPlayer }) {
     router.push("/players");
   }
 
-console.log("searchedPlayer:", searchedPlayer);
-
-  if (searchedPlayer !== undefined) {
+  if (searchedPlayer) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
