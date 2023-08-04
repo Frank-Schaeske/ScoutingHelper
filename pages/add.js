@@ -31,8 +31,6 @@ export default function AddPage({ searchedPlayer }) {
     router.push("/players");
   }
 
-  console.log(searchedPlayer);
-
   if (searchedPlayer) {
     return (
       <StyledMain>

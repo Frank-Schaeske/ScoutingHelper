@@ -4,17 +4,24 @@ import styled from "styled-components";
 import useSWR from "swr";
 import PositionRadioButtons from "../../components/PositionRadioButtons";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function PlayersPage() {
   const [selectedPosition, setSelectedPosition] = useState("All");
-
-  const { data: players, isLoading } = useSWR("/api/players", fetcher, {
+  const router = useRouter();
+  const { isReady } = router;
+  const {
+    data: players,
+    isLoading,
+    error,
+  } = useSWR("/api/players", fetcher, {
     fallbackData: [],
   });
 
-  if (isLoading) return <div>loading...</div>;
+  if (!isReady || isLoading || error)
+    return <StyledParagraph>Loading...</StyledParagraph>;
 
   let filteredPlayers = players;
 
