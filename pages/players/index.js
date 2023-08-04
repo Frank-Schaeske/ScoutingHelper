@@ -16,10 +16,6 @@ export default function PlayersPage() {
 
   if (isLoading) return <div>loading...</div>;
 
-  if (players.length === 0) {
-    return <div>Currently no players are saved</div>;
-  }
-
   let filteredPlayers = players;
 
   if (selectedPosition !== "All") {
@@ -28,14 +24,25 @@ export default function PlayersPage() {
     );
   }
 
+  if (players.length !== 0) {
+    return (
+      <>
+        <StyledMain>
+          <PositionRadioButtons
+            selectedPosition={selectedPosition}
+            setSelectedPosition={setSelectedPosition}
+          />
+          <List players={filteredPlayers} />
+        </StyledMain>
+        <NavigationBar />
+      </>
+    );
+  }
+
   return (
     <>
       <StyledMain>
-        <PositionRadioButtons
-          selectedPosition={selectedPosition}
-          setSelectedPosition={setSelectedPosition}
-        />
-        <List players={filteredPlayers} />
+        <StyledParagraph>Currently no players are saved.</StyledParagraph>
       </StyledMain>
       <NavigationBar />
     </>
@@ -46,4 +53,8 @@ const StyledMain = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 150px 16%;
 `;
