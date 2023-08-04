@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
-  const [season, setSeason] = useState("2022");
+  const [season, setSeason] = useState("2021");
   const [league, setLeague] = useState("bundesliga");
 
   async function addPlayer(player) {
@@ -51,7 +51,7 @@ export default function SearchForm({ setSearchedPlayer }) {
         <option value="2021">2021/22</option>
         <option value="2020">2020/21</option>
       </select>
-      <label htmlFor="league">Season</label>
+      <label htmlFor="league">League</label>
       <select name="league" id="league" onChange={handleLeagueChange}>
         <option value="bundesliga">Bundesliga</option>
         <option value="bundesliga2">2. Bundesliga</option>
@@ -60,7 +60,7 @@ export default function SearchForm({ setSearchedPlayer }) {
       <select name="team" id="team">
         {germanTeams
           .filter((germanTeam) => {
-            return germanTeam.season2022 === "bundesliga";
+            return germanTeam[season] === league;
           })
           .map((germanTeam) => (
             <option key={germanTeam.teamID} value={germanTeam.teamID}>
