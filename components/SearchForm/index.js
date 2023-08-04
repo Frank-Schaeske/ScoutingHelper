@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
-  const [season, setSeason] = useState("2021");
+  const [season, setSeason] = useState("2022");
   const [league, setLeague] = useState("bundesliga");
 
   async function addPlayer(player) {
@@ -37,12 +37,10 @@ export default function SearchForm({ setSearchedPlayer }) {
 
   function handleSeasonChange(event) {
     setSeason(event.target.value);
-    console.log(event.target.value);
   }
 
   function handleLeagueChange(event) {
     setLeague(event.target.value);
-    console.log(event.target.value);
   }
 
   return (
