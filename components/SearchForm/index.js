@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { germanTeams } from "../../lib/db";
+import { useState } from "react";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
+  const [season, setSeason] = useState("2022");
+  const [league, setLeague] = useState("bundesliga");
 
   async function addPlayer(player) {
     const response = await fetch("/api/player", {
@@ -23,25 +26,33 @@ export default function SearchForm({ setSearchedPlayer }) {
     }
   }
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     addPlayer(data);
-  };
+  }
+
+  function handleSeasonChange(event) {
+    setSeason(event.target.value);
+  }
+
+  function handleLeagueChange(event) {
+    setLeague(event.target.value);
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="season">Season</label>
-      <select name="season" id="season">
+      <select name="season" id="season" onChange={handleSeasonChange}>
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
         <option value="2020">2020/21</option>
       </select>
       <label htmlFor="league">Season</label>
-      <select name="league" id="league">
+      <select name="league" id="league" onChange={handleLeagueChange}>
         <option value="bundesliga">Bundesliga</option>
         <option value="bundesliga2">2. Bundesliga</option>
       </select>
