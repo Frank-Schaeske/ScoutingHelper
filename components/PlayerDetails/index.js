@@ -17,25 +17,25 @@ export default function PlayerDetails({ player }) {
   return (
     <StyledContainer>
       <StyledList>
-        <StyledListItem>{player.player.name ?? "N/A"}</StyledListItem>
+        <StyledListItem>{player.player?.name ?? "N/A"}</StyledListItem>
         <StyledListItem>
-          {player.statistics[0].team.name ?? "N/A"}
+          {player.statistics[0]?.team?.name ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Nationality: {player.player.nationalit ?? "N/A"}
+          Nationality: {player.player?.nationality ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Position: {player.statistics[0].games.position ?? "N/A"}
+          Position: {player.statistics[0]?.games?.position ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Season: {player.statistics[0].league.season ?? "N/A"}/
-          {player.statistics[0].league.season + 1 ?? "N/A"}
+          Season: {player.statistics[0]?.league?.season ?? "N/A"}/
+          {player.statistics[0]?.league?.season + 1 ?? "N/A"}
         </StyledListItem>
         <StyledListItem>
-          Appearances: {player?.statistics[0]?.games?.appearences ?? "N/A"}
+          Appearances: {player.statistics[0]?.games?.appearences ?? "N/A"}
         </StyledListItem>
 
-        {player.statistics[0].games.position === "Goalkeeper" && (
+        {player.statistics[0]?.games?.position === "Goalkeeper" && (
           <>
             <StyledListItem>
               Goals conceded: {player.statistics[0]?.goals?.conceded ?? "N/A"}
@@ -46,7 +46,7 @@ export default function PlayerDetails({ player }) {
           </>
         )}
 
-        {player.statistics[0].games.position === "Defender" && (
+        {player.statistics[0]?.games?.position === "Defender" && (
           <>
             <StyledListItem>
               Duels total: {player.statistics[0]?.duels?.total ?? "N/A"}
