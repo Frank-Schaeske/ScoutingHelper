@@ -37,10 +37,12 @@ export default function SearchForm({ setSearchedPlayer }) {
 
   function handleSeasonChange(event) {
     setSeason(event.target.value);
+    console.log(event.target.value);
   }
 
   function handleLeagueChange(event) {
     setLeague(event.target.value);
+    console.log(event.target.value);
   }
 
   return (
