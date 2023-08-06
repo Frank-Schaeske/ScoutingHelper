@@ -113,5 +113,5 @@ const StyledSection = styled.section`
 `;
 
 const StyledImage = styled(Image)`
-  margin: 15px 0px;
+  margin: 5px 0px;
 `;
