@@ -36,20 +36,14 @@ export default function AddPage({ searchedPlayer }) {
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
         <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
-        <Link href="/">
-          <StyledButton href="/">New Search</StyledButton>
-        </Link>
+        <Link href="/">New Search</Link>
       </StyledMain>
     );
   } else {
     return (
       <StyledMain>
-        <div>
-          <PlayerDetails player={searchedPlayer} />
-          <Link href="/">
-            <StyledButton>New Search</StyledButton>
-          </Link>
-        </div>
+        <PlayerDetails player={searchedPlayer} />
+        <Link href="/">New Search</Link>
       </StyledMain>
     );
   }
@@ -59,8 +53,4 @@ const StyledMain = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
-
-const StyledButton = styled.button`
-  margin: 10px 16%;
 `;

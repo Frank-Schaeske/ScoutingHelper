@@ -55,9 +55,7 @@ export default function EditPage() {
         buttonText="Update Comment"
         defaultData={player}
       />
-      <Link href={`/players/${id}`}>
-        <button>Cancel</button>
-      </Link>
+      <Link href={`/players/${id}`}>Cancel</Link>
     </StyledMain>
   );
 }

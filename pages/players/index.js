@@ -31,7 +31,7 @@ export default function PlayersPage() {
     );
   }
 
-  if (players.length !== 0) {
+  if (players.length !== 0 && filteredPlayers.length) {
     return (
       <>
         <StyledMain>
@@ -44,16 +44,31 @@ export default function PlayersPage() {
         <NavigationBar />
       </>
     );
+  } else if (players.length !== 0) {
+    return (
+      <>
+        <StyledMain>
+          <PositionRadioButtons
+            selectedPosition={selectedPosition}
+            setSelectedPosition={setSelectedPosition}
+          />
+          <StyledParagraph>
+            Currently there are no players saved for this position.
+          </StyledParagraph>
+        </StyledMain>
+        <NavigationBar />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <StyledMain>
+          <StyledParagraph>Currently no players are saved.</StyledParagraph>
+        </StyledMain>
+        <NavigationBar />
+      </>
+    );
   }
-
-  return (
-    <>
-      <StyledMain>
-        <StyledParagraph>Currently no players are saved.</StyledParagraph>
-      </StyledMain>
-      <NavigationBar />
-    </>
-  );
 }
 
 const StyledMain = styled.main`

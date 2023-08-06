@@ -32,13 +32,9 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <Link href={`/players/${id}/edit`}>
-        <button>Edit Comment</button>
-      </Link>
+      <Link href={`/players/${id}/edit`}>Edit Comment</Link>
       <button onClick={handleDelete}>Delete Player</button>
-      <Link href={`/players`}>
-        <button>Back</button>
-      </Link>
+      <Link href={`/players`}>Back</Link>
     </StyledMain>
   );
 }
