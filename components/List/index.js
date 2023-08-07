@@ -45,7 +45,7 @@ export default function List({ players }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 130px auto;
+  margin: 120px auto;
   padding: 0;
   display: flex;
   flex-direction: column;

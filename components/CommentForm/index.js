@@ -17,7 +17,7 @@ export default function CommentForm({ handleSubmit, defaultData }) {
         defaultValue={defaultData?.comment}
       ></textarea>
       <StyledButton type="submit">
-        <ButtonText>Save Player</ButtonText>
+        <ButtonText>Save</ButtonText>
       </StyledButton>
     </StyledForm>
   );

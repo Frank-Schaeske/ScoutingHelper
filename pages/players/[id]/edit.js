@@ -50,11 +50,7 @@ export default function EditPage() {
     <StyledMain>
       {" "}
       <PlayerDetails player={player} />
-      <CommentForm
-        handleSubmit={handleEdit}
-        buttonText="Update Comment"
-        defaultData={player}
-      />
+      <CommentForm handleSubmit={handleEdit} defaultData={player} />
       <Link href={`/players/${id}`}>Cancel</Link>
     </StyledMain>
   );
