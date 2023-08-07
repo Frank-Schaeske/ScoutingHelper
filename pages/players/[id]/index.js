@@ -19,7 +19,7 @@ export default function PlayerPage() {
   } = useSWR(`/api/players/${id}`, fetcher);
 
   if (!isReady || isLoading || error)
-    return <StyledHeadline>Loading...</StyledHeadline>;
+    return <StyledParagraph>Loading...</StyledParagraph>;
 
   async function handleDelete() {
     await fetch(`/api/players/${id}`, {
@@ -32,13 +32,9 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <Link href={`/players/${id}/edit`}>
-        <button>Edit Comment</button>
-      </Link>
+      <Link href={`/players/${id}/edit`}>Edit Comment</Link>
       <button onClick={handleDelete}>Delete Player</button>
-      <Link href={`/players`}>
-        <button>Back</button>
-      </Link>
+      <Link href={`/players`}>Back</Link>
     </StyledMain>
   );
 }
@@ -50,6 +46,6 @@ const StyledMain = styled.main`
   gap: 10px;
 `;
 
-const StyledHeadline = styled.h2`
-margin: 100px auto;
+const StyledParagraph = styled.p`
+  margin: 150px 16%;
 `;

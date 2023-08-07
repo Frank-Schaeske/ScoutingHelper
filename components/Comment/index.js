@@ -5,7 +5,7 @@ export default function Comment({ player }) {
     <>
       <StyledParagraph>Comment:</StyledParagraph>
       <StyledSection>
-        <p>{player.comment}</p>
+        <StyledComment>{player.comment}</StyledComment>
       </StyledSection>
     </>
   );
@@ -23,4 +23,16 @@ const StyledSection = styled.section`
 
 const StyledParagraph = styled.p`
   margin: 0;
+`;
+
+const StyledComment = styled.p`
+  width: 260px;
+  height: 80px;
+  margin: 10px 0;
+  word-wrap: break-word;
+
+  &::before {
+    content: "\";
+    white-space: pre;
+  }
 `;

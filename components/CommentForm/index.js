@@ -12,6 +12,7 @@ export default function CommentForm({ handleSubmit, buttonText, defaultData }) {
         name="comment"
         id="comment"
         rows="5"
+        maxLength="65"
         defaultValue={defaultData?.comment}
       ></textarea>
       <button type="submit">{buttonText}</button>

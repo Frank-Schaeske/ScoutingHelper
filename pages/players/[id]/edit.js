@@ -18,10 +18,11 @@ export default function EditPage() {
     mutate,
   } = useSWR(`/api/players/${id}`, fetcher);
 
-  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  if (!isReady || isLoading || error)
+    return <StyledParagraph>Loading...</StyledParagraph>;
 
   if (!player) {
-    return <div>Player not found</div>;
+    return <StyledParagraph>Player not found</StyledParagraph>;
   }
 
   async function handleEdit(event) {
@@ -54,9 +55,7 @@ export default function EditPage() {
         buttonText="Update Comment"
         defaultData={player}
       />
-      <Link href={`/players/${id}`}>
-        <button>Cancel</button>
-      </Link>
+      <Link href={`/players/${id}`}>Cancel</Link>
     </StyledMain>
   );
 }
@@ -65,4 +64,8 @@ const StyledMain = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 150px 16%;
 `;

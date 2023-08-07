@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { germanTeams } from "../../lib/db";
+import { useState } from "react";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
+  const [season, setSeason] = useState("2022");
+  const [league, setLeague] = useState("bundesliga");
 
   async function addPlayer(player) {
     const response = await fetch("/api/player", {
@@ -22,47 +26,50 @@ export default function SearchForm({ setSearchedPlayer }) {
     }
   }
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     addPlayer(data);
-  };
+  }
+
+  function handleSeasonChange(event) {
+    setSeason(event.target.value);
+  }
+
+  function handleLeagueChange(event) {
+    setLeague(event.target.value);
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="search">Player last name</label>
-      <input type="text" name="search" id="search" minLength="4" />
-      <label htmlFor="team">Team</label>
-      <select name="team" id="team">
-        <option value="167">1899 Hoffenheim</option>
-        <option value="188">Arminia Bielefeld</option>
-        <option value="168">Bayer Leverkusen</option>
-        <option value="157">Bayern Munich</option>
-        <option value="165">Borussia Dortmund</option>
-        <option value="163">Borussia Monchengladbach</option>
-        <option value="169">Eintracht Frankfurt</option>
-        <option value="170">FC Augsburg</option>
-        <option value="192">FC Koln</option>
-        <option value="174">FC Schalke 04</option>
-        <option value="164">FSV Mainz 05</option>
-        <option value="159">Hertha Berlin</option>
-        <option value="173">RB Leipzig</option>
-        <option value="160">SC Freiburg</option>
-        <option value="178">SpVgg Greuther Furth</option>
-        <option value="182">Union Berlin</option>
-        <option value="172">VfB Stuttgart</option>
-        <option value="176">VfL BOCHUM</option>
-        <option value="161">VfL Wolfsburg</option>
-        <option value="162">Werder Bremen</option>
-      </select>
       <label htmlFor="season">Season</label>
-      <select name="season" id="season">
+      <select name="season" id="season" onChange={handleSeasonChange}>
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
+        <option value="2020">2020/21</option>
       </select>
+      <label htmlFor="league">League</label>
+      <select name="league" id="league" onChange={handleLeagueChange}>
+        <option value="bundesliga">Bundesliga</option>
+        <option value="bundesliga2">2. Bundesliga</option>
+      </select>
+      <label htmlFor="team">Team</label>
+      <select name="team" id="team">
+        {germanTeams
+          .filter((germanTeam) => {
+            return germanTeam[season] === league;
+          })
+          .map((germanTeam) => (
+            <option key={germanTeam.teamID} value={germanTeam.teamID}>
+              {germanTeam.name}
+            </option>
+          ))}
+      </select>
+      <label htmlFor="search">Player last name</label>
+      <input type="text" name="search" id="search" minLength="4" />
       <button type="submit">Search Player</button>
     </StyledForm>
   );
