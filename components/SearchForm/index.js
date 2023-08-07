@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { germanTeams } from "../../lib/db";
 import { useState } from "react";
+import { StyledButton, ButtonText } from "../Button";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
@@ -70,7 +71,11 @@ export default function SearchForm({ setSearchedPlayer }) {
       </select>
       <label htmlFor="search">Player last name</label>
       <input type="text" name="search" id="search" minLength="4" />
-      <button type="submit">Search Player</button>
+      <StyledContainer>
+        <StyledButton>
+          <ButtonText>Search Player</ButtonText>
+        </StyledButton>
+      </StyledContainer>
     </StyledForm>
   );
 }
@@ -80,6 +85,11 @@ const StyledForm = styled.form`
   flex-direction: column;
   justify-content: space-between;
   width: 250px;
-  height: 200px;
+  height: 250px;
   margin: 100px;
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
