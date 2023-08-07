@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { germanTeams } from "../../lib/db";
 import { useState } from "react";
-import { StyledButton, ButtonText } from "../Button";
+import { StyledButton, ButtonText } from "../StyledButton";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();

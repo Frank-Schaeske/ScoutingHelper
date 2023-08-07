@@ -5,7 +5,8 @@ import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
-import { StyledButton, ButtonText } from "../../../components/Button";
+import { StyledButton, ButtonText } from "../../../components/StyledButton";
+import { StyledLink, LinkText } from "../../../components/StyledLink";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -39,16 +40,18 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <Link href={`/players/${id}/edit`}>Edit Comment</Link>
-      <StyledButton
-        onClick={() => {
-          setShowModal(true);
-          setShowOverlay(true);
-        }}
-      >
-        <ButtonText>Delete Player</ButtonText>
-      </StyledButton>
-      <Link href={`/players`}>Back</Link>
+      <StyledLink href={`/players/${id}/edit`}>Edit Comment</StyledLink>
+      <Wrapper>
+        <StyledLink href={`/players`}>Back</StyledLink>
+        <StyledButton
+          onClick={() => {
+            setShowModal(true);
+            setShowOverlay(true);
+          }}
+        >
+          <ButtonText>Delete Player</ButtonText>
+        </StyledButton>
+      </Wrapper>
 
       {showOverlay && <StyledOverlay />}
 
@@ -120,4 +123,12 @@ const ButtonContainer = styled.div`
   button {
     margin-top: 10px;
   }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  gap: 45px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 5px;
 `;

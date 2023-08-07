@@ -1,6 +1,7 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledLink = styled(Link)`
   --color: var(--primary-color);
   --background-color: #ffffff;
 
@@ -12,7 +13,7 @@ export const StyledButton = styled.button`
   height: 2.5em;
   line-height: 3em;
   overflow: hidden;
-  margin: 20px auto;
+  margin: 0 auto;
   font-size: 17px;
   z-index: 1;
   color: var(--color);
@@ -20,6 +21,7 @@ export const StyledButton = styled.button`
   border: 2px solid var(--color);
   border-radius: 20px;
   position: relative;
+  text-decoration: none;
 
   &:before {
     position: absolute;
@@ -47,7 +49,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const ButtonText = styled.span`
+export const LinkText = styled.span`
   position: relative;
   z-index: 2;
 `;

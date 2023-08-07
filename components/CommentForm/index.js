@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { StyledButton, ButtonText } from "../Button";
-import Link from "next/link";
+import { StyledButton, ButtonText } from "../StyledButton";
+import { StyledLink, LinkText } from "../StyledLink";
 
-export default function CommentForm({ handleSubmit, defaultData }) {
+export default function CommentForm({
+  handleSubmit,
+  defaultData,
+  buttonText,
+  linkText,
+}) {
   const router = useRouter();
 
   return (
@@ -18,12 +23,12 @@ export default function CommentForm({ handleSubmit, defaultData }) {
         defaultValue={defaultData?.comment}
       ></StyledTextarea>
       <Wrapper>
-        <StyledButton type="submit">
-          <ButtonText>Save</ButtonText>
-        </StyledButton>
         <StyledLink href="/">
-          <LinkText>New Search</LinkText>
+          <LinkText>{linkText}</LinkText>
         </StyledLink>
+        <StyledButton type="submit">
+          <ButtonText>{buttonText}</ButtonText>
+        </StyledButton>
       </Wrapper>
     </StyledForm>
   );
@@ -55,59 +60,6 @@ const StyledTextarea = styled.textarea`
 
 const StyledLabel = styled.label`
   margin: 5px;
-`;
-
-const StyledLink = styled(Link)`
-  --color: var(--primary-color);
-  --background-color: #ffffff;
-
-  font-family: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 8em;
-  height: 2.5em;
-  line-height: 3em;
-  overflow: hidden;
-  margin: 20px auto;
-  font-size: 17px;
-  z-index: 1;
-  color: var(--color);
-  background-color: var(--background-color);
-  border: 2px solid var(--color);
-  border-radius: 20px;
-  position: relative;
-  text-decoration: none;
-
-  &:before {
-    position: absolute;
-    content: "";
-    background: var(--color);
-    width: 200px;
-    height: 200px;
-    z-index: -1;
-    border-radius: 50%;
-  }
-
-  &:hover {
-    color: white;
-  }
-
-  &:before {
-    top: 100%;
-    left: 100%;
-    transition: 0.3s all;
-  }
-
-  &:hover::before {
-    top: -30px;
-    left: -30px;
-  }
-`;
-
-const LinkText = styled.span`
-  position: relative;
-  z-index: 2;
 `;
 
 const Wrapper = styled.div`
