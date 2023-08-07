@@ -11,6 +11,9 @@ export default function PlayerDetails({ player }) {
             {player.statistics[0].team.name ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
+            Age: {player.player.age ?? "N/A"}
+          </StyledListItem>
+          <StyledListItem>
             Nationality: {player.player.nationality ?? "N/A"}
           </StyledListItem>
           <StyledListItem>
@@ -85,7 +88,7 @@ const StyledContainer = styled.div`
   justify-content: center
 
   width: 320px;
-  height: 250px;
+  height: 280px;
   padding: 0px 20px;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
