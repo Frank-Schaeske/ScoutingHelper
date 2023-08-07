@@ -3,9 +3,21 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function List({ players }) {
-    return (
-      <StyledList>
-        {players.map((player) => {
+  return (
+    <StyledList>
+      {players
+        .sort((a, b) => {
+          const nameA = a.player.lastname.toLowerCase();
+          const nameB = b.player.lastname.toLowerCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        })
+        .map((player) => {
           return (
             <Link href={`/players/${player._id}`} key={player._id}>
               <StyledListItem>
@@ -27,9 +39,9 @@ export default function List({ players }) {
             </Link>
           );
         })}
-      </StyledList>
-    );
-  }
+    </StyledList>
+  );
+}
 
 const StyledList = styled.ul`
   list-style-type: none;
