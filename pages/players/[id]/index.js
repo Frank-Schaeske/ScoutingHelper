@@ -59,9 +59,6 @@ export default function PlayerPage() {
         <StyledModal>
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
-            <StyledButton onClick={handleDelete}>
-              <ButtonText>Delete</ButtonText>
-            </StyledButton>
             <StyledButton
               onClick={() => {
                 setShowModal(false);
@@ -69,6 +66,9 @@ export default function PlayerPage() {
               }}
             >
               <ButtonText>Cancel</ButtonText>
+            </StyledButton>
+            <StyledButton onClick={handleDelete}>
+              <ButtonText>Delete</ButtonText>
             </StyledButton>
           </ButtonContainer>
         </StyledModal>

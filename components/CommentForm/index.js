@@ -8,6 +8,7 @@ export default function CommentForm({
   defaultData,
   buttonText,
   linkText,
+  linkTarget,
 }) {
   const router = useRouter();
 
@@ -23,7 +24,7 @@ export default function CommentForm({
         defaultValue={defaultData?.comment}
       ></StyledTextarea>
       <Wrapper>
-        <StyledLink href="/">
+        <StyledLink href={linkTarget}>
           <LinkText>{linkText}</LinkText>
         </StyledLink>
         <StyledButton type="submit">
