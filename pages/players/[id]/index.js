@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
+import { StyledButton, ButtonText } from "../../../components/Button";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -39,14 +40,14 @@ export default function PlayerPage() {
       <PlayerDetails player={player} />
       <Comment player={player} />
       <Link href={`/players/${id}/edit`}>Edit Comment</Link>
-      <button
+      <StyledButton
         onClick={() => {
           setShowModal(true);
           setShowOverlay(true);
         }}
       >
-        Delete Player
-      </button>
+        <ButtonText>Delete Player</ButtonText>
+      </StyledButton>
       <Link href={`/players`}>Back</Link>
 
       {showOverlay && <StyledOverlay />}
@@ -55,15 +56,17 @@ export default function PlayerPage() {
         <StyledModal>
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
-            <button onClick={handleDelete}>Delete</button>
-            <button
+            <StyledButton onClick={handleDelete}>
+              <ButtonText>Delete</ButtonText>
+            </StyledButton>
+            <StyledButton
               onClick={() => {
                 setShowModal(false);
                 setShowOverlay(false);
               }}
             >
-              Cancel
-            </button>
+              <ButtonText>Cancel</ButtonText>
+            </StyledButton>
           </ButtonContainer>
         </StyledModal>
       )}
@@ -112,7 +115,7 @@ const StyledOverlay = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 60px;
+  gap: 10px;
 
   button {
     margin-top: 10px;

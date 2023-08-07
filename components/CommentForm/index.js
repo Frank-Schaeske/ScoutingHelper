@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { StyledButton, ButtonText } from "../Button";
 
-export default function CommentForm({ handleSubmit, buttonText, defaultData }) {
+export default function CommentForm({ handleSubmit, defaultData }) {
   const router = useRouter();
 
   return (
@@ -15,7 +16,9 @@ export default function CommentForm({ handleSubmit, buttonText, defaultData }) {
         maxLength="65"
         defaultValue={defaultData?.comment}
       ></textarea>
-      <button type="submit">{buttonText}</button>
+      <StyledButton type="submit">
+        <ButtonText>Save Player</ButtonText>
+      </StyledButton>
     </StyledForm>
   );
 }

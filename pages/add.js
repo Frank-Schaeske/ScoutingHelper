@@ -35,7 +35,7 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <CommentForm handleSubmit={handleSubmit} buttonText="Save Player" />
+        <CommentForm handleSubmit={handleSubmit} />
         <Link href="/">New Search</Link>
       </StyledMain>
     );
