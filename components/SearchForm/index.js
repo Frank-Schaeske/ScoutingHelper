@@ -47,18 +47,18 @@ export default function SearchForm({ setSearchedPlayer }) {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="season">Season</label>
-      <select name="season" id="season" onChange={handleSeasonChange}>
+      <StyledSelect name="season" id="season" onChange={handleSeasonChange}>
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
         <option value="2020">2020/21</option>
-      </select>
+      </StyledSelect>
       <label htmlFor="league">League</label>
-      <select name="league" id="league" onChange={handleLeagueChange}>
+      <StyledSelect name="league" id="league" onChange={handleLeagueChange}>
         <option value="bundesliga">Bundesliga</option>
         <option value="bundesliga2">2. Bundesliga</option>
-      </select>
+      </StyledSelect>
       <label htmlFor="team">Team</label>
-      <select name="team" id="team">
+      <StyledSelect name="team" id="team">
         {germanTeams
           .filter((germanTeam) => {
             return germanTeam[season] === league;
@@ -68,9 +68,9 @@ export default function SearchForm({ setSearchedPlayer }) {
               {germanTeam.name}
             </option>
           ))}
-      </select>
+      </StyledSelect>
       <label htmlFor="search">Player last name</label>
-      <input type="text" name="search" id="search" minLength="4" />
+      <StyledInput type="text" name="search" id="search" minLength="4" />
       <StyledContainer>
         <StyledButton>
           <ButtonText>Search Player</ButtonText>
@@ -92,4 +92,24 @@ const StyledForm = styled.form`
 const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const StyledSelect = styled.select`
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 200px;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  margin-top: 5px;
+  margin-bottom: 50px;
+  width: 200px;
 `;
