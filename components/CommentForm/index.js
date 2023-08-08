@@ -47,7 +47,7 @@ const StyledForm = styled.form`
 const StyledTextarea = styled.textarea`
   width: 320px;
   height: 100px;
-  padding: 0px 35px;
+  padding: 5px 35px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
