@@ -52,6 +52,8 @@ const StyledTextarea = styled.textarea`
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  font-family: arial;
+  font-size: 16px;
 
   &:focus {
     border-color: var(--primary-color);

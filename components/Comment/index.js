@@ -14,7 +14,7 @@ export default function Comment({ player }) {
 const StyledSection = styled.section`
   width: 320px;
   height: 100px;
-  padding: 0px 35px;
+  padding: 5px 35px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
@@ -22,7 +22,7 @@ const StyledSection = styled.section`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 0;
+  margin: 5px;
 `;
 
 const StyledComment = styled.p`
