@@ -55,7 +55,7 @@ export default function EditPage() {
         defaultData={player}
         buttonText="Save Comment"
         linkText="Back"
-        linkTarget="/players"
+        linkTarget={`/players/${id}`}
       />
     </StyledMain>
   );
