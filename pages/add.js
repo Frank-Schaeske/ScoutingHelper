@@ -22,18 +22,6 @@ export default function AddPage({ searchedPlayer }) {
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
 
-  if (
-    players.some(
-      (player) =>
-        player.player.name === searchedPlayer.player.name &&
-        player.statistics[0].league.season === searchedPlayer.statistics[0].league.season
-    )
-  ) {
-    console.log("duplicate");
-  } else {
-    console.log("no duplicate");
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -56,7 +44,29 @@ export default function AddPage({ searchedPlayer }) {
     router.push("/players");
   }
 
-  if (searchedPlayer) {
+  if (
+    searchedPlayer &&
+    players.some(
+      (player) =>
+        player.player.name === searchedPlayer.player.name &&
+        player.statistics[0].league.season ===
+          searchedPlayer.statistics[0].league.season
+    )
+  ) {
+    return (
+      <StyledMain>
+        <PlayerDetails player={searchedPlayer} />
+        <p>duplicate</p>
+        <CommentForm
+          handleSubmit={handleSubmit}
+          buttonText="Save Player"
+          linkText="New Search"
+          linkTarget="/"
+        />
+      </StyledMain>
+    );
+  } else if (searchedPlayer) {
+    console.log("searched Player:", searchedPlayer);
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
