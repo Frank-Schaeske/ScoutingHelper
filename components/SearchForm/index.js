@@ -127,5 +127,5 @@ const StyledInput = styled.input`
 `;
 
 const StyledLabel = styled.label`
-  padding-left: 30px;
+  padding-left: 35px;
 `;
