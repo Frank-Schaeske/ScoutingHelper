@@ -2,19 +2,19 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function List({ players }) {
-  function comparePlayers(a, b) {
-    const nameA = a.player.lastname.toLowerCase();
-    const nameB = b.player.lastname.toLowerCase();
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
+function comparePlayers(a, b) {
+  const nameA = a.player.lastname.toLowerCase();
+  const nameB = b.player.lastname.toLowerCase();
+  if (nameA < nameB) {
+    return -1;
   }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+}
 
+export default function List({ players }) {
   return (
     <StyledList>
       {players.sort(comparePlayers).map((player) => {
