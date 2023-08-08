@@ -22,7 +22,17 @@ export default function AddPage({ searchedPlayer }) {
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
 
-  console.log(players);
+  if (
+    players.some(
+      (player) =>
+        player.player.name === searchedPlayer.player.name &&
+        player.statistics[0].league.season === searchedPlayer.statistics[0].league.season
+    )
+  ) {
+    console.log("duplicate");
+  } else {
+    console.log("no duplicate");
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
