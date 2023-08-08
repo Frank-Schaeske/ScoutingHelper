@@ -65,9 +65,7 @@ export default function SearchForm({ setSearchedPlayer }) {
         <StyledLabel htmlFor="team">Team:</StyledLabel>
         <StyledSelect name="team" id="team">
           {germanTeams
-            .filter((germanTeam) => {
-              return germanTeam[season] === league;
-            })
+            .filter((germanTeam) => germanTeam[season] === league)
             .map((germanTeam) => (
               <option key={germanTeam.teamID} value={germanTeam.teamID}>
                 {germanTeam.name}
