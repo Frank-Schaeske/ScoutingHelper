@@ -63,12 +63,6 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <CommentForm
-          handleSubmit={handleSubmit}
-          buttonText="Save Player"
-          linkText="New Search"
-          linkTarget="/"
-        />
         <StyledModal>
           <p>This player/season combination is already saved.</p>
           <LinkContainer>
@@ -82,7 +76,6 @@ export default function AddPage({ searchedPlayer }) {
       </StyledMain>
     );
   } else if (searchedPlayer) {
-    console.log("searched Player:", searchedPlayer);
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
@@ -116,7 +109,7 @@ const StyledParagraph = styled.p`
 
 const StyledModal = styled.div`
   position: fixed;
-  top: 50%;
+  top: 70%;
   left: 50%;
   width: 300px;
   border-radius: 20px;
