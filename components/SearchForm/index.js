@@ -46,31 +46,39 @@ export default function SearchForm({ setSearchedPlayer }) {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledLabel htmlFor="season">Season</StyledLabel>
-      <StyledSelect name="season" id="season" onChange={handleSeasonChange}>
-        <option value="2022">2022/23</option>
-        <option value="2021">2021/22</option>
-        <option value="2020">2020/21</option>
-      </StyledSelect>
-      <StyledLabel htmlFor="league">League</StyledLabel>
-      <StyledSelect name="league" id="league" onChange={handleLeagueChange}>
-        <option value="bundesliga">Bundesliga</option>
-        <option value="bundesliga2">2. Bundesliga</option>
-      </StyledSelect>
-      <StyledLabel htmlFor="team">Team</StyledLabel>
-      <StyledSelect name="team" id="team">
-        {germanTeams
-          .filter((germanTeam) => {
-            return germanTeam[season] === league;
-          })
-          .map((germanTeam) => (
-            <option key={germanTeam.teamID} value={germanTeam.teamID}>
-              {germanTeam.name}
-            </option>
-          ))}
-      </StyledSelect>
-      <StyledLabel htmlFor="search">Player last name</StyledLabel>
-      <StyledInput type="text" name="search" id="search" minLength="4" />
+      <div>
+        <StyledLabel htmlFor="season">Season:</StyledLabel>
+        <StyledSelect name="season" id="season" onChange={handleSeasonChange}>
+          <option value="2022">2022/23</option>
+          <option value="2021">2021/22</option>
+          <option value="2020">2020/21</option>
+        </StyledSelect>
+      </div>
+      <div>
+        <StyledLabel htmlFor="league">League:</StyledLabel>
+        <StyledSelect name="league" id="league" onChange={handleLeagueChange}>
+          <option value="bundesliga">Bundesliga</option>
+          <option value="bundesliga2">2. Bundesliga</option>
+        </StyledSelect>
+      </div>
+      <div>
+        <StyledLabel htmlFor="team">Team:</StyledLabel>
+        <StyledSelect name="team" id="team">
+          {germanTeams
+            .filter((germanTeam) => {
+              return germanTeam[season] === league;
+            })
+            .map((germanTeam) => (
+              <option key={germanTeam.teamID} value={germanTeam.teamID}>
+                {germanTeam.name}
+              </option>
+            ))}
+        </StyledSelect>
+      </div>
+      <div>
+        <StyledLabel htmlFor="search">Player last name:</StyledLabel>
+        <StyledInput type="text" name="search" id="search" minLength="4" />
+      </div>
       <StyledContainer>
         <StyledButton>
           <ButtonText>Search Player</ButtonText>
@@ -83,6 +91,7 @@ export default function SearchForm({ setSearchedPlayer }) {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   width: 250px;
   height: 250px;
@@ -100,9 +109,10 @@ const StyledSelect = styled.select`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   padding-left: 10px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin: 5px 20px 20px;
   width: 200px;
+  font-family: system-ui;
+  font-size: 16px;
 `;
 
 const StyledInput = styled.input`
@@ -111,11 +121,13 @@ const StyledInput = styled.input`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   padding-left: 10px;
-  margin-top: 5px;
-  margin-bottom: 50px;
+  margin: 5px 20px 50px;
   width: 200px;
+  height: 22px;
+  font-family: system-ui;
+  font-size: 16px;
 `;
 
 const StyledLabel = styled.label`
-  padding-left: 10px;
+  padding-left: 30px;
 `;
