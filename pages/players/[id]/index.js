@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import PlayerDetails from "../../../components/PlayerDetails";
 import Comment from "../../../components/Comment";
-import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
@@ -42,7 +41,7 @@ export default function PlayerPage() {
       <Comment player={player} />
       <StyledLink href={`/players/${id}/edit`}>Edit Comment</StyledLink>
       <Wrapper>
-        <StyledLink href={`/players`}>Back</StyledLink>
+        <StyledLink href={`/players`}>Back to List</StyledLink>
         <StyledButton
           onClick={() => {
             setShowModal(true);

@@ -1,5 +1,4 @@
 import PlayerDetails from "../components/PlayerDetails";
-import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
@@ -99,7 +98,7 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <Link href="/">New Search</Link>
+        <StyledLink href="/">New Search</StyledLink>
       </StyledMain>
     );
   }

@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 
