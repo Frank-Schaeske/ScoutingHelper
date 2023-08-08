@@ -82,7 +82,7 @@ export default function PlayerDetails({ player }) {
 }
 
 const StyledContainer = styled.div`
-  margin: 100px 0 20px;
+  margin: 80px 0 20px;
   display: flex;
   align-items: flex-start;
   justify-content: center

@@ -2,38 +2,50 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function List({ players }) {
-    return (
-      <StyledList>
-        {players.map((player) => {
-          return (
-            <Link href={`/players/${player._id}`} key={player._id}>
-              <StyledListItem>
-                <ImageContainer>
-                  <Image
-                    src={player.statistics[0].team.logo}
-                    height={50}
-                    width={50}
-                    alt={player.player.name}
-                  />
-                </ImageContainer>
-                <TextContainer>
-                  {player.player.name}
-                  <br />
-                  Season: {player.statistics[0].league.season}/
-                  {player.statistics[0].league.season + 1}
-                </TextContainer>
-              </StyledListItem>
-            </Link>
-          );
-        })}
-      </StyledList>
-    );
+function comparePlayers(a, b) {
+  const nameA = a.player.lastname.toLowerCase();
+  const nameB = b.player.lastname.toLowerCase();
+  if (nameA < nameB) {
+    return -1;
   }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+}
+
+export default function List({ players }) {
+  return (
+    <StyledList>
+      {players.sort(comparePlayers).map((player) => {
+        return (
+          <Link href={`/players/${player._id}`} key={player._id}>
+            <StyledListItem>
+              <ImageContainer>
+                <Image
+                  src={player.statistics[0].team.logo}
+                  height={50}
+                  width={50}
+                  alt={player.player.name}
+                />
+              </ImageContainer>
+              <TextContainer>
+                {player.player.name}
+                <br />
+                Season: {player.statistics[0].league.season}/
+                {player.statistics[0].league.season + 1}
+              </TextContainer>
+            </StyledListItem>
+          </Link>
+        );
+      })}
+    </StyledList>
+  );
+}
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 130px auto;
+  margin: 120px auto;
   padding: 0;
   display: flex;
   flex-direction: column;

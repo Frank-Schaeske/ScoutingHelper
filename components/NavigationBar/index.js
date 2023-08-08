@@ -32,7 +32,7 @@ const StyledSearchContainer = styled.div`
   border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
-  height: 80px;
+  height: 60px;
   width: 50%;
   position: fixed;
   bottom: 0;
@@ -50,7 +50,7 @@ const StyledListContainer = styled.div`
   border-color: var(--primary-color);
   border-width: 2px 1px 2px 2px;
   color: lightgrey;
-  height: 80px;
+  height: 60px;
   width: 50%;
   position: fixed;
   bottom: 0;

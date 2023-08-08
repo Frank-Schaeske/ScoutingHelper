@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 
@@ -52,10 +51,11 @@ export default function EditPage() {
       <PlayerDetails player={player} />
       <CommentForm
         handleSubmit={handleEdit}
-        buttonText="Update Comment"
         defaultData={player}
+        buttonText="Save Comment"
+        linkText="Back"
+        linkTarget={`/players/${id}`}
       />
-      <Link href={`/players/${id}`}>Cancel</Link>
     </StyledMain>
   );
 }

@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
 import PlayerDetails from "../../../components/PlayerDetails";
 import Comment from "../../../components/Comment";
-import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
+import { StyledButton, ButtonText } from "../../../components/StyledButton";
+import { StyledLink, LinkText } from "../../../components/StyledLink";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -38,16 +39,18 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <Link href={`/players/${id}/edit`}>Edit Comment</Link>
-      <button
-        onClick={() => {
-          setShowModal(true);
-          setShowOverlay(true);
-        }}
-      >
-        Delete Player
-      </button>
-      <Link href={`/players`}>Back</Link>
+      <StyledLink href={`/players/${id}/edit`}>Edit Comment</StyledLink>
+      <Wrapper>
+        <StyledLink href={`/players`}>Back to List</StyledLink>
+        <StyledButton
+          onClick={() => {
+            setShowModal(true);
+            setShowOverlay(true);
+          }}
+        >
+          <ButtonText>Delete Player</ButtonText>
+        </StyledButton>
+      </Wrapper>
 
       {showOverlay && <StyledOverlay />}
 
@@ -55,15 +58,17 @@ export default function PlayerPage() {
         <StyledModal>
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
-            <button onClick={handleDelete}>Delete</button>
-            <button
+            <StyledButton
               onClick={() => {
                 setShowModal(false);
                 setShowOverlay(false);
               }}
             >
-              Cancel
-            </button>
+              <ButtonText>Cancel</ButtonText>
+            </StyledButton>
+            <StyledButton onClick={handleDelete}>
+              <ButtonText>Delete</ButtonText>
+            </StyledButton>
           </ButtonContainer>
         </StyledModal>
       )}
@@ -112,9 +117,17 @@ const StyledOverlay = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 60px;
+  gap: 10px;
 
   button {
     margin-top: 10px;
   }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  gap: 45px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 5px;
 `;

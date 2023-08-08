@@ -75,7 +75,7 @@ const MyButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 80px;
+  top: 60px;
   left: 0;
   right: 0;
   height: 45px;

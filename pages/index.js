@@ -1,5 +1,3 @@
-//import Heading from "../components/Heading";
-//import SubHeading from "../components/SubHeading";
 import SearchForm from "../components/SearchForm";
 import NavigationBar from "../components/NavigationBar";
 import styled from "styled-components";
