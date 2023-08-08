@@ -46,18 +46,18 @@ export default function SearchForm({ setSearchedPlayer }) {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="season">Season</label>
+      <StyledLabel htmlFor="season">Season</StyledLabel>
       <StyledSelect name="season" id="season" onChange={handleSeasonChange}>
         <option value="2022">2022/23</option>
         <option value="2021">2021/22</option>
         <option value="2020">2020/21</option>
       </StyledSelect>
-      <label htmlFor="league">League</label>
+      <StyledLabel htmlFor="league">League</StyledLabel>
       <StyledSelect name="league" id="league" onChange={handleLeagueChange}>
         <option value="bundesliga">Bundesliga</option>
         <option value="bundesliga2">2. Bundesliga</option>
       </StyledSelect>
-      <label htmlFor="team">Team</label>
+      <StyledLabel htmlFor="team">Team</StyledLabel>
       <StyledSelect name="team" id="team">
         {germanTeams
           .filter((germanTeam) => {
@@ -69,7 +69,7 @@ export default function SearchForm({ setSearchedPlayer }) {
             </option>
           ))}
       </StyledSelect>
-      <label htmlFor="search">Player last name</label>
+      <StyledLabel htmlFor="search">Player last name</StyledLabel>
       <StyledInput type="text" name="search" id="search" minLength="4" />
       <StyledContainer>
         <StyledButton>
@@ -99,6 +99,7 @@ const StyledSelect = styled.select`
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  padding-left: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
   width: 200px;
@@ -109,7 +110,12 @@ const StyledInput = styled.input`
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  padding-left: 10px;
   margin-top: 5px;
   margin-bottom: 50px;
   width: 200px;
+`;
+
+const StyledLabel = styled.label`
+  padding-left: 10px;
 `;
