@@ -47,7 +47,8 @@ const StyledForm = styled.form`
 const StyledTextarea = styled.textarea`
   width: 320px;
   height: 100px;
-  padding: 5px 35px;
+  padding: 7px 35px;
+  margin: 10px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
@@ -69,5 +70,4 @@ const Wrapper = styled.div`
   display: flex;
   gap: 45px;
   align-items: center;
-  margin-top: 10px;
 `;
