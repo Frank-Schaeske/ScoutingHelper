@@ -65,7 +65,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 210px 16%;
+  text-align: center;
 `;
 
 const StyledHeadline = styled.h2`

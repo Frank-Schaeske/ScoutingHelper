@@ -93,7 +93,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  text-align: center;
 `;
 
 const StyledModal = styled.div`
