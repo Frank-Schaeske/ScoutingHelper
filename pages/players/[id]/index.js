@@ -39,7 +39,14 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <StyledLink href={`/players/${id}/edit`}>Edit Comment</StyledLink>
+      <Wrapper>
+        <StyledLink href={`/players/${id}/edit`}>
+          <LinkText>Edit Comment</LinkText>
+        </StyledLink>
+        <StyledLink href={`/players/${id}/ranking`}>
+          <LinkText>Compare Player</LinkText>
+        </StyledLink>
+      </Wrapper>
       <Wrapper>
         <StyledLink href={`/players`}>Back to List</StyledLink>
         <StyledButton
