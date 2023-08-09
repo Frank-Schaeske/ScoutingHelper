@@ -32,21 +32,31 @@ export default function Ranking({ position }) {
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
 
+  let rankedPlayers = "";
+
   if (position === "Goalkeeper") {
-    console.log("GK");
+    rankedPlayers = players.filter(
+      (player) => player.statistics[0].games.position === "Goalkeeper"
+    );
   } else if (position === "Defender") {
-    console.log("DEF");
+    rankedPlayers = players.filter(
+      (player) => player.statistics[0].games.position === "Defender"
+    );
   } else if (position === "Midfielder") {
-    console.log("MF");
+    rankedPlayers = players.filter(
+      (player) => player.statistics[0].games.position === "Midfielder"
+    );
   } else {
-    console.log("AT");
+    rankedPlayers = players.filter(
+      (player) => player.statistics[0].games.position === "Attacker"
+    );
   }
 
   return (
     <StyledList>
-      {players.map((player) => {
+      {rankedPlayers.map((player) => {
         return (
-          <Link href={`/players/${player._id}`} key={player._id}>
+          <StyledLink href={`/players/${player._id}`} key={player._id}>
             <StyledListItem>
               <ImageContainer>
                 <Image
@@ -62,9 +72,33 @@ export default function Ranking({ position }) {
                 Season: {player.statistics[0].league.season}/
                 {player.statistics[0].league.season + 1}
                 <br />
+                {player.statistics[0].games.position === "Goalkeeper" && (
+                  <>
+                    Goals Conceded:{" "}
+                    {player.statistics[0].goals.conceded ?? "N/A"}
+                  </>
+                )}
+                {player?.statistics[0].games.position === "Defender" && (
+                  <>
+                    Duel Rate:{" "}
+                    {(
+                      (player.statistics[0].duels.won /
+                        player.statistics[0].duels.total) *
+                      100
+                    ).toFixed(0) + "%" ?? "N/A"}
+                  </>
+                )}
+                {player.statistics[0].games.position !== "Goalkeeper" &&
+                  player.statistics[0].games.position !== "Defender" && (
+                    <>
+                      Scorer Points:{" "}
+                      {player.statistics[0]?.goals.total +
+                        player.statistics[0]?.goals.assists ?? "N/A"}
+                    </>
+                  )}
               </TextContainer>
             </StyledListItem>
-          </Link>
+          </StyledLink>
         );
       })}
     </StyledList>
@@ -73,7 +107,7 @@ export default function Ranking({ position }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 120px auto;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -104,4 +138,8 @@ const TextContainer = styled.div`
 
 const StyledParagraph = styled.p`
   margin: 150px 16%;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

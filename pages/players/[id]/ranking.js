@@ -29,16 +29,16 @@ export default function RankingPage() {
   let subHeadline = "";
 
   if (position === "Goalkeeper") {
-    headline = "Ranking of saved Goalkeepers";
+    headline = "Ranking of Goalkeepers";
     subHeadline = "by Conceded Goals";
   } else if (position === "Defender") {
-    headline = "Ranking of saved Defenders";
+    headline = "Ranking of Defenders";
     subHeadline = "by Duel Rate";
   } else if (position === "Midfielder") {
-    headline = "Ranking of saved Midfielders";
+    headline = "Ranking of Midfielders";
     subHeadline = "by Scorer Points";
   } else {
-    headline = "Ranking of saved Attackers";
+    headline = "Ranking of Attackers";
     subHeadline = "by Scorer Points";
   }
 
