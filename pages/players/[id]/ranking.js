@@ -65,6 +65,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
+margin-top: 150px;
   text-align: center;
 `;
 

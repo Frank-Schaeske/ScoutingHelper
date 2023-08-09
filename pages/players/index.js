@@ -78,5 +78,6 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  margin: 150px;
+  text-align: center;
 `;
