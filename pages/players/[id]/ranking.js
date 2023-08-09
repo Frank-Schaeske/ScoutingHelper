@@ -23,12 +23,30 @@ export default function EditPage() {
     return <StyledParagraph>Player not found</StyledParagraph>;
   }
 
-  console.log(player);
+  let headline = "";
+  let subHeadline = "";
+
+  if (player.statistics[0].games.position === "Goalkeeper") {
+    headline = "Ranking of saved Goalkeepers";
+    subHeadline = "by Conceded Goals";
+  } else if (player.statistics[0].games.position === "Defender") {
+    headline = "Ranking of saved Defenders";
+    subHeadline = "by Duel Rate";
+  } else if (player.statistics[0].games.position === "Midfielder") {
+    headline = "Ranking of saved Midfielders";
+    subHeadline = "(by Scorer Points)";
+  } else {
+    headline = "Ranking of saved Attackers";
+    subHeadline = "(by Scorer Points)";
+  }
 
   return (
     <StyledMain>
-      <StyledHeadline>Description</StyledHeadline>
-      <StyledLink href={`/players/${id}`}>Back</StyledLink>
+      <StyledHeadline>{headline}</StyledHeadline>
+      <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
+      <StyledLink href={`/players/${id}`}>
+        <LinkText>Back</LinkText>
+      </StyledLink>
     </StyledMain>
   );
 }
@@ -39,6 +57,14 @@ const StyledMain = styled.main`
   flex-direction: column;
 `;
 
+const StyledParagraph = styled.p`
+  margin: 150px 16%;
+`;
+
 const StyledHeadline = styled.h2`
-  margin: 80px 16%;
+  margin: 80px 5% 0;
+`;
+
+const StyledSubHeadline = styled.h3`
+  margin: 0 16%;
 `;
