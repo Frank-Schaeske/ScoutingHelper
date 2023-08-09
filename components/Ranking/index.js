@@ -4,18 +4,6 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
-function comparePlayers(a, b) {
-  const nameA = a.player.lastname.toLowerCase();
-  const nameB = b.player.lastname.toLowerCase();
-  if (nameA < nameB) {
-    return -1;
-  }
-  if (nameA > nameB) {
-    return 1;
-  }
-  return 0;
-}
-
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Ranking({ position }) {
@@ -35,21 +23,38 @@ export default function Ranking({ position }) {
   let rankedPlayers = "";
 
   if (position === "Goalkeeper") {
-    rankedPlayers = players.filter(
-      (player) => player.statistics[0].games.position === "Goalkeeper"
-    );
+    rankedPlayers = players
+      .filter((player) => player.statistics[0].games.position === "Goalkeeper")
+      .sort(
+        (a, b) =>
+          a.statistics[0].goals.conceded - b.statistics[0].goals.conceded
+      );
   } else if (position === "Defender") {
-    rankedPlayers = players.filter(
-      (player) => player.statistics[0].games.position === "Defender"
-    );
+    rankedPlayers = players
+      .filter((player) => player.statistics[0].games.position === "Defender")
+      .sort(
+        (a, b) =>
+          b.statistics[0].duels.won / b.statistics[0].duels.total -
+          a.statistics[0].duels.won / a.statistics[0].duels.total
+      );
   } else if (position === "Midfielder") {
-    rankedPlayers = players.filter(
-      (player) => player.statistics[0].games.position === "Midfielder"
-    );
+    rankedPlayers = players
+      .filter((player) => player.statistics[0].games.position === "Midfielder")
+      .sort(
+        (a, b) =>
+          b.statistics[0]?.goals.total +
+          b.statistics[0]?.goals.assists -
+          (a.statistics[0]?.goals.total + a.statistics[0]?.goals.assists)
+      );
   } else {
-    rankedPlayers = players.filter(
-      (player) => player.statistics[0].games.position === "Attacker"
-    );
+    rankedPlayers = players
+      .filter((player) => player.statistics[0].games.position === "Attacker")
+      .sort(
+        (a, b) =>
+          b.statistics[0]?.goals.total +
+          b.statistics[0]?.goals.assists -
+          (a.statistics[0]?.goals.total + a.statistics[0]?.goals.assists)
+      );
   }
 
   return (
@@ -74,13 +79,13 @@ export default function Ranking({ position }) {
                 <br />
                 {player.statistics[0].games.position === "Goalkeeper" && (
                   <>
-                    Goals Conceded:{" "}
+                    Goals conceded:{" "}
                     {player.statistics[0].goals.conceded ?? "N/A"}
                   </>
                 )}
                 {player?.statistics[0].games.position === "Defender" && (
                   <>
-                    Duel Rate:{" "}
+                    Duel rate:{" "}
                     {(
                       (player.statistics[0].duels.won /
                         player.statistics[0].duels.total) *
@@ -91,7 +96,7 @@ export default function Ranking({ position }) {
                 {player.statistics[0].games.position !== "Goalkeeper" &&
                   player.statistics[0].games.position !== "Defender" && (
                     <>
-                      Scorer Points:{" "}
+                      Scorer points:{" "}
                       {player.statistics[0]?.goals.total +
                         player.statistics[0]?.goals.assists ?? "N/A"}
                     </>
@@ -107,7 +112,7 @@ export default function Ranking({ position }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin: 0;
+  margin: 130px 0;
   padding: 0;
   display: flex;
   flex-direction: column;

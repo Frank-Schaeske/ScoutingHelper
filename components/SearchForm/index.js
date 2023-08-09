@@ -108,7 +108,7 @@ const StyledSelect = styled.select`
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   padding-left: 10px;
   margin: 5px 20px 20px;
-  width: 200px;
+  width: 210px;
   font-family: system-ui;
   font-size: 16px;
 `;
@@ -120,7 +120,7 @@ const StyledInput = styled.input`
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   padding-left: 10px;
   margin: 5px 20px 50px;
-  width: 200px;
+  width: 210px;
   height: 22px;
   font-family: system-ui;
   font-size: 16px;

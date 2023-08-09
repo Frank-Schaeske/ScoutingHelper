@@ -19,7 +19,7 @@ export default function List({ players }) {
     <StyledList>
       {players.sort(comparePlayers).map((player) => {
         return (
-          <Link href={`/players/${player._id}`} key={player._id}>
+          <StyledLink href={`/players/${player._id}`} key={player._id}>
             <StyledListItem>
               <ImageContainer>
                 <Image
@@ -36,7 +36,7 @@ export default function List({ players }) {
                 {player.statistics[0].league.season + 1}
               </TextContainer>
             </StyledListItem>
-          </Link>
+          </StyledLink>
         );
       })}
     </StyledList>
@@ -72,4 +72,8 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
   padding: 5px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

@@ -29,23 +29,25 @@ export default function RankingPage() {
   let subHeadline = "";
 
   if (position === "Goalkeeper") {
-    headline = "Ranking of Goalkeepers";
-    subHeadline = "by Conceded Goals";
+    headline = "Ranking of goalkeepers";
+    subHeadline = "by conceded goals";
   } else if (position === "Defender") {
-    headline = "Ranking of Defenders";
-    subHeadline = "by Duel Rate";
+    headline = "Ranking of defenders";
+    subHeadline = "by duel rate";
   } else if (position === "Midfielder") {
-    headline = "Ranking of Midfielders";
-    subHeadline = "by Scorer Points";
+    headline = "Ranking of midfielders";
+    subHeadline = "by scorer points";
   } else {
-    headline = "Ranking of Attackers";
-    subHeadline = "by Scorer Points";
+    headline = "Ranking of attackers";
+    subHeadline = "by scorer points";
   }
 
   return (
     <StyledMain>
-      <StyledHeadline>{headline}</StyledHeadline>
-      <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
+      <HeadlineContainer>
+        <StyledHeadline>{headline}</StyledHeadline>
+        <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
+      </HeadlineContainer>
       <Ranking position={position} />
       <StyledLink href={`/players/${id}`}>
         <LinkText>Back</LinkText>
@@ -61,13 +63,27 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  margin: 210px 16%;
 `;
 
 const StyledHeadline = styled.h2`
-  margin: 80px 5% 0;
+  margin: 5px;
+  color: var(--primary-color);
 `;
 
 const StyledSubHeadline = styled.h3`
-  margin: 0 16% 20px;
+  margin: 0;
+  color: var(--primary-color);
+`;
+
+const HeadlineContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: white;
 `;
