@@ -23,21 +23,34 @@ export default function EditPage() {
     return <StyledParagraph>Player not found</StyledParagraph>;
   }
 
+  const { data: players } = useSWR("/api/players", fetcher);
+
+  console.log("player:", player);
+  console.log("players:", players);
+
+  const position = player.statistics[0].games.position;
   let headline = "";
   let subHeadline = "";
+  let stat = "";
+  let rankedPlayers = "";
 
-  if (player.statistics[0].games.position === "Goalkeeper") {
+  if (position === "Goalkeeper") {
     headline = "Ranking of saved Goalkeepers";
     subHeadline = "by Conceded Goals";
-  } else if (player.statistics[0].games.position === "Defender") {
+    stat = "Conceded Goals";
+  } else if (position === "Defender") {
     headline = "Ranking of saved Defenders";
     subHeadline = "by Duel Rate";
-  } else if (player.statistics[0].games.position === "Midfielder") {
+    stat = "Duel Rate";
+  } else if (position === "Midfielder") {
     headline = "Ranking of saved Midfielders";
-    subHeadline = "(by Scorer Points)";
+    subHeadline = "by Scorer Points";
+    stat = "Scorer Points";
   } else {
     headline = "Ranking of saved Attackers";
-    subHeadline = "(by Scorer Points)";
+    subHeadline = "by Scorer Points";
+    stat = "Scorer Points";
+    rankedPlayers = "a";
   }
 
   return (
@@ -66,5 +79,5 @@ const StyledHeadline = styled.h2`
 `;
 
 const StyledSubHeadline = styled.h3`
-  margin: 0 16%;
+  margin: 0 16% 20px;
 `;

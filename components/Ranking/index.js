@@ -14,10 +14,10 @@ function comparePlayers(a, b) {
   return 0;
 }
 
-export default function List({ players }) {
+export default function Ranking({ players }) {
   return (
     <StyledList>
-      {players.sort(comparePlayers).map((player) => {
+      {players.map((player) => {
         return (
           <Link href={`/players/${player._id}`} key={player._id}>
             <StyledListItem>
@@ -34,6 +34,7 @@ export default function List({ players }) {
                 <br />
                 Season: {player.statistics[0].league.season}/
                 {player.statistics[0].league.season + 1}
+                <br />
               </TextContainer>
             </StyledListItem>
           </Link>
