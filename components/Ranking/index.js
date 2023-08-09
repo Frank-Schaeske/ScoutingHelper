@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
+import useSWR from "swr";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 function comparePlayers(a, b) {
   const nameA = a.player.lastname.toLowerCase();
@@ -14,7 +17,32 @@ function comparePlayers(a, b) {
   return 0;
 }
 
-export default function Ranking({ players }) {
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default function Ranking({ position }) {
+  const router = useRouter();
+  const { isReady } = router;
+  const {
+    data: players,
+    isLoading,
+    error,
+  } = useSWR("/api/players", fetcher, {
+    fallbackData: [],
+  });
+
+  if (!isReady || isLoading || error)
+    return <StyledParagraph>Loading...</StyledParagraph>;
+
+  if (position === "Goalkeeper") {
+    console.log("GK");
+  } else if (position === "Defender") {
+    console.log("DEF");
+  } else if (position === "Midfielder") {
+    console.log("MF");
+  } else {
+    console.log("AT");
+  }
+
   return (
     <StyledList>
       {players.map((player) => {
@@ -73,4 +101,8 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
   padding: 5px;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 150px 16%;
 `;
