@@ -48,7 +48,9 @@ export default function PlayerPage() {
         </StyledLink>
       </Wrapper>
       <Wrapper>
-        <StyledLink href={`/players`}>Back to List</StyledLink>
+        <StyledLink href={`/players`}>
+          <LinkText>Back to List</LinkText>
+        </StyledLink>
         <StyledButton
           onClick={() => {
             setShowModal(true);

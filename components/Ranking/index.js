@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 function comparePlayers(a, b) {
