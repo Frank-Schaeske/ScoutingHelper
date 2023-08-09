@@ -49,9 +49,11 @@ export default function RankingPage() {
         <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
       </HeadlineContainer>
       <Ranking position={position} />
-      <StyledLink href={`/players/${id}`}>
-        <LinkText>Back</LinkText>
-      </StyledLink>
+      <LinkContainer>
+        <StyledLink href={`/players/${id}`}>
+          <LinkText>Back</LinkText>
+        </StyledLink>
+      </LinkContainer>
     </StyledMain>
   );
 }
@@ -85,5 +87,17 @@ const HeadlineContainer = styled.div`
   left: 0;
   right: 0;
   height: 60px;
+  background-color: white;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
   background-color: white;
 `;
