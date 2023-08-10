@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import { StyledMain, StyledParagraph } from "../styles";
+import { StyledMain } from "../../../components/StyledMain/styles";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
 
 export default function EditPage() {
   const router = useRouter();

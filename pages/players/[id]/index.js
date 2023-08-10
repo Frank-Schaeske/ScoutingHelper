@@ -11,14 +11,12 @@ import {
   StyledLinkLikeButton,
   LinkText,
 } from "../../../components/StyledLinkLikeButton/styles";
-import {
-  StyledMainIndex,
-  StyledParagraph,
-  Wrapper,
-  StyledOverlay,
-  StyledModal,
-  ButtonContainer,
-} from "./styles";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
+import { StyledMainPlayersIndex } from "../../../components/StyledMainPlayersIndex/styles";
+import { Wrapper } from "../../../components/Wrapper/styles";
+import { StyledOverlay } from "../../../components/StyledOverlay/styles";
+import { StyledModalPlayersIndex } from "../../../components/StyledModal/styles";
+import { ButtonContainer } from "../../../components/ButtonContainer/styles";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -43,7 +41,7 @@ export default function PlayerPage() {
   }
 
   return (
-    <StyledMainIndex>
+    <StyledMainPlayersIndex>
       <PlayerDetails player={player} />
       <Comment player={player} />
       <Wrapper>
@@ -71,7 +69,7 @@ export default function PlayerPage() {
       {showOverlay && <StyledOverlay />}
 
       {showModal && (
-        <StyledModal>
+        <StyledModalPlayersIndex>
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
             <StyledButton
@@ -86,8 +84,8 @@ export default function PlayerPage() {
               <ButtonText>Delete</ButtonText>
             </StyledButton>
           </ButtonContainer>
-        </StyledModal>
+        </StyledModalPlayersIndex>
       )}
-    </StyledMainIndex>
+    </StyledMainPlayersIndex>
   );
 }

@@ -5,14 +5,14 @@ import {
   LinkText,
 } from "../../../components/StyledLinkLikeButton/styles";
 import Ranking from "../../../components/Ranking";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
+import { StyledMain } from "../../../components/StyledMain/styles";
+import { HeadlineContainer } from "../../../components/HeadlineContainer/styles";
 import {
-  StyledMain,
-  StyledParagraph,
-  HeadlineContainer,
   StyledHeadline,
   StyledSubHeadline,
-  LinkContainer,
-} from "./styles";
+} from "../../../components/StyledHeadlines/styles";
+import { LinkContainerRanking } from "../../../components/LinkContainer/styles";
 
 export default function RankingPage() {
   const router = useRouter();
@@ -52,11 +52,11 @@ export default function RankingPage() {
         <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
       </HeadlineContainer>
       <Ranking position={position} />
-      <LinkContainer>
+      <LinkContainerRanking>
         <StyledLinkLikeButton href={`/players/${id}`}>
           <LinkText>Back</LinkText>
         </StyledLinkLikeButton>
-      </LinkContainer>
+      </LinkContainerRanking>
     </StyledMain>
   );
 }

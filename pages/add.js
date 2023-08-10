@@ -8,7 +8,7 @@ import {
 } from "../components/StyledLinkLikeButton/styles";
 import { StyledParagraph } from "../components/StyledParagraph/styles";
 import { StyledMain } from "../components/StyledMain/styles";
-import { StyledModal } from "../components/StyledModal/styles";
+import { StyledModalAdd } from "../components/StyledModal/styles";
 import { LinkContainer } from "../components/LinkContainer/styles";
 import { StyledOverlay } from "../components/StyledOverlay/styles";
 
@@ -68,7 +68,7 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <StyledModal>
+        <StyledModalAdd>
           <p>This player/season combination is already saved.</p>
           <LinkContainer>
             <StyledLinkLikeButton href="/">
@@ -78,7 +78,7 @@ export default function AddPage({ searchedPlayer }) {
               <LinkText>View Player</LinkText>
             </StyledLinkLikeButton>
           </LinkContainer>
-        </StyledModal>
+        </StyledModalAdd>
         <StyledOverlay />
       </StyledMain>
     );
