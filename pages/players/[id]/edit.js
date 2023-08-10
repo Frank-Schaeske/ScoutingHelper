@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import { StyledMain } from "../../../components/StyledMain/styles";
+import { StyledMain } from "../../../components/StyledMains/styles";
 import { StyledParagraph } from "../../../components/StyledParagraph/styles";
 
 export default function EditPage() {

@@ -3,16 +3,16 @@ import useSWR from "swr";
 import {
   StyledLinkLikeButton,
   LinkText,
-} from "../../../components/StyledLinkLikeButton/styles";
+} from "../../../components/StyledLinks/styles";
 import Ranking from "../../../components/Ranking";
 import { StyledParagraph } from "../../../components/StyledParagraph/styles";
-import { StyledMain } from "../../../components/StyledMain/styles";
-import { HeadlineContainer } from "../../../components/HeadlineContainer/styles";
+import { StyledMain } from "../../../components/StyledMains/styles";
+import { HeadlineContainer } from "../../../components/Container/HeadlineContainer/styles";
 import {
   StyledHeadline,
   StyledSubHeadline,
 } from "../../../components/StyledHeadlines/styles";
-import { LinkContainerRanking } from "../../../components/LinkContainer/styles";
+import { LinkContainerRanking } from "../../../components/Container/LinkContainers/styles";
 
 export default function RankingPage() {
   const router = useRouter();

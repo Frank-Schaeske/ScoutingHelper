@@ -1,7 +1,7 @@
 import Image from "next/image";
 import useSWR from "swr";
 import { useRouter } from "next/router";
-import { StyledLink } from "../StyledLink/styles";
+import { StyledLink } from "../StyledLinks/styles";
 import {
   StyledParagraph,
   StyledList,

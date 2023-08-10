@@ -4,7 +4,7 @@ import useSWR from "swr";
 import List from "../../components/List";
 import NavigationBar from "../../components/NavigationBar";
 import PositionRadioButtons from "../../components/PositionRadioButtons";
-import { StyledMain } from "../../components/StyledMain/styles";
+import { StyledMain } from "../../components/StyledMains/styles";
 import { StyledParagraph } from "../../components/StyledParagraph/styles";
 
 export default function PlayersPage() {

@@ -5,11 +5,11 @@ import PlayerDetails from "../components/PlayerDetails";
 import {
   StyledLinkLikeButton,
   LinkText,
-} from "../components/StyledLinkLikeButton/styles";
+} from "../components/StyledLinks/styles";
 import { StyledParagraph } from "../components/StyledParagraph/styles";
-import { StyledMain } from "../components/StyledMain/styles";
-import { StyledModalAdd } from "../components/StyledModal/styles";
-import { LinkContainer } from "../components/LinkContainer/styles";
+import { StyledMain } from "../components/StyledMains/styles";
+import { StyledModalAdd } from "../components/StyledModals/styles";
+import { LinkContainer } from "../components/Container/LinkContainers/styles";
 import { StyledOverlay } from "../components/StyledOverlay/styles";
 
 export default function AddPage({ searchedPlayer }) {

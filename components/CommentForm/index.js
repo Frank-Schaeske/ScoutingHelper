@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { StyledButton, ButtonText } from "../StyledButton/styles";
-import { StyledLinkLikeButton, LinkText } from "../StyledLinkLikeButton/styles";
+import { StyledLinkLikeButton, LinkText } from "../StyledLinks/styles";
 import { StyledForm, StyledLabel, StyledTextarea, Wrapper } from "./styles";
 
 export default function CommentForm({

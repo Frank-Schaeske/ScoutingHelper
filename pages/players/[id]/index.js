@@ -10,13 +10,13 @@ import {
 import {
   StyledLinkLikeButton,
   LinkText,
-} from "../../../components/StyledLinkLikeButton/styles";
+} from "../../../components/StyledLinks/styles";
 import { StyledParagraph } from "../../../components/StyledParagraph/styles";
-import { StyledMainPlayersIndex } from "../../../components/StyledMainPlayersIndex/styles";
-import { Wrapper } from "../../../components/Wrapper/styles";
+import { StyledMainIdIndex } from "../../../components/StyledMains/styles";
+import { Wrapper } from "../../../components/Container/Wrapper/styles";
 import { StyledOverlay } from "../../../components/StyledOverlay/styles";
-import { StyledModalPlayersIndex } from "../../../components/StyledModal/styles";
-import { ButtonContainer } from "../../../components/ButtonContainer/styles";
+import { StyledModalPlayersIndex } from "../../../components/StyledModals/styles";
+import { ButtonContainer } from "../../../components/Container/ButtonContainer/styles";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -41,7 +41,7 @@ export default function PlayerPage() {
   }
 
   return (
-    <StyledMainPlayersIndex>
+    <StyledMainIdIndex>
       <PlayerDetails player={player} />
       <Comment player={player} />
       <Wrapper>
@@ -86,6 +86,6 @@ export default function PlayerPage() {
           </ButtonContainer>
         </StyledModalPlayersIndex>
       )}
-    </StyledMainPlayersIndex>
+    </StyledMainIdIndex>
   );
 }

@@ -5,7 +5,7 @@ import {
   ImageContainer,
   TextContainer,
 } from "./styles";
-import { StyledLink } from "../StyledLink/styles";
+import { StyledLink } from "../StyledLinks/styles";
 
 function comparePlayers(a, b) {
   const nameA = a.player.lastname.toLowerCase();

@@ -1,5 +1,5 @@
 import { StyledHeader, StyledHeadline } from "./styles";
-import { StyledLink } from "../StyledLink/styles";
+import { StyledLink } from "../StyledLinks/styles";
 
 export default function Header() {
   return (

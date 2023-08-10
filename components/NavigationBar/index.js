@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { BsSearch } from "react-icons/bs";
 import { CiBoxList } from "react-icons/ci";
-import { StyledLink } from "../StyledLink/styles";
+import { StyledLink } from "../StyledLinks/styles";
 import { StyledSearchContainer, StyledListContainer } from "./styles";
 
 export default function NavigationBar() {
