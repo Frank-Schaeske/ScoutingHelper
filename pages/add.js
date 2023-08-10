@@ -1,18 +1,16 @@
-import PlayerDetails from "../components/PlayerDetails";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
+import PlayerDetails from "../components/PlayerDetails";
 import {
   StyledLinkLikeButton,
   LinkText,
 } from "../components/StyledLinkLikeButton/styles";
-import {
-  StyledParagraph,
-  StyledMain,
-  StyledModal,
-  LinkContainer,
-  StyledOverlay,
-} from "./styles";
+import { StyledParagraph } from "../components/StyledParagraph/styles";
+import { StyledMain } from "../components/StyledMain/styles";
+import { StyledModal } from "../components/StyledModal/styles";
+import { LinkContainer } from "../components/LinkContainer/styles";
+import { StyledOverlay } from "../components/StyledOverlay/styles";
 
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();

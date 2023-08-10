@@ -1,6 +1,6 @@
 import SearchForm from "../components/SearchForm";
 import NavigationBar from "../components/NavigationBar";
-import { StyledMainHome } from "./styles";
+import { StyledMainHome } from "../components/StyledMainHome/styles";
 
 export default function HomePage({ setSearchedPlayer }) {
   return (
