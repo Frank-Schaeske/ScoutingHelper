@@ -4,8 +4,6 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function Ranking({ position }) {
   const router = useRouter();
   const { isReady } = router;
@@ -13,7 +11,7 @@ export default function Ranking({ position }) {
     data: players,
     isLoading,
     error,
-  } = useSWR("/api/players", fetcher, {
+  } = useSWR("/api/players", {
     fallbackData: [],
   });
 

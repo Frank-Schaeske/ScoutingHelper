@@ -4,8 +4,6 @@ import styled from "styled-components";
 import useSWR from "swr";
 import Ranking from "../../../components/Ranking";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function RankingPage() {
   const router = useRouter();
   const { isReady } = router;
@@ -15,7 +13,7 @@ export default function RankingPage() {
     isLoading,
     error,
     mutate,
-  } = useSWR(`/api/players/${id}`, fetcher);
+  } = useSWR(`/api/players/${id}`);
 
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
@@ -65,7 +63,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-margin-top: 150px;
+  margin-top: 150px;
   text-align: center;
 `;
 

@@ -6,8 +6,6 @@ import PositionRadioButtons from "../../components/PositionRadioButtons";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function PlayersPage() {
   const [selectedPosition, setSelectedPosition] = useState("All");
   const router = useRouter();
@@ -16,7 +14,7 @@ export default function PlayersPage() {
     data: players,
     isLoading,
     error,
-  } = useSWR("/api/players", fetcher, {
+  } = useSWR("/api/players", {
     fallbackData: [],
   });
 

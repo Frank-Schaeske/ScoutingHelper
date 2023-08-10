@@ -5,8 +5,6 @@ import CommentForm from "../components/CommentForm";
 import useSWR from "swr";
 import { StyledLink, LinkText } from "../components/StyledLink";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
   const { mutate } = useSWR("/api/players");
@@ -15,7 +13,7 @@ export default function AddPage({ searchedPlayer }) {
     data: players,
     isLoading,
     error,
-  } = useSWR("/api/players", fetcher, {
+  } = useSWR("/api/players", {
     fallbackData: [],
   });
 

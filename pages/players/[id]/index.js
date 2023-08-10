@@ -7,8 +7,6 @@ import { useState } from "react";
 import { StyledButton, ButtonText } from "../../../components/StyledButton";
 import { StyledLink, LinkText } from "../../../components/StyledLink";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function PlayerPage() {
   const router = useRouter();
   const { isReady } = router;
@@ -17,11 +15,7 @@ export default function PlayerPage() {
   const [showModal, setShowModal] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const {
-    data: player,
-    isLoading,
-    error,
-  } = useSWR(`/api/players/${id}`, fetcher);
+  const { data: player, isLoading, error } = useSWR(`/api/players/${id}`);
 
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
