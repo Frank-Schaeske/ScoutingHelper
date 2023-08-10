@@ -13,10 +13,10 @@ import {
 } from "../../../components/StyledLinks/styles";
 import { StyledParagraph } from "../../../components/StyledParagraph/styles";
 import { StyledMainIdIndex } from "../../../components/StyledMains/styles";
-import { Wrapper } from "../../../components/Container/Wrapper/styles";
+import { Wrapper } from "../../../components/Containers/Wrapper/styles";
 import { StyledOverlay } from "../../../components/StyledOverlay/styles";
 import { StyledModalPlayersIndex } from "../../../components/StyledModals/styles";
-import { ButtonContainer } from "../../../components/Container/ButtonContainer/styles";
+import { ButtonContainer } from "../../../components/Containers/ButtonContainer/styles";
 
 export default function PlayerPage() {
   const router = useRouter();

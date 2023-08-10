@@ -9,7 +9,7 @@ import {
 import { StyledParagraph } from "../components/StyledParagraph/styles";
 import { StyledMain } from "../components/StyledMains/styles";
 import { StyledModalAdd } from "../components/StyledModals/styles";
-import { LinkContainer } from "../components/Container/LinkContainers/styles";
+import { LinkContainer } from "../components/Containers/LinkContainers/styles";
 import { StyledOverlay } from "../components/StyledOverlay/styles";
 
 export default function AddPage({ searchedPlayer }) {
