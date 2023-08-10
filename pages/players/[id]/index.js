@@ -5,7 +5,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
 import { StyledButton, ButtonText } from "../../../components/StyledButton";
-import { StyledLink, LinkText } from "../../../components/StyledLink";
+import { StyledLinkLikeButton, LinkText } from "../../../components/StyledLinkLikeButton";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -34,17 +34,17 @@ export default function PlayerPage() {
       <PlayerDetails player={player} />
       <Comment player={player} />
       <Wrapper>
-        <StyledLink href={`/players/${id}/edit`}>
+        <StyledLinkLikeButton href={`/players/${id}/edit`}>
           <LinkText>Edit Comment</LinkText>
-        </StyledLink>
-        <StyledLink href={`/players/${id}/ranking`}>
+        </StyledLinkLikeButton>
+        <StyledLinkLikeButton href={`/players/${id}/ranking`}>
           <LinkText>Compare Player</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
       </Wrapper>
       <Wrapper>
-        <StyledLink href={`/players`}>
+        <StyledLinkLikeButton href={`/players`}>
           <LinkText>Back to List</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
         <StyledButton
           onClick={() => {
             setShowModal(true);

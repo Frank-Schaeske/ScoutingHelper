@@ -1,5 +1,10 @@
-import styled from "styled-components";
-import Image from "next/image";
+import {
+  StyledContainer,
+  StyledList,
+  StyledListItem,
+  StyledImage,
+  StyledSection,
+} from "./styles";
 
 export default function PlayerDetails({ player }) {
   if (player?.statistics?.length) {
@@ -10,9 +15,7 @@ export default function PlayerDetails({ player }) {
           <StyledListItem>
             {player.statistics[0].team.name ?? "N/A"}
           </StyledListItem>
-          <StyledListItem>
-            Age: {player.player.age ?? "N/A"}
-          </StyledListItem>
+          <StyledListItem>Age: {player.player.age ?? "N/A"}</StyledListItem>
           <StyledListItem>
             Nationality: {player.player.nationality ?? "N/A"}
           </StyledListItem>
@@ -80,41 +83,3 @@ export default function PlayerDetails({ player }) {
     </StyledSection>
   );
 }
-
-const StyledContainer = styled.div`
-  margin: 80px 0 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center
-
-  width: 320px;
-  height: 280px;
-  padding: 0px 20px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-`;
-
-const StyledList = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledListItem = styled.li`
-  width: 200px;
-  margin: 5px 0px;
-  padding-left: 20px;
-`;
-
-const StyledSection = styled.section`
-  margin: 100px 16%;
-`;
-
-const StyledImage = styled(Image)`
-  margin: 5px 0px;
-`;

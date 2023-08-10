@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Link from "next/link";
+import { StyledHeader, StyledHeadline } from "./styles";
+import { StyledLink } from "../StyledLink/styles";
 
 export default function Header() {
   return (
@@ -10,27 +10,3 @@ export default function Header() {
     </StyledHeader>
   );
 }
-
-const StyledHeader = styled.header`
-  background: var(--primary-color);
-  color: #ffffff;
-  height: 60px;
-  padding: 0px 20px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
-
-const StyledHeadline = styled.h1`
-  color: #ffffff;
-  text-decoration: none;
-`;

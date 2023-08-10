@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
-import { StyledLink, LinkText } from "../../../components/StyledLink";
+import {
+  StyledLinkLikeButton,
+  LinkText,
+} from "../../../components/StyledLinkLikeButton/styles";
 import styled from "styled-components";
 import useSWR from "swr";
 import Ranking from "../../../components/Ranking";
@@ -43,9 +46,9 @@ export default function RankingPage() {
       </HeadlineContainer>
       <Ranking position={position} />
       <LinkContainer>
-        <StyledLink href={`/players/${id}`}>
+        <StyledLinkLikeButton href={`/players/${id}`}>
           <LinkText>Back</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
       </LinkContainer>
     </StyledMain>
   );

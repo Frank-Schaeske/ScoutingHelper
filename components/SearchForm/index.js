@@ -1,8 +1,14 @@
-import styled from "styled-components";
 import { useRouter } from "next/router";
 import { germanTeams } from "../../lib/db";
 import { useState } from "react";
-import { StyledButton, ButtonText } from "../StyledButton";
+import { StyledButton, ButtonText } from "../StyledButton/styles";
+import {
+  StyledForm,
+  StyledLabel,
+  StyledSelect,
+  StyledInput,
+  StyledContainer,
+} from "./styles";
 
 export default function SearchForm({ setSearchedPlayer }) {
   const router = useRouter();
@@ -85,47 +91,3 @@ export default function SearchForm({ setSearchedPlayer }) {
     </StyledForm>
   );
 }
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 250px;
-  height: 250px;
-  margin: 100px;
-`;
-
-const StyledContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledSelect = styled.select`
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  padding-left: 10px;
-  margin: 5px 20px 20px;
-  width: 210px;
-  font-family: system-ui;
-  font-size: 16px;
-`;
-
-const StyledInput = styled.input`
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  padding-left: 10px;
-  margin: 5px 20px 50px;
-  width: 210px;
-  height: 22px;
-  font-family: system-ui;
-  font-size: 16px;
-`;
-
-const StyledLabel = styled.label`
-  padding-left: 35px;
-`;

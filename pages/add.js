@@ -3,7 +3,10 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
 import useSWR from "swr";
-import { StyledLink, LinkText } from "../components/StyledLink";
+import {
+  StyledLinkLikeButton,
+  LinkText,
+} from "../components/StyledLinkLikeButton";
 
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
@@ -64,10 +67,12 @@ export default function AddPage({ searchedPlayer }) {
         <StyledModal>
           <p>This player/season combination is already saved.</p>
           <LinkContainer>
-            <StyledLink href="/">New Search</StyledLink>
-            <StyledLink href={`/players/${searchedPlayerInDB._id}`}>
+            <StyledLinkLikeButton href="/">
+              <LinkText>New Search</LinkText>
+            </StyledLinkLikeButton>
+            <StyledLinkLikeButton href={`/players/${searchedPlayerInDB._id}`}>
               <LinkText>View Player</LinkText>
-            </StyledLink>
+            </StyledLinkLikeButton>
           </LinkContainer>
         </StyledModal>
         <StyledOverlay />
@@ -89,9 +94,9 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <StyledLink href="/">
+        <StyledLinkLikeButton href="/">
           <LinkText>New Search</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
       </StyledMain>
     );
   }

@@ -1,8 +1,14 @@
-import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import { StyledLink } from "../StyledLink/styles";
+import {
+  StyledParagraph,
+  StyledList,
+  StyledListItem,
+  ImageContainer,
+  TextContainer,
+} from "./styles";
 
 export default function Ranking({ position }) {
   const router = useRouter();
@@ -98,42 +104,3 @@ export default function Ranking({ position }) {
     </StyledList>
   );
 }
-
-const StyledList = styled.ul`
-  list-style-type: none;
-  margin: 130px 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledListItem = styled.li`
-  max-width: 400px;
-  min-height: 65px;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  margin-bottom: 10px;
-`;
-
-const ImageContainer = styled.div`
-  padding-right: 5px;
-`;
-
-const TextContainer = styled.div`
-  padding: 5px;
-`;
-
-const StyledParagraph = styled.p`
-  margin: 150px 16%;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
