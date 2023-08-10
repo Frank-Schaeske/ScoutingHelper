@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
+import useSWR from "swr";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import styled from "styled-components";
-import useSWR from "swr";
+import { StyledMain, StyledParagraph } from "../styles";
 
 export default function EditPage() {
   const router = useRouter();
@@ -57,14 +57,3 @@ export default function EditPage() {
     </StyledMain>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;

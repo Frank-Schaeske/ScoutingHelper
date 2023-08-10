@@ -1,10 +1,10 @@
-import List from "../../components/List";
-import NavigationBar from "../../components/NavigationBar";
-import styled from "styled-components";
-import useSWR from "swr";
-import PositionRadioButtons from "../../components/PositionRadioButtons";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import List from "../../components/List";
+import NavigationBar from "../../components/NavigationBar";
+import PositionRadioButtons from "../../components/PositionRadioButtons";
+import { StyledMain, StyledParagraph } from "./styles";
 
 export default function PlayersPage() {
   const [selectedPosition, setSelectedPosition] = useState("All");
@@ -68,14 +68,3 @@ export default function PlayersPage() {
     );
   }
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin: 150px;
-  text-align: center;
-`;

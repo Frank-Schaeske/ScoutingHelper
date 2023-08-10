@@ -1,11 +1,18 @@
 import { useRouter } from "next/router";
+import useSWR from "swr";
 import {
   StyledLinkLikeButton,
   LinkText,
 } from "../../../components/StyledLinkLikeButton/styles";
-import styled from "styled-components";
-import useSWR from "swr";
 import Ranking from "../../../components/Ranking";
+import {
+  StyledMain,
+  StyledParagraph,
+  HeadlineContainer,
+  StyledHeadline,
+  StyledSubHeadline,
+  LinkContainer,
+} from "./styles";
 
 export default function RankingPage() {
   const router = useRouter();
@@ -53,48 +60,3 @@ export default function RankingPage() {
     </StyledMain>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;
-
-const StyledHeadline = styled.h2`
-  margin: 5px;
-  color: var(--primary-color);
-`;
-
-const StyledSubHeadline = styled.h3`
-  margin: 0;
-  color: var(--primary-color);
-`;
-
-const HeadlineContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: white;
-`;
-
-const LinkContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 110px;
-  background-color: white;
-`;
