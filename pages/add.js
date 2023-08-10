@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
 import useSWR from "swr";
-import { StyledLink } from "../components/StyledLink";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { StyledLink, LinkText } from "../components/StyledLink";
 
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
@@ -15,7 +13,7 @@ export default function AddPage({ searchedPlayer }) {
     data: players,
     isLoading,
     error,
-  } = useSWR("/api/players", fetcher, {
+  } = useSWR("/api/players", {
     fallbackData: [],
   });
 
@@ -68,7 +66,7 @@ export default function AddPage({ searchedPlayer }) {
           <LinkContainer>
             <StyledLink href="/">New Search</StyledLink>
             <StyledLink href={`/players/${searchedPlayerInDB._id}`}>
-              View Player
+              <LinkText>View Player</LinkText>
             </StyledLink>
           </LinkContainer>
         </StyledModal>
@@ -91,7 +89,9 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <StyledLink href="/">New Search</StyledLink>
+        <StyledLink href="/">
+          <LinkText>New Search</LinkText>
+        </StyledLink>
       </StyledMain>
     );
   }
@@ -104,7 +104,8 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  margin-top: 150px;
+  text-align: center;
 `;
 
 const StyledModal = styled.div`

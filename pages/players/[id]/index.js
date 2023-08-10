@@ -7,8 +7,6 @@ import { useState } from "react";
 import { StyledButton, ButtonText } from "../../../components/StyledButton";
 import { StyledLink, LinkText } from "../../../components/StyledLink";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function PlayerPage() {
   const router = useRouter();
   const { isReady } = router;
@@ -17,11 +15,7 @@ export default function PlayerPage() {
   const [showModal, setShowModal] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const {
-    data: player,
-    isLoading,
-    error,
-  } = useSWR(`/api/players/${id}`, fetcher);
+  const { data: player, isLoading, error } = useSWR(`/api/players/${id}`);
 
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
@@ -39,9 +33,18 @@ export default function PlayerPage() {
     <StyledMain>
       <PlayerDetails player={player} />
       <Comment player={player} />
-      <StyledLink href={`/players/${id}/edit`}>Edit Comment</StyledLink>
       <Wrapper>
-        <StyledLink href={`/players`}>Back to List</StyledLink>
+        <StyledLink href={`/players/${id}/edit`}>
+          <LinkText>Edit Comment</LinkText>
+        </StyledLink>
+        <StyledLink href={`/players/${id}/ranking`}>
+          <LinkText>Compare Player</LinkText>
+        </StyledLink>
+      </Wrapper>
+      <Wrapper>
+        <StyledLink href={`/players`}>
+          <LinkText>Back to List</LinkText>
+        </StyledLink>
         <StyledButton
           onClick={() => {
             setShowModal(true);
@@ -84,7 +87,8 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  margin-top: 150px;
+  text-align: center;
 `;
 
 const StyledModal = styled.div`

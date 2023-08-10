@@ -4,8 +4,6 @@ import CommentForm from "../../../components/CommentForm";
 import styled from "styled-components";
 import useSWR from "swr";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function EditPage() {
   const router = useRouter();
   const { isReady } = router;
@@ -15,7 +13,7 @@ export default function EditPage() {
     isLoading,
     error,
     mutate,
-  } = useSWR(`/api/players/${id}`, fetcher);
+  } = useSWR(`/api/players/${id}`);
 
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
@@ -67,5 +65,6 @@ const StyledMain = styled.main`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 150px 16%;
+  margin-top: 150px;
+  text-align: center;
 `;
