@@ -8,12 +8,7 @@ export default function RankingPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const {
-    data: player,
-    isLoading,
-    error,
-    mutate,
-  } = useSWR(`/api/players/${id}`);
+  const { data: player, isLoading, error } = useSWR(`/api/players/${id}`);
 
   if (!isReady || isLoading || error)
     return <StyledParagraph>Loading...</StyledParagraph>;
