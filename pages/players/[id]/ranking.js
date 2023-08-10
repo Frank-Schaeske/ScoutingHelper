@@ -7,12 +7,12 @@ import {
 import Ranking from "../../../components/Ranking";
 import { StyledParagraph } from "../../../components/StyledParagraph/styles";
 import { StyledMain } from "../../../components/StyledMains/styles";
-import { HeadlineContainer } from "../../../components/Container/HeadlineContainer/styles";
+import { HeadlineContainer } from "../../../components/Containers/HeadlineContainer/styles";
 import {
   StyledHeadline,
   StyledSubHeadline,
 } from "../../../components/StyledHeadlines/styles";
-import { LinkContainerRanking } from "../../../components/Container/LinkContainers/styles";
+import { LinkContainerRanking } from "../../../components/Containers/LinkContainers/styles";
 
 export default function RankingPage() {
   const router = useRouter();
