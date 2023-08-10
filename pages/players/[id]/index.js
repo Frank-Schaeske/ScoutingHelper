@@ -4,8 +4,8 @@ import Comment from "../../../components/Comment";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
-import { StyledButton, ButtonText } from "../../../components/StyledButton";
-import { StyledLinkLikeButton, LinkText } from "../../../components/StyledLinkLikeButton";
+import { StyledButton, ButtonText } from "../../../components/StyledButton/styles";
+import { StyledLinkLikeButton, LinkText } from "../../../components/StyledLinkLikeButton/styles";
 
 export default function PlayerPage() {
   const router = useRouter();

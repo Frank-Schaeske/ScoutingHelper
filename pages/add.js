@@ -6,7 +6,7 @@ import useSWR from "swr";
 import {
   StyledLinkLikeButton,
   LinkText,
-} from "../components/StyledLinkLikeButton";
+} from "../components/StyledLinkLikeButton/styles";
 
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
