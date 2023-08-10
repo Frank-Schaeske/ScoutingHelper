@@ -1,19 +1,14 @@
 import SearchForm from "../components/SearchForm";
 import NavigationBar from "../components/NavigationBar";
-import styled from "styled-components";
+import { StyledMainHome } from "./styles";
 
 export default function HomePage({ setSearchedPlayer }) {
   return (
     <>
-      <StyledMain>
+      <StyledMainHome>
         <SearchForm setSearchedPlayer={setSearchedPlayer} />
-      </StyledMain>
+      </StyledMainHome>
       <NavigationBar />
     </>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  justify-content: center;
-`;
