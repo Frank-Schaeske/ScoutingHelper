@@ -81,7 +81,13 @@ export default function SearchForm({ setSearchedPlayer }) {
       </div>
       <div>
         <StyledLabel htmlFor="search">Player last name:</StyledLabel>
-        <StyledInput type="text" name="search" id="search" minLength="4" />
+        <StyledInput
+          type="text"
+          name="search"
+          id="search"
+          minLength="4"
+          required
+        />
       </div>
       <StyledContainer>
         <StyledButton>
