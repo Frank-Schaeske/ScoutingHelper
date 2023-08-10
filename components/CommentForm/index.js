@@ -20,7 +20,7 @@ export default function CommentForm({
         name="comment"
         id="comment"
         rows="5"
-        maxLength="65"
+        maxLength="60"
         defaultValue={defaultData?.comment}
       ></StyledTextarea>
       <Wrapper>
