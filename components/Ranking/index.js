@@ -19,40 +19,31 @@ export default function Ranking({ position }) {
     return <StyledParagraph>Loading...</StyledParagraph>;
 
   let rankedPlayers = "";
+  const getPositionFilter = (player) =>
+    player.statistics[0].games.position === position;
+
+  const getGoalkeeperRanking = (a, b) =>
+    a.statistics[0].goals.conceded - b.statistics[0].goals.conceded;
+
+  const getDefenderRanking = (a, b) =>
+    b.statistics[0].duels.won / b.statistics[0].duels.total -
+    a.statistics[0].duels.won / a.statistics[0].duels.total;
+
+  const getMidfielderAndAttackerRanking = (a, b) =>
+    b.statistics[0].goals.total +
+    b.statistics[0].goals.assists -
+    (a.statistics[0].goals.total + a.statistics[0].goals.assists);
 
   if (position === "Goalkeeper") {
     rankedPlayers = players
-      .filter((player) => player.statistics[0].games.position === "Goalkeeper")
-      .sort(
-        (a, b) =>
-          a.statistics[0].goals.conceded - b.statistics[0].goals.conceded
-      );
+      .filter(getPositionFilter)
+      .sort(getGoalkeeperRanking);
   } else if (position === "Defender") {
-    rankedPlayers = players
-      .filter((player) => player.statistics[0].games.position === "Defender")
-      .sort(
-        (a, b) =>
-          b.statistics[0].duels.won / b.statistics[0].duels.total -
-          a.statistics[0].duels.won / a.statistics[0].duels.total
-      );
-  } else if (position === "Midfielder") {
-    rankedPlayers = players
-      .filter((player) => player.statistics[0].games.position === "Midfielder")
-      .sort(
-        (a, b) =>
-          b.statistics[0]?.goals.total +
-          b.statistics[0]?.goals.assists -
-          (a.statistics[0]?.goals.total + a.statistics[0]?.goals.assists)
-      );
+    rankedPlayers = players.filter(getPositionFilter).sort(getDefenderRanking);
   } else {
     rankedPlayers = players
-      .filter((player) => player.statistics[0].games.position === "Attacker")
-      .sort(
-        (a, b) =>
-          b.statistics[0]?.goals.total +
-          b.statistics[0]?.goals.assists -
-          (a.statistics[0]?.goals.total + a.statistics[0]?.goals.assists)
-      );
+      .filter(getPositionFilter)
+      .sort(getMidfielderAndAttackerRanking);
   }
 
   return (
