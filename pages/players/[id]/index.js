@@ -57,6 +57,7 @@ export default function PlayerPage() {
           <LinkText>Back to List</LinkText>
         </StyledLinkLikeButton>
         <StyledButton
+          type="button"
           onClick={() => {
             setShowModal(true);
             setShowOverlay(true);
@@ -73,6 +74,7 @@ export default function PlayerPage() {
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
             <StyledButton
+              type="button"
               onClick={() => {
                 setShowModal(false);
                 setShowOverlay(false);
@@ -80,7 +82,7 @@ export default function PlayerPage() {
             >
               <ButtonText>Cancel</ButtonText>
             </StyledButton>
-            <StyledButton onClick={handleDelete}>
+            <StyledButton type="button" onClick={handleDelete}>
               <ButtonText>Delete</ButtonText>
             </StyledButton>
           </ButtonContainer>
