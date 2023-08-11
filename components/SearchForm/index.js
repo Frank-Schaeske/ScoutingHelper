@@ -82,6 +82,7 @@ export default function SearchForm({ setSearchedPlayer }) {
       <div>
         <StyledLabel htmlFor="search">Player last name:</StyledLabel>
         <StyledInput
+          autoFocus
           type="text"
           name="search"
           id="search"
