@@ -10,7 +10,7 @@ export const MyButtonContainer = styled.div`
   left: 0;
   right: 0;
   height: 45px;
-  background-color: "var(--secondary-color)";
+  background-color: var(--secondary-color);
 `;
 
 export const RadioInput = styled.input`
