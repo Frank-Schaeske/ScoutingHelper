@@ -25,6 +25,11 @@ export const StyledSelect = styled.select`
   width: 210px;
   font-family: system-ui;
   font-size: 16px;
+
+  &:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
 `;
 
 export const StyledInput = styled.input`
