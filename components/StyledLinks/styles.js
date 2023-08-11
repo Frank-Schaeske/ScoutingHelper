@@ -3,6 +3,22 @@ import Link from "next/link";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+
+  :link {
+    color: #000000;
+  }
+
+  :visited {
+    color: #000000;
+  }
+
+  :active {
+    color: r#000000;
+  }
+
+  :hover {
+    color: var(--primary-color);
+  }
 `;
 
 export const StyledLinkLikeButton = styled(Link)`
