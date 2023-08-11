@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   --color: var(--primary-color);
-  --background-color: #ffffff;
+  --background-color: var(--secondary-color);
 
   font-family: inherit;
   display: flex;
@@ -32,7 +32,7 @@ export const StyledButton = styled.button`
   }
 
   &:hover {
-    color: white;
+    color: var(--background-color);
   }
 
   &:before {

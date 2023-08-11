@@ -5,15 +5,15 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 
   :link {
-    color: #000000;
+    color: var(--tertiary-color);
   }
 
   :visited {
-    color: #000000;
+    color: var(--tertiary-color);
   }
 
   :active {
-    color: r#000000;
+    color: var(--tertiary-color);
   }
 
   :hover {
@@ -23,7 +23,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledLinkLikeButton = styled(Link)`
   --color: var(--primary-color);
-  --background-color: #ffffff;
+  --background-color: var(--secondary-color);
 
   font-family: inherit;
   display: flex;

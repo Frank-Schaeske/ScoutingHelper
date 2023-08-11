@@ -19,5 +19,5 @@ export const LinkContainerRanking = styled.div`
   left: 0;
   right: 0;
   height: 110px;
-  background-color: white;
+  background-color: var(--secondary-color);
 `;

@@ -7,7 +7,7 @@ export const StyledModalAdd = styled.div`
   width: 300px;
   border-radius: 20px;
   transform: translate(-50%, -50%);
-  background: white;
+  background: var(--secondary-color);
   padding: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -24,7 +24,7 @@ export const StyledModalPlayersIndex = styled.div`
   width: 300px;
   border-radius: 20px;
   transform: translate(-50%, -50%);
-  background: white;
+  background: var(--secondary-color);
   padding: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;

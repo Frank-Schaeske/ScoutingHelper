@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   background: var(--primary-color);
-  color: #ffffff;
   height: 60px;
   padding: 0px 20px;
   position: fixed;
@@ -16,6 +15,6 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledHeadline = styled.h1`
-  color: #ffffff;
+  color: var(--secondary-color);
   text-decoration: none;
 `;

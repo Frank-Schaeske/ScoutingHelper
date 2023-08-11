@@ -1,4 +1,17 @@
 import styled from "styled-components";
+import { Roboto_Flex } from "next/font/google";
+
+const roboto = Roboto_Flex({
+  subsets: [
+    "cyrillic",
+    "cyrillic-ext",
+    "greek",
+    "latin",
+    "latin-ext",
+    "vietnamese",
+  ],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const StyledForm = styled.form`
   display: flex;
@@ -18,7 +31,7 @@ export const StyledTextarea = styled.textarea`
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  font-family: system-ui;
+  font-family: ${roboto.style.fontFamily}, Arial, sans-serif;
   font-size: 16px;
 
   &:focus {

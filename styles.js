@@ -16,6 +16,8 @@ const roboto = Roboto_Flex({
 export default createGlobalStyle`
 :root {
   --primary-color: #009900;
+  --secondary-color: #FFFFFF;
+  --tertiary-color: #000000;
 }
 
   *,

@@ -9,5 +9,5 @@ export const HeadlineContainer = styled.div`
   left: 0;
   right: 0;
   height: 60px;
-  background-color: white;
+  background-color: var(--secondary-color);
 `;
