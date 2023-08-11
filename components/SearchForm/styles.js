@@ -38,6 +38,11 @@ export const StyledInput = styled.input`
   height: 22px;
   font-family: system-ui;
   font-size: 16px;
+
+  &:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
 `;
 
 export const StyledLabel = styled.label`
