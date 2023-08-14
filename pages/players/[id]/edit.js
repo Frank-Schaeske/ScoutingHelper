@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
+import useSWR from "swr";
 import PlayerDetails from "../../../components/PlayerDetails";
 import CommentForm from "../../../components/CommentForm";
-import styled from "styled-components";
-import useSWR from "swr";
+import { StyledMain } from "../../../components/StyledMains/styles";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
 
 export default function EditPage() {
   const router = useRouter();
@@ -40,7 +41,7 @@ export default function EditPage() {
       mutate();
     }
 
-    router.push("/players");
+    router.push(`/players/${id}`);
   }
 
   return (
@@ -57,14 +58,3 @@ export default function EditPage() {
     </StyledMain>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;

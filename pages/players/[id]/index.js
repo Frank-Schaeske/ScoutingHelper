@@ -1,11 +1,22 @@
 import { useRouter } from "next/router";
-import PlayerDetails from "../../../components/PlayerDetails";
-import Comment from "../../../components/Comment";
-import styled from "styled-components";
 import useSWR from "swr";
 import { useState } from "react";
-import { StyledButton, ButtonText } from "../../../components/StyledButton";
-import { StyledLink, LinkText } from "../../../components/StyledLink";
+import PlayerDetails from "../../../components/PlayerDetails";
+import Comment from "../../../components/Comment";
+import {
+  StyledButton,
+  ButtonText,
+} from "../../../components/StyledButton/styles";
+import {
+  StyledLinkLikeButton,
+  LinkText,
+} from "../../../components/StyledLinks/styles";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
+import { StyledMainIdIndex } from "../../../components/StyledMains/styles";
+import { Wrapper } from "../../../components/Containers/Wrapper/styles";
+import { StyledOverlay } from "../../../components/StyledOverlay/styles";
+import { StyledModalPlayersIndex } from "../../../components/StyledModals/styles";
+import { ButtonContainer } from "../../../components/Containers/ButtonContainer/styles";
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -30,22 +41,23 @@ export default function PlayerPage() {
   }
 
   return (
-    <StyledMain>
+    <StyledMainIdIndex>
       <PlayerDetails player={player} />
       <Comment player={player} />
       <Wrapper>
-        <StyledLink href={`/players/${id}/edit`}>
+        <StyledLinkLikeButton href={`/players/${id}/edit`}>
           <LinkText>Edit Comment</LinkText>
-        </StyledLink>
-        <StyledLink href={`/players/${id}/ranking`}>
+        </StyledLinkLikeButton>
+        <StyledLinkLikeButton href={`/players/${id}/ranking`}>
           <LinkText>Compare Player</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
       </Wrapper>
       <Wrapper>
-        <StyledLink href={`/players`}>
+        <StyledLinkLikeButton href={`/players`}>
           <LinkText>Back to List</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
         <StyledButton
+          type="button"
           onClick={() => {
             setShowModal(true);
             setShowOverlay(true);
@@ -58,10 +70,11 @@ export default function PlayerPage() {
       {showOverlay && <StyledOverlay />}
 
       {showModal && (
-        <StyledModal>
+        <StyledModalPlayersIndex>
           <p>Are you sure you want to delete this player?</p>
           <ButtonContainer>
             <StyledButton
+              type="button"
               onClick={() => {
                 setShowModal(false);
                 setShowOverlay(false);
@@ -69,69 +82,12 @@ export default function PlayerPage() {
             >
               <ButtonText>Cancel</ButtonText>
             </StyledButton>
-            <StyledButton onClick={handleDelete}>
+            <StyledButton type="button" onClick={handleDelete}>
               <ButtonText>Delete</ButtonText>
             </StyledButton>
           </ButtonContainer>
-        </StyledModal>
+        </StyledModalPlayersIndex>
       )}
-    </StyledMain>
+    </StyledMainIdIndex>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;
-
-const StyledModal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  border-radius: 20px;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  z-index: 2;
-`;
-
-const StyledOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-  button {
-    margin-top: 10px;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 45px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 5px;
-`;

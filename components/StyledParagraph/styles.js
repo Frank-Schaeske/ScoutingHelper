@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SubHeading = styled.h2`
+export const StyledParagraph = styled.p`
+  margin-top: 150px;
   text-align: center;
 `;
-export default SubHeading;

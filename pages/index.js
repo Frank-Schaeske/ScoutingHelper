@@ -1,6 +1,6 @@
 import SearchForm from "../components/SearchForm";
 import NavigationBar from "../components/NavigationBar";
-import styled from "styled-components";
+import { StyledMain } from "../components/StyledMains/styles";
 
 export default function HomePage({ setSearchedPlayer }) {
   return (
@@ -12,8 +12,3 @@ export default function HomePage({ setSearchedPlayer }) {
     </>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  justify-content: center;
-`;

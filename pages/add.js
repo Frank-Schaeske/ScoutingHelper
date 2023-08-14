@@ -1,9 +1,16 @@
-import PlayerDetails from "../components/PlayerDetails";
-import styled from "styled-components";
+import useSWR from "swr";
 import { useRouter } from "next/router";
 import CommentForm from "../components/CommentForm";
-import useSWR from "swr";
-import { StyledLink, LinkText } from "../components/StyledLink";
+import PlayerDetails from "../components/PlayerDetails";
+import {
+  StyledLinkLikeButton,
+  LinkText,
+} from "../components/StyledLinks/styles";
+import { StyledParagraph } from "../components/StyledParagraph/styles";
+import { StyledMain } from "../components/StyledMains/styles";
+import { StyledModalAdd } from "../components/StyledModals/styles";
+import { LinkContainer } from "../components/Containers/LinkContainers/styles";
+import { StyledOverlay } from "../components/StyledOverlay/styles";
 
 export default function AddPage({ searchedPlayer }) {
   const router = useRouter();
@@ -61,15 +68,17 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <StyledModal>
+        <StyledModalAdd>
           <p>This player/season combination is already saved.</p>
           <LinkContainer>
-            <StyledLink href="/">New Search</StyledLink>
-            <StyledLink href={`/players/${searchedPlayerInDB._id}`}>
+            <StyledLinkLikeButton href="/">
+              <LinkText>New Search</LinkText>
+            </StyledLinkLikeButton>
+            <StyledLinkLikeButton href={`/players/${searchedPlayerInDB._id}`}>
               <LinkText>View Player</LinkText>
-            </StyledLink>
+            </StyledLinkLikeButton>
           </LinkContainer>
-        </StyledModal>
+        </StyledModalAdd>
         <StyledOverlay />
       </StyledMain>
     );
@@ -89,58 +98,10 @@ export default function AddPage({ searchedPlayer }) {
     return (
       <StyledMain>
         <PlayerDetails player={searchedPlayer} />
-        <StyledLink href="/">
+        <StyledLinkLikeButton href="/">
           <LinkText>New Search</LinkText>
-        </StyledLink>
+        </StyledLinkLikeButton>
       </StyledMain>
     );
   }
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;
-
-const StyledModal = styled.div`
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  width: 300px;
-  border-radius: 20px;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  z-index: 2;
-`;
-
-const LinkContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-  button {
-    margin-top: 10px;
-  }
-`;
-
-const StyledOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1;
-`;

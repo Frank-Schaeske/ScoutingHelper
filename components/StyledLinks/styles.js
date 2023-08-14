@@ -1,9 +1,29 @@
-import Link from "next/link";
 import styled from "styled-components";
+import Link from "next/link";
 
 export const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  :link {
+    color: var(--tertiary-color);
+  }
+
+  :visited {
+    color: var(--tertiary-color);
+  }
+
+  :active {
+    color: var(--tertiary-color);
+  }
+
+  :hover {
+    color: var(--primary-color);
+  }
+`;
+
+export const StyledLinkLikeButton = styled(Link)`
   --color: var(--primary-color);
-  --background-color: #ffffff;
+  --background-color: var(--secondary-color);
 
   font-family: inherit;
   display: flex;

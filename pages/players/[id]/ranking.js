@@ -1,8 +1,18 @@
 import { useRouter } from "next/router";
-import { StyledLink, LinkText } from "../../../components/StyledLink";
-import styled from "styled-components";
 import useSWR from "swr";
+import {
+  StyledLinkLikeButton,
+  LinkText,
+} from "../../../components/StyledLinks/styles";
 import Ranking from "../../../components/Ranking";
+import { StyledParagraph } from "../../../components/StyledParagraph/styles";
+import { StyledMain } from "../../../components/StyledMains/styles";
+import { HeadlineContainer } from "../../../components/Containers/HeadlineContainer/styles";
+import {
+  StyledHeadline,
+  StyledSubHeadline,
+} from "../../../components/StyledHeadlines/styles";
+import { LinkContainerRanking } from "../../../components/Containers/LinkContainers/styles";
 
 export default function RankingPage() {
   const router = useRouter();
@@ -42,56 +52,11 @@ export default function RankingPage() {
         <StyledSubHeadline>{subHeadline}</StyledSubHeadline>
       </HeadlineContainer>
       <Ranking position={position} />
-      <LinkContainer>
-        <StyledLink href={`/players/${id}`}>
+      <LinkContainerRanking>
+        <StyledLinkLikeButton href={`/players/${id}`}>
           <LinkText>Back</LinkText>
-        </StyledLink>
-      </LinkContainer>
+        </StyledLinkLikeButton>
+      </LinkContainerRanking>
     </StyledMain>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const StyledParagraph = styled.p`
-  margin-top: 150px;
-  text-align: center;
-`;
-
-const StyledHeadline = styled.h2`
-  margin: 5px;
-  color: var(--primary-color);
-`;
-
-const StyledSubHeadline = styled.h3`
-  margin: 0;
-  color: var(--primary-color);
-`;
-
-const HeadlineContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: white;
-`;
-
-const LinkContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 110px;
-  background-color: white;
-`;
