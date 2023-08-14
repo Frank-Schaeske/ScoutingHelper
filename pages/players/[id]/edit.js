@@ -41,7 +41,7 @@ export default function EditPage() {
       mutate();
     }
 
-    router.push("/players");
+    router.push(`/players/${id}`);
   }
 
   return (
